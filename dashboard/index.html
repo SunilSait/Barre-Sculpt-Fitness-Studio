@@ -21,7 +21,7 @@
         <div class="dash-sidebar-header">
             <a href="../index.html" class="nav-logo" aria-label="Home">
                 <div class="nav-logo-icon">
-                    <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#2D2D2D"/><path d="M30 25 L30 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M70 25 L70 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M30 40 L70 40" stroke="#C4A484" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="58" r="12" stroke="#C4A484" stroke-width="3.5" fill="none"/><path d="M50 50 L50 46" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M44 64 L40 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M56 64 L60 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/></svg>
+                    <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#262626"/><path d="M30 25 L30 75" stroke="#9B8EC1" stroke-width="5" stroke-linecap="round"/><path d="M70 25 L70 75" stroke="#9B8EC1" stroke-width="5" stroke-linecap="round"/><path d="M30 40 L70 40" stroke="#9B8EC1" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="58" r="12" stroke="#9B8EC1" stroke-width="3.5" fill="none"/><path d="M50 50 L50 46" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/><path d="M44 64 L40 72" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/><path d="M56 64 L60 72" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/></svg>
                 </div>
                 <div class="nav-logo-text"><span class="brand-top">Barre & Sculpt</span><span class="brand-bottom">Fitness Studio</span></div>
             </a>
@@ -48,6 +48,10 @@
             <button class="dash-nav-item" data-tab="payments">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                 Payments
+            </button>
+            <button class="dash-nav-item" data-tab="settings">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Settings
             </button>
         </nav>
         <div class="dash-sidebar-footer">
@@ -86,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="dash-profile-btn" aria-label="Profile">
+                <button class="dash-profile-btn" onclick="document.querySelector('[data-tab=settings]').click()" title="Settings" aria-label="Settings">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 </button>
             </div>
@@ -97,10 +101,18 @@
 
             <!-- ══ OVERVIEW ══ -->
             <div class="dash-tab-content active" id="tab-overview">
+                <!-- Welcome Banner -->
                 <div class="dash-welcome">
-                    <h2>Welcome back, Sarah! 👋</h2>
-                    <p>You've attended 24 classes this month. Your next class is Barre Essentials tomorrow at 7:00 AM with Elena.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                        <div>
+                            <h2>Welcome back, Sarah! 👋</h2>
+                            <p>You've attended 24 classes this month. Your next class is <strong>Barre Essentials</strong> tomorrow at 7:00 AM with Elena.</p>
+                        </div>
+                        <button class="btn btn-sm" onclick="document.querySelector('[data-tab=bookings]').click()" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(8px);">+ Book Another Class</button>
+                    </div>
                 </div>
+
+                <!-- 4 Metrics Cards -->
                 <div class="dash-metrics">
                     <div class="dash-metric-card">
                         <div class="dash-metric-header">
@@ -135,87 +147,322 @@
                     </div>
                 </div>
 
-                <!-- Upcoming Classes -->
+                <!-- Weekly Movement Goal Tracker -->
                 <div class="dash-card">
-                    <div class="dash-card-header"><h3>Upcoming Classes</h3><a href="#" onclick="document.querySelector('[data-tab=bookings]').click();return false;" style="font-size:0.75rem;color:var(--primary);font-weight:600;">View All</a></div>
+                    <div class="dash-card-header">
+                        <div>
+                            <h3>Weekly Movement Goal</h3>
+                            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">Target: 5 classes per week · 4 completed (80%)</p>
+                        </div>
+                        <span class="dash-status confirmed" style="font-size:0.75rem;">On Track 🔥</span>
+                    </div>
+                    <div class="dash-progress-track" style="margin-bottom: 20px;">
+                        <div class="dash-progress-fill" style="width: 80%;"></div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center;">
+                        <div style="padding: 10px 4px; border-radius: var(--radius-sm); background: var(--primary-10); border: 1px solid var(--primary);">
+                            <div style="font-size:0.625rem;font-weight:700;color:var(--primary);text-transform:uppercase;">Mon</div>
+                            <div style="font-size:0.875rem;font-weight:700;color:var(--primary);margin-top:2px;">✓</div>
+                            <div style="font-size:0.625rem;color:var(--text-muted);">Barre</div>
+                        </div>
+                        <div style="padding: 10px 4px; border-radius: var(--radius-sm); background: var(--primary-10); border: 1px solid var(--primary);">
+                            <div style="font-size:0.625rem;font-weight:700;color:var(--primary);text-transform:uppercase;">Tue</div>
+                            <div style="font-size:0.875rem;font-weight:700;color:var(--primary);margin-top:2px;">✓</div>
+                            <div style="font-size:0.625rem;color:var(--text-muted);">Sculpt</div>
+                        </div>
+                        <div style="padding: 10px 4px; border-radius: var(--radius-sm); background: var(--bg); border: 1px solid var(--border-light);">
+                            <div style="font-size:0.625rem;font-weight:700;color:var(--text-light);text-transform:uppercase;">Wed</div>
+                            <div style="font-size:0.875rem;font-weight:500;color:var(--text-muted);margin-top:2px;">—</div>
+                            <div style="font-size:0.625rem;color:var(--text-light);">Rest</div>
+                        </div>
+                        <div style="padding: 10px 4px; border-radius: var(--radius-sm); background: var(--primary-10); border: 1px solid var(--primary);">
+                            <div style="font-size:0.625rem;font-weight:700;color:var(--primary);text-transform:uppercase;">Thu</div>
+                            <div style="font-size:0.875rem;font-weight:700;color:var(--primary);margin-top:2px;">✓</div>
+                            <div style="font-size:0.625rem;color:var(--text-muted);">Reformer</div>
+                        </div>
+                        <div style="padding: 10px 4px; border-radius: var(--radius-sm); background: var(--primary-10); border: 1px solid var(--primary);">
+                            <div style="font-size:0.625rem;font-weight:700;color:var(--primary);text-transform:uppercase;">Fri</div>
+                            <div style="font-size:0.875rem;font-weight:700;color:var(--primary);margin-top:2px;">✓</div>
+                            <div style="font-size:0.625rem;color:var(--text-muted);">HIIT</div>
+                        </div>
+                        <div style="padding: 10px 4px; border-radius: var(--radius-sm); background: rgba(155,142,193,0.08); border: 1px dashed var(--primary);">
+                            <div style="font-size:0.625rem;font-weight:700;color:var(--primary);text-transform:uppercase;">Sat</div>
+                            <div style="font-size:0.875rem;font-weight:700;color:var(--primary);margin-top:2px;">⏳</div>
+                            <div style="font-size:0.625rem;color:var(--text-muted);">7:00 AM</div>
+                        </div>
+                        <div style="padding: 10px 4px; border-radius: var(--radius-sm); background: var(--bg); border: 1px solid var(--border-light);">
+                            <div style="font-size:0.625rem;font-weight:700;color:var(--text-light);text-transform:uppercase;">Sun</div>
+                            <div style="font-size:0.875rem;font-weight:500;color:var(--text-muted);margin-top:2px;">—</div>
+                            <div style="font-size:0.625rem;color:var(--text-light);">Rest</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Scheduled Classes -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <h3>Upcoming Scheduled Classes</h3>
+                        <a href="#" onclick="document.querySelector('[data-tab=bookings]').click();return false;" style="font-size:0.75rem;color:var(--primary);font-weight:600;">Browse All Schedule →</a>
+                    </div>
                     <div class="dash-table-wrap">
                         <table class="dash-table">
-                            <thead><tr><th>Class</th><th>Instructor</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
+                            <thead><tr><th>Class</th><th>Instructor</th><th>Studio Room</th><th>Date & Time</th><th>Status</th><th>Action</th></tr></thead>
                             <tbody>
-                                <tr><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>Oct 30, 2026</td><td>7:00 AM</td><td><span class="dash-status confirmed">Confirmed</span></td></tr>
-                                <tr><td style="font-weight:600;color:var(--text);">Sculpt & Tone</td><td>Sofia L.</td><td>Oct 31, 2026</td><td>5:30 PM</td><td><span class="dash-status confirmed">Confirmed</span></td></tr>
-                                <tr><td style="font-weight:600;color:var(--text);">HIIT Barre</td><td>Sofia L.</td><td>Nov 1, 2026</td><td>8:00 AM</td><td><span class="dash-status pending">Pending</span></td></tr>
-                                <tr><td style="font-weight:600;color:var(--text);">Pilates Reformer</td><td>Maya C.</td><td>Nov 2, 2026</td><td>11:00 AM</td><td><span class="dash-status confirmed">Confirmed</span></td></tr>
+                                <tr>
+                                    <td style="font-weight:600;color:var(--text);">Barre Essentials</td>
+                                    <td>Elena Vasquez</td>
+                                    <td><span style="font-size:0.75rem;color:var(--text-muted);">Studio Sunlit (Room A)</span></td>
+                                    <td>Tomorrow · 7:00 AM</td>
+                                    <td><span class="dash-status confirmed">Confirmed</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="showDashToast('Class reminder synced with calendar!')" style="font-size:0.75rem;padding:4px 10px;">Sync Cal</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:600;color:var(--text);">Sculpt & Tone</td>
+                                    <td>Sofia Laurent</td>
+                                    <td><span style="font-size:0.75rem;color:var(--text-muted);">Studio Sunlit (Room A)</span></td>
+                                    <td>Oct 31 · 5:30 PM</td>
+                                    <td><span class="dash-status confirmed">Confirmed</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="showDashToast('Class reminder synced with calendar!')" style="font-size:0.75rem;padding:4px 10px;">Sync Cal</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:600;color:var(--text);">Pilates Reformer</td>
+                                    <td>Maya Chen</td>
+                                    <td><span style="font-size:0.75rem;color:var(--text-muted);">Reformer Vault (Room B)</span></td>
+                                    <td>Nov 2 · 11:00 AM</td>
+                                    <td><span class="dash-status confirmed">Confirmed</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="showDashToast('Class reminder synced with calendar!')" style="font-size:0.75rem;padding:4px 10px;">Sync Cal</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:600;color:var(--text);">HIIT Barre Express</td>
+                                    <td>Sofia Laurent</td>
+                                    <td><span style="font-size:0.75rem;color:var(--text-muted);">Studio Sunlit (Room A)</span></td>
+                                    <td>Nov 4 · 8:00 AM</td>
+                                    <td><span class="dash-status pending">Waitlist #1</span></td>
+                                    <td><button class="btn btn-secondary btn-sm" onclick="showDashToast('Waitlist position refreshed!')" style="font-size:0.75rem;padding:4px 10px;">Check</button></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Progress -->
-                <div class="dash-card">
-                    <div class="dash-card-header"><h3>Class Pack Progress</h3></div>
-                    <p style="font-size:0.8125rem;margin-bottom:12px;">You've used <strong>4 of 10</strong> classes in your current pack.</p>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:40%;"></div></div>
-                    <p style="font-size:0.75rem;color:var(--text-light);margin-top:8px;">6 classes remaining · Expires Dec 15, 2026</p>
+                <!-- Studio Milestones & Instructor Feedback Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+                    <!-- Milestones -->
+                    <div class="dash-card" style="margin-bottom:0;">
+                        <div class="dash-card-header"><h3>Milestones & Achievements</h3></div>
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            <div style="display: flex; align-items: center; gap: 14px; padding: 12px; border-radius: var(--radius-sm); background: var(--bg); border: 1px solid var(--border-light);">
+                                <div style="width:40px;height:40px;border-radius:50%;background:rgba(155,142,193,0.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🏆</div>
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;font-size:0.875rem;">Century Club Candidate</div>
+                                    <div style="font-size:0.75rem;color:var(--text-muted);">24 of 50 classes completed towards Silver Tier</div>
+                                    <div class="dash-progress-track" style="margin-top:6px;"><div class="dash-progress-fill" style="width:48%;"></div></div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 14px; padding: 12px; border-radius: var(--radius-sm); background: var(--bg); border: 1px solid var(--border-light);">
+                                <div style="width:40px;height:40px;border-radius:50%;background:rgba(234,179,8,0.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🔥</div>
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;font-size:0.875rem;">Consistency Queen</div>
+                                    <div style="font-size:0.75rem;color:var(--text-muted);">8-day consecutive attendance streak active!</div>
+                                </div>
+                                <span class="dash-status active" style="font-size:0.6875rem;">Unlocked</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instructor Feedback -->
+                    <div class="dash-card" style="margin-bottom:0;border-left:3px solid var(--primary);">
+                        <div class="dash-card-header">
+                            <h3>Instructor Form Feedback</h3>
+                            <span style="font-size:0.6875rem;color:var(--text-light);">Yesterday</span>
+                        </div>
+                        <div style="display:flex;gap:12px;align-items:flex-start;">
+                            <img src="../assets/images/instructor-1.jpg" alt="Elena" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;">
+                            <div>
+                                <div style="font-weight:600;font-size:0.875rem;">Elena Vasquez <span style="font-weight:400;color:var(--text-muted);font-size:0.75rem;">· Lead Instructor</span></div>
+                                <p style="font-size:0.8125rem;line-height:1.6;margin:8px 0;font-style:italic;">"Sarah, your pelvic tuck and core engagement in the second-position pliés were so steady yesterday. Keep up the breathwork, and feel free to try 3lb weights next week!"</p>
+                                <button class="btn btn-secondary btn-sm" onclick="showDashToast('Thank you note sent to Elena!')" style="font-size:0.75rem;padding:4px 10px;">Send Thanks 💜</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- ══ BOOK CLASSES ══ -->
             <div class="dash-tab-content" id="tab-bookings">
                 <div class="dash-card">
-                    <div class="dash-card-header"><h3>Available Classes</h3>
-                        <div style="display:flex;gap:8px;">
-                            <input type="date" class="form-input" style="padding:8px 12px;font-size:0.75rem;width:auto;">
+                    <div class="dash-card-header" style="flex-wrap: wrap; gap: 16px;">
+                        <div>
+                            <h3>Book a Studio Session</h3>
+                            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">Reserve your spot up to 14 days in advance with your Unlimited membership.</p>
+                        </div>
+                        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                            <input type="date" value="2026-10-31" class="form-input" style="padding:8px 12px;font-size:0.8125rem;width:auto;">
+                            <input type="text" placeholder="Search instructor or class..." class="form-input" oninput="showDashToast('Searching schedule...')" style="padding:8px 12px;font-size:0.8125rem;width:220px;">
                         </div>
                     </div>
-                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
-                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+
+                    <!-- Filter Pills -->
+                    <div class="dash-filter-group" style="margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light);">
+                        <button class="dash-filter-pill active" onclick="filterDashClasses('all', this)">All Classes (8)</button>
+                        <button class="dash-filter-pill" onclick="filterDashClasses('barre', this)">Barre (3)</button>
+                        <button class="dash-filter-pill" onclick="filterDashClasses('sculpt', this)">Sculpt & Tone (2)</button>
+                        <button class="dash-filter-pill" onclick="filterDashClasses('pilates', this)">Pilates Reformer (2)</button>
+                        <button class="dash-filter-pill" onclick="filterDashClasses('hiit', this)">HIIT Barre (1)</button>
+                    </div>
+
+                    <!-- Classes Grid (8 Interactive Cards) -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
+                        <!-- Card 1 -->
+                        <div class="dash-class-card" data-category="barre" style="border:1px solid var(--border-light);border-radius:var(--radius);padding:22px;background:var(--bg-card);display:flex;flex-direction:column;transition:all 0.3s;">
                             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
-                                <div><div style="font-weight:600;font-size:0.9375rem;">Barre Essentials</div><div style="font-size:0.75rem;color:var(--text-muted);">Elena Vasquez</div></div>
-                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">8 spots</span>
+                                <div>
+                                    <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);">Signature</span>
+                                    <div style="font-weight:600;font-size:1.0625rem;margin-top:2px;">Barre Essentials</div>
+                                    <div style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                                        <span>Elena Vasquez</span> · <span>Studio Sunlit</span>
+                                    </div>
+                                </div>
+                                <span style="padding:4px 10px;font-size:0.6875rem;font-weight:700;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">8 spots</span>
                             </div>
-                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Oct 31 · 7:00 AM · 50 min</div>
-                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin:10px 0 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:10px;">
+                                <span>📅 Oct 31 · 7:00 AM</span>
+                                <span>⏱ 50 min · ~380 kcal</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;margin-top:auto;" onclick="showDashToast('Booked: Barre Essentials on Oct 31 at 7:00 AM!')">Reserve Spot</button>
                         </div>
-                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+
+                        <!-- Card 2 -->
+                        <div class="dash-class-card" data-category="sculpt" style="border:1px solid var(--border-light);border-radius:var(--radius);padding:22px;background:var(--bg-card);display:flex;flex-direction:column;transition:all 0.3s;">
                             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
-                                <div><div style="font-weight:600;font-size:0.9375rem;">Sculpt & Tone</div><div style="font-size:0.75rem;color:var(--text-muted);">Sofia Laurent</div></div>
-                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(234,179,8,0.1);color:#ca8a04;border-radius:var(--radius-full);">3 spots</span>
+                                <div>
+                                    <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);">Strength</span>
+                                    <div style="font-weight:600;font-size:1.0625rem;margin-top:2px;">Sculpt & Tone</div>
+                                    <div style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                                        <span>Sofia Laurent</span> · <span>Studio Sunlit</span>
+                                    </div>
+                                </div>
+                                <span style="padding:4px 10px;font-size:0.6875rem;font-weight:700;background:rgba(234,179,8,0.12);color:#ca8a04;border-radius:var(--radius-full);">3 spots left</span>
                             </div>
-                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Oct 31 · 5:30 PM · 55 min</div>
-                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin:10px 0 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:10px;">
+                                <span>📅 Oct 31 · 5:30 PM</span>
+                                <span>⏱ 55 min · ~450 kcal</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;margin-top:auto;" onclick="showDashToast('Booked: Sculpt & Tone on Oct 31 at 5:30 PM!')">Reserve Spot</button>
                         </div>
-                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+
+                        <!-- Card 3 -->
+                        <div class="dash-class-card" data-category="pilates" style="border:1px solid var(--border-light);border-radius:var(--radius);padding:22px;background:var(--bg-card);display:flex;flex-direction:column;transition:all 0.3s;">
                             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
-                                <div><div style="font-weight:600;font-size:0.9375rem;">Pilates Reformer</div><div style="font-size:0.75rem;color:var(--text-muted);">Maya Chen</div></div>
-                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">6 spots</span>
+                                <div>
+                                    <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);">Reformer</span>
+                                    <div style="font-weight:600;font-size:1.0625rem;margin-top:2px;">Pilates Reformer Core</div>
+                                    <div style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                                        <span>Maya Chen</span> · <span>Reformer Vault</span>
+                                    </div>
+                                </div>
+                                <span style="padding:4px 10px;font-size:0.6875rem;font-weight:700;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">5 spots</span>
                             </div>
-                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Nov 1 · 11:00 AM · 55 min</div>
-                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin:10px 0 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:10px;">
+                                <span>📅 Nov 1 · 11:00 AM</span>
+                                <span>⏱ 55 min · ~360 kcal</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;margin-top:auto;" onclick="showDashToast('Booked: Pilates Reformer Core on Nov 1 at 11:00 AM!')">Reserve Spot</button>
                         </div>
-                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+
+                        <!-- Card 4 -->
+                        <div class="dash-class-card" data-category="barre" style="border:1px solid var(--border-light);border-radius:var(--radius);padding:22px;background:var(--bg-card);display:flex;flex-direction:column;transition:all 0.3s;">
                             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
-                                <div><div style="font-weight:600;font-size:0.9375rem;">Stretch & Restore</div><div style="font-size:0.75rem;color:var(--text-muted);">James Rivera</div></div>
-                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">10 spots</span>
+                                <div>
+                                    <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);">Restorative</span>
+                                    <div style="font-weight:600;font-size:1.0625rem;margin-top:2px;">Candlelight Barre Flow</div>
+                                    <div style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                                        <span>James Rivera</span> · <span>Studio Sunlit</span>
+                                    </div>
+                                </div>
+                                <span style="padding:4px 10px;font-size:0.6875rem;font-weight:700;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">6 spots</span>
                             </div>
-                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Nov 1 · 12:00 PM · 45 min</div>
-                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin:10px 0 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:10px;">
+                                <span>📅 Nov 1 · 6:30 PM</span>
+                                <span>⏱ 50 min · ~310 kcal</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;margin-top:auto;" onclick="showDashToast('Booked: Candlelight Barre Flow on Nov 1 at 6:30 PM!')">Reserve Spot</button>
                         </div>
-                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+
+                        <!-- Card 5 -->
+                        <div class="dash-class-card" data-category="hiit" style="border:1px solid var(--border-light);border-radius:var(--radius);padding:22px;background:var(--bg-card);display:flex;flex-direction:column;transition:all 0.3s;">
                             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
-                                <div><div style="font-weight:600;font-size:0.9375rem;">HIIT Barre</div><div style="font-size:0.75rem;color:var(--text-muted);">Sofia Laurent</div></div>
-                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(239,68,68,0.1);color:#dc2626;border-radius:var(--radius-full);">1 spot</span>
+                                <div>
+                                    <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);">High Intensity</span>
+                                    <div style="font-weight:600;font-size:1.0625rem;margin-top:2px;">HIIT Barre Cardio</div>
+                                    <div style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                                        <span>Sofia Laurent</span> · <span>Studio Sunlit</span>
+                                    </div>
+                                </div>
+                                <span style="padding:4px 10px;font-size:0.6875rem;font-weight:700;background:rgba(239,68,68,0.12);color:#dc2626;border-radius:var(--radius-full);">1 spot left</span>
                             </div>
-                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Nov 2 · 8:00 AM · 50 min</div>
-                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin:10px 0 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:10px;">
+                                <span>📅 Nov 2 · 8:00 AM</span>
+                                <span>⏱ 50 min · ~510 kcal</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;margin-top:auto;" onclick="showDashToast('Booked: HIIT Barre Cardio on Nov 2 at 8:00 AM!')">Reserve Spot</button>
                         </div>
-                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+
+                        <!-- Card 6 -->
+                        <div class="dash-class-card" data-category="barre" style="border:1px solid var(--border-light);border-radius:var(--radius);padding:22px;background:var(--bg-card);display:flex;flex-direction:column;transition:all 0.3s;">
                             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
-                                <div><div style="font-weight:600;font-size:0.9375rem;">Prenatal Barre</div><div style="font-size:0.75rem;color:var(--text-muted);">Elena Vasquez</div></div>
-                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">7 spots</span>
+                                <div>
+                                    <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);">Gentle / All Levels</span>
+                                    <div style="font-weight:600;font-size:1.0625rem;margin-top:2px;">Prenatal & Gentle Barre</div>
+                                    <div style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                                        <span>Elena Vasquez</span> · <span>Studio Sunlit</span>
+                                    </div>
+                                </div>
+                                <span style="padding:4px 10px;font-size:0.6875rem;font-weight:700;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">7 spots</span>
                             </div>
-                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Nov 2 · 11:00 AM · 45 min</div>
-                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin:10px 0 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:10px;">
+                                <span>📅 Nov 2 · 11:00 AM</span>
+                                <span>⏱ 45 min · ~290 kcal</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;margin-top:auto;" onclick="showDashToast('Booked: Prenatal & Gentle Barre on Nov 2 at 11:00 AM!')">Reserve Spot</button>
+                        </div>
+
+                        <!-- Card 7 -->
+                        <div class="dash-class-card" data-category="sculpt" style="border:1px solid var(--border-light);border-radius:var(--radius);padding:22px;background:var(--bg-card);display:flex;flex-direction:column;transition:all 0.3s;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                                <div>
+                                    <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);">Strength & Band</span>
+                                    <div style="font-weight:600;font-size:1.0625rem;margin-top:2px;">Total Sculpt Intensity</div>
+                                    <div style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                                        <span>Chloe Bennett</span> · <span>Studio Sunlit</span>
+                                    </div>
+                                </div>
+                                <span style="padding:4px 10px;font-size:0.6875rem;font-weight:700;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">4 spots</span>
+                            </div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin:10px 0 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:10px;">
+                                <span>📅 Nov 3 · 6:00 PM</span>
+                                <span>⏱ 55 min · ~440 kcal</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;margin-top:auto;" onclick="showDashToast('Booked: Total Sculpt Intensity on Nov 3 at 6:00 PM!')">Reserve Spot</button>
+                        </div>
+
+                        <!-- Card 8 -->
+                        <div class="dash-class-card" data-category="pilates" style="border:1px solid var(--border-light);border-radius:var(--radius);padding:22px;background:var(--bg-card);display:flex;flex-direction:column;transition:all 0.3s;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                                <div>
+                                    <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);">Reformer Jumpboard</span>
+                                    <div style="font-weight:600;font-size:1.0625rem;margin-top:2px;">Power Reformer Flow</div>
+                                    <div style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                                        <span>Maya Chen</span> · <span>Reformer Vault</span>
+                                    </div>
+                                </div>
+                                <span style="padding:4px 10px;font-size:0.6875rem;font-weight:700;background:rgba(239,68,68,0.12);color:#dc2626;border-radius:var(--radius-full);">Waitlist Only</span>
+                            </div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin:10px 0 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:10px;">
+                                <span>📅 Nov 4 · 9:00 AM</span>
+                                <span>⏱ 50 min · ~410 kcal</span>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" style="width:100%;margin-top:auto;" onclick="showDashToast('Added to Waitlist #2 for Power Reformer Flow!')">Join Waitlist</button>
                         </div>
                     </div>
                 </div>
@@ -223,20 +470,129 @@
 
             <!-- ══ ATTENDANCE ══ -->
             <div class="dash-tab-content" id="tab-attendance">
+                <!-- KPI Summary Cards -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                    <div class="dash-card" style="margin-bottom: 0; padding: 20px;">
+                        <div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;">October Classes</div>
+                        <div style="font-size:1.75rem;font-weight:700;color:var(--text);margin:6px 0 2px;">24 Classes</div>
+                        <div style="font-size:0.75rem;color:#16a34a;font-weight:600;">↑ 4 more than Sept</div>
+                    </div>
+                    <div class="dash-card" style="margin-bottom: 0; padding: 20px;">
+                        <div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;">Studio Time</div>
+                        <div style="font-size:1.75rem;font-weight:700;color:var(--text);margin:6px 0 2px;">21.5 Hours</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);">Avg. 52 min/session</div>
+                    </div>
+                    <div class="dash-card" style="margin-bottom: 0; padding: 20px;">
+                        <div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;">Estimated Burn</div>
+                        <div style="font-size:1.75rem;font-weight:700;color:var(--primary);margin:6px 0 2px;">9,840 kcal</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);">High metabolic output</div>
+                    </div>
+                    <div class="dash-card" style="margin-bottom: 0; padding: 20px;">
+                        <div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;">Check-in Rate</div>
+                        <div style="font-size:1.75rem;font-weight:700;color:#16a34a;margin:6px 0 2px;">96.2%</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);">Only 1 cancellation</div>
+                    </div>
+                </div>
+
+                <!-- Monthly Visual Calendar Heatmap -->
                 <div class="dash-card">
-                    <div class="dash-card-header"><h3>Attendance History</h3></div>
+                    <div class="dash-card-header">
+                        <div>
+                            <h3>October 2026 Movement Heatmap</h3>
+                            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">24 active days recorded this calendar month.</p>
+                        </div>
+                        <div style="display:flex;gap:10px;align-items:center;">
+                            <span style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;">
+                                <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--primary);"></span> Attended
+                            </span>
+                            <span style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;">
+                                <span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1px solid var(--border-light);"></span> Rest
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Calendar Days Grid -->
+                    <div class="attendance-calendar-grid">
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+                        <div class="calendar-day-header">Sun</div>
+
+                        <!-- Days 1-7 -->
+                        <div class="calendar-day-box attended">1</div>
+                        <div class="calendar-day-box attended">2</div>
+                        <div class="calendar-day-box attended">3</div>
+                        <div class="calendar-day-box attended">4</div>
+                        <div class="calendar-day-box attended">5</div>
+                        <div class="calendar-day-box">6</div>
+                        <div class="calendar-day-box attended">7</div>
+
+                        <!-- Days 8-14 -->
+                        <div class="calendar-day-box attended">8</div>
+                        <div class="calendar-day-box attended">9</div>
+                        <div class="calendar-day-box attended">10</div>
+                        <div class="calendar-day-box">11</div>
+                        <div class="calendar-day-box attended">12</div>
+                        <div class="calendar-day-box attended">13</div>
+                        <div class="calendar-day-box attended">14</div>
+
+                        <!-- Days 15-21 -->
+                        <div class="calendar-day-box attended">15</div>
+                        <div class="calendar-day-box">16</div>
+                        <div class="calendar-day-box attended">17</div>
+                        <div class="calendar-day-box attended">18</div>
+                        <div class="calendar-day-box attended">19</div>
+                        <div class="calendar-day-box attended">20</div>
+                        <div class="calendar-day-box attended">21</div>
+
+                        <!-- Days 22-28 -->
+                        <div class="calendar-day-box attended">22</div>
+                        <div class="calendar-day-box">23</div>
+                        <div class="calendar-day-box attended">24</div>
+                        <div class="calendar-day-box attended">25</div>
+                        <div class="calendar-day-box attended">26</div>
+                        <div class="calendar-day-box attended">27</div>
+                        <div class="calendar-day-box attended">28</div>
+
+                        <!-- Days 29-31 -->
+                        <div class="calendar-day-box attended">29</div>
+                        <div class="calendar-day-box today attended">30</div>
+                        <div class="calendar-day-box">31</div>
+                        <div class="calendar-day-box" style="opacity:0.3;">1</div>
+                        <div class="calendar-day-box" style="opacity:0.3;">2</div>
+                        <div class="calendar-day-box" style="opacity:0.3;">3</div>
+                        <div class="calendar-day-box" style="opacity:0.3;">4</div>
+                    </div>
+                </div>
+
+                <!-- Detailed History Table -->
+                <div class="dash-card">
+                    <div class="dash-card-header" style="flex-wrap:wrap;gap:12px;">
+                        <h3>Detailed Studio History</h3>
+                        <div style="display:flex;gap:8px;">
+                            <select class="form-input" style="padding:6px 12px;font-size:0.75rem;width:auto;">
+                                <option>October 2026 (24)</option>
+                                <option>September 2026 (20)</option>
+                                <option>August 2026 (18)</option>
+                            </select>
+                            <button class="btn btn-secondary btn-sm" onclick="showDashToast('Attendance log exported as CSV!')">Download CSV</button>
+                        </div>
+                    </div>
                     <div class="dash-table-wrap">
                         <table class="dash-table">
-                            <thead><tr><th>Date</th><th>Class</th><th>Instructor</th><th>Duration</th><th>Status</th></tr></thead>
+                            <thead><tr><th>Date</th><th>Class</th><th>Instructor</th><th>Studio Room</th><th>Duration</th><th>Calories</th><th>Status</th></tr></thead>
                             <tbody>
-                                <tr><td>Oct 29, 2026</td><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>50 min</td><td><span class="dash-status completed">Completed</span></td></tr>
-                                <tr><td>Oct 28, 2026</td><td style="font-weight:600;color:var(--text);">HIIT Barre</td><td>Sofia L.</td><td>50 min</td><td><span class="dash-status completed">Completed</span></td></tr>
-                                <tr><td>Oct 27, 2026</td><td style="font-weight:600;color:var(--text);">Pilates Reformer</td><td>Maya C.</td><td>55 min</td><td><span class="dash-status completed">Completed</span></td></tr>
-                                <tr><td>Oct 26, 2026</td><td style="font-weight:600;color:var(--text);">Stretch & Restore</td><td>James R.</td><td>45 min</td><td><span class="dash-status completed">Completed</span></td></tr>
-                                <tr><td>Oct 25, 2026</td><td style="font-weight:600;color:var(--text);">Sculpt & Tone</td><td>Sofia L.</td><td>55 min</td><td><span class="dash-status completed">Completed</span></td></tr>
-                                <tr><td>Oct 24, 2026</td><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>50 min</td><td><span class="dash-status completed">Completed</span></td></tr>
-                                <tr><td>Oct 23, 2026</td><td style="font-weight:600;color:var(--text);">HIIT Barre</td><td>Sofia L.</td><td>50 min</td><td><span class="dash-status cancelled">Cancelled</span></td></tr>
-                                <tr><td>Oct 22, 2026</td><td style="font-weight:600;color:var(--text);">Pilates Reformer</td><td>Maya C.</td><td>55 min</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 29, 2026</td><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>Studio Sunlit</td><td>50 min</td><td>390 kcal</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 28, 2026</td><td style="font-weight:600;color:var(--text);">HIIT Barre</td><td>Sofia L.</td><td>Studio Sunlit</td><td>50 min</td><td>510 kcal</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 27, 2026</td><td style="font-weight:600;color:var(--text);">Pilates Reformer</td><td>Maya C.</td><td>Reformer Vault</td><td>55 min</td><td>370 kcal</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 26, 2026</td><td style="font-weight:600;color:var(--text);">Stretch & Restore</td><td>James R.</td><td>Studio Sunlit</td><td>45 min</td><td>240 kcal</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 25, 2026</td><td style="font-weight:600;color:var(--text);">Sculpt & Tone</td><td>Sofia L.</td><td>Studio Sunlit</td><td>55 min</td><td>460 kcal</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 24, 2026</td><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>Studio Sunlit</td><td>50 min</td><td>380 kcal</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 23, 2026</td><td style="font-weight:600;color:var(--text);">HIIT Barre</td><td>Sofia L.</td><td>Studio Sunlit</td><td>50 min</td><td>—</td><td><span class="dash-status cancelled">Cancelled (24h)</span></td></tr>
+                                <tr><td>Oct 22, 2026</td><td style="font-weight:600;color:var(--text);">Pilates Reformer</td><td>Maya C.</td><td>Reformer Vault</td><td>55 min</td><td>365 kcal</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 21, 2026</td><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>Studio Sunlit</td><td>50 min</td><td>385 kcal</td><td><span class="dash-status completed">Completed</span></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -245,42 +601,106 @@
 
             <!-- ══ MEMBERSHIP ══ -->
             <div class="dash-tab-content" id="tab-membership">
+                <!-- Current Plan Card -->
                 <div class="dash-card" style="border-left:4px solid var(--primary);">
                     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
                         <div>
                             <div style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);margin-bottom:6px;">Current Plan</div>
-                            <h3 style="font-family:var(--font-heading);font-size:1.5rem;margin-bottom:4px;">Unlimited Monthly</h3>
-                            <p style="font-size:0.875rem;">Unlimited access to all classes, priority booking, and 2 guest passes per month.</p>
+                            <h3 style="font-family:var(--font-heading);font-size:1.75rem;margin-bottom:4px;">Unlimited All-Access Monthly</h3>
+                            <p style="font-size:0.875rem;color:var(--text-muted);">Unlimited studio classes, priority reformer booking window, and 2 complimentary guest passes every month.</p>
                         </div>
-                        <span class="dash-status active" style="font-size:0.75rem;">Active</span>
+                        <span class="dash-status active" style="font-size:0.75rem;">Active & Auto-Renews</span>
                     </div>
                     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border-light);">
                         <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Start Date</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">Oct 15, 2026</div></div>
-                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Renewal Date</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">Nov 15, 2026</div></div>
-                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Monthly Cost</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">$149.00</div></div>
-                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Payment Method</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">Visa ••••4242</div></div>
+                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Next Renewal Date</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">Nov 15, 2026</div></div>
+                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Monthly Rate</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">$149.00 / mo</div></div>
+                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Billing Card</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">Visa ending in 4242</div></div>
                     </div>
-                    <div style="display:flex;gap:12px;margin-top:24px;">
-                        <button class="btn btn-primary btn-sm">Upgrade Plan</button>
-                        <button class="btn btn-secondary btn-sm">Manage Plan</button>
+                    <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;">
+                        <button class="btn btn-primary btn-sm" onclick="showDashToast('Membership upgrade details sent to your email!')">Upgrade Tier (VIP Elite)</button>
+                        <button class="btn btn-secondary btn-sm" onclick="showDashToast('Membership hold requested for review.')">Pause / Hold Membership</button>
                     </div>
                 </div>
+
+                <!-- Membership Perks Checklist -->
                 <div class="dash-card">
-                    <div class="dash-card-header"><h3>Usage This Month</h3></div>
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-                        <div>
-                            <div style="display:flex;justify-content:space-between;font-size:0.8125rem;margin-bottom:6px;"><span>Classes Attended</span><span style="font-weight:600;">24</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%;"></div></div>
+                    <div class="dash-card-header">
+                        <h3>Included Membership Perks</h3>
+                        <span style="font-size:0.75rem;color:var(--primary);font-weight:600;">Full Access Active</span>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px;">
+                        <div class="dash-perk-item">
+                            <div class="dash-perk-icon">✓</div>
+                            <div>
+                                <div style="font-weight:600;">Unlimited In-Studio Classes</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);">Access to all Barre, Sculpt & Reformer sessions</div>
+                            </div>
                         </div>
-                        <div>
-                            <div style="display:flex;justify-content:space-between;font-size:0.8125rem;margin-bottom:6px;"><span>Guest Passes Used</span><span style="font-weight:600;">1 of 2</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:50%;"></div></div>
+                        <div class="dash-perk-item">
+                            <div class="dash-perk-icon">🛍️</div>
+                            <div>
+                                <div style="font-weight:600;">15% Boutique Studio Discount</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);">Apparel, grip socks, and clean wellness essentials</div>
+                            </div>
+                        </div>
+                        <div class="dash-perk-item">
+                            <div class="dash-perk-icon">🧘‍♀️</div>
+                            <div>
+                                <div style="font-weight:600;">Complimentary Mat & Towel Service</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);">Manduka studio mats & chilled eucalyptus towels</div>
+                            </div>
+                        </div>
+                        <div class="dash-perk-item">
+                            <div class="dash-perk-icon">⚡</div>
+                            <div>
+                                <div style="font-weight:600;">14-Day Advance Booking</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);">First access to high-demand morning reformer slots</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guest Pass Manager & Pause in 2 cols -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                    <!-- Guest Pass Manager -->
+                    <div class="dash-card" style="margin-bottom:0;">
+                        <div class="dash-card-header">
+                            <h3>Complimentary Guest Passes</h3>
+                            <span style="font-size:0.75rem;font-weight:700;color:#16a34a;background:rgba(34,197,94,0.1);padding:3px 8px;border-radius:12px;">1 of 2 Left</span>
+                        </div>
+                        <p style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:16px;">Bring a friend to any barre or sculpt class for free this month.</p>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <input type="text" id="guestName" placeholder="Friend's Full Name" class="form-input" style="padding:10px 12px;font-size:0.8125rem;">
+                            <input type="email" id="guestEmail" placeholder="Friend's Email Address" class="form-input" style="padding:10px 12px;font-size:0.8125rem;">
+                            <button class="btn btn-primary btn-sm" onclick="showDashToast('Guest pass invite emailed to friend!')" style="width:100%;">Send Guest Pass Invite</button>
+                        </div>
+                    </div>
+
+                    <!-- Add-on Services Pack -->
+                    <div class="dash-card" style="margin-bottom:0;">
+                        <div class="dash-card-header"><h3>Studio Add-on Enhancements</h3></div>
+                        <div style="display:flex;flex-direction:column;gap:12px;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid var(--border-light);border-radius:var(--radius-sm);background:var(--bg);">
+                                <div>
+                                    <div style="font-weight:600;font-size:0.875rem;">Private 1-on-1 Session</div>
+                                    <div style="font-size:0.75rem;color:var(--text-muted);">60 min posture alignment with Elena</div>
+                                </div>
+                                <button class="btn btn-secondary btn-sm" onclick="showDashToast('Private session inquiry sent!')">$85</button>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid var(--border-light);border-radius:var(--radius-sm);background:var(--bg);">
+                                <div>
+                                    <div style="font-weight:600;font-size:0.875rem;">Recovery Sauna Pack (5x)</div>
+                                    <div style="font-size:0.75rem;color:var(--text-muted);">Infrared sauna & salt lounge access</div>
+                                </div>
+                                <button class="btn btn-secondary btn-sm" onclick="showDashToast('Sauna package added to cart!')">$120</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ══ PAYMENTS ══ -->
+<!-- ══ PAYMENTS ══ -->
             <div class="dash-tab-content" id="tab-payments">
                 <div class="dash-card">
                     <div class="dash-card-header"><h3>Payment History</h3></div>
@@ -312,6 +732,169 @@
                     </div>
                 </div>
             </div>
+            <!-- ══ SETTINGS ══ -->
+            <div class="dash-tab-content" id="tab-settings">
+                <!-- Profile Information -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <div>
+                            <h3>Profile & Member Information</h3>
+                            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">Manage your personal studio profile and contact details.</p>
+                        </div>
+                    </div>
+
+                    <!-- Avatar Row -->
+                    <div style="display:flex;align-items:center;gap:20px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--border-light);">
+                        <div style="width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;box-shadow:0 6px 20px rgba(155,142,193,0.3);">
+                            SV
+                        </div>
+                        <div>
+                            <div style="font-weight:600;font-size:1rem;">Sarah Vance</div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:8px;">Member since October 2025 · Unlimited Tier</div>
+                            <div style="display:flex;gap:8px;">
+                                <button class="btn btn-secondary btn-sm" onclick="showDashToast('Photo upload dialog opened')">Change Photo</button>
+                                <button class="btn btn-sm" style="background:none;border:none;color:var(--text-muted);font-size:0.75rem;cursor:pointer;" onclick="showDashToast('Photo removed')">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Grid -->
+                    <div class="dash-form-grid">
+                        <div class="dash-form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-input" value="Sarah">
+                        </div>
+                        <div class="dash-form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-input" value="Vance">
+                        </div>
+                        <div class="dash-form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-input" value="sarah.vance@example.com">
+                        </div>
+                        <div class="dash-form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-input" value="+1 (555) 234-5678">
+                        </div>
+                        <div class="dash-form-group">
+                            <label>Emergency Contact Name</label>
+                            <input type="text" class="form-input" value="Mark Vance (Spouse)">
+                        </div>
+                        <div class="dash-form-group">
+                            <label>Emergency Contact Phone</label>
+                            <input type="tel" class="form-input" value="+1 (555) 876-5432">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Studio & Workout Preferences -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <div>
+                            <h3>Studio & Workout Preferences</h3>
+                            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">Tailor your in-studio experience and instructor awareness.</p>
+                        </div>
+                    </div>
+                    <div class="dash-form-grid">
+                        <div class="dash-form-group">
+                            <label>Primary Fitness Focus</label>
+                            <select class="form-input">
+                                <option selected>Full Body Sculpt & Long Lean Lines</option>
+                                <option>Core Strength & Posture Alignment</option>
+                                <option>High-Intensity Cardio & Endurance</option>
+                                <option>Flexibility & Active Recovery</option>
+                            </select>
+                        </div>
+                        <div class="dash-form-group">
+                            <label>Grip Socks Size Preference</label>
+                            <select class="form-input">
+                                <option>Small (US 5 - 6.5)</option>
+                                <option selected>Medium (US 7 - 9)</option>
+                                <option>Large (US 9.5 - 11)</option>
+                            </select>
+                        </div>
+                        <div class="dash-form-group" style="grid-column: 1 / -1;">
+                            <label>Instructor Health Notes / Injury Modifications</label>
+                            <textarea class="form-input" rows="3" placeholder="Any joint sensitivities or recent injuries our instructors should know before class?">Mild right wrist sensitivity during plank holds; prefer forearm barre modifications when possible.</textarea>
+                            <span style="font-size:0.75rem;color:var(--text-light);">This note will be discreetly shared on your instructor's class roster.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications & Alerts -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <div>
+                            <h3>Notification & Alert Preferences</h3>
+                            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">Control how and when you receive reminders from Barre & Sculpt.</p>
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:18px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+                            <div>
+                                <div style="font-weight:600;font-size:0.875rem;">SMS Class Reminders</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);">Receive a text notification 2 hours before your scheduled class.</div>
+                            </div>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;border-top:1px solid var(--border-light);">
+                            <div>
+                                <div style="font-weight:600;font-size:0.875rem;">Instant Waitlist Notifications</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);">Get an immediate alert when a spot opens up in a sold-out class.</div>
+                            </div>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;border-top:1px solid var(--border-light);">
+                            <div>
+                                <div style="font-weight:600;font-size:0.875rem;">Weekly Progress & Streak Digest</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);">Summary of classes attended, total hours, and streak milestones every Sunday.</div>
+                            </div>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;border-top:1px solid var(--border-light);">
+                            <div>
+                                <div style="font-weight:600;font-size:0.875rem;">Studio Events & Guest Workshops</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);">Invitations to member-exclusive wellness soundbaths and tea tastings.</div>
+                            </div>
+                            <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Active Sessions -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <div>
+                            <h3>Security & Authentication</h3>
+                            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">Manage password and secure login devices.</p>
+                        </div>
+                    </div>
+                    <div class="dash-form-grid" style="margin-bottom:20px;">
+                        <div class="dash-form-group">
+                            <label>Current Password</label>
+                            <input type="password" class="form-input" placeholder="••••••••">
+                        </div>
+                        <div class="dash-form-group">
+                            <label>New Password</label>
+                            <input type="password" class="form-input" placeholder="Min. 8 characters">
+                        </div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px solid var(--border-light);border-radius:var(--radius-sm);background:var(--bg);">
+                        <div>
+                            <div style="font-weight:600;font-size:0.875rem;">Two-Factor Authentication (2FA)</div>
+                            <div style="font-size:0.75rem;color:var(--text-muted);">Secure verification code required on new device sign-ins.</div>
+                        </div>
+                        <span class="dash-status confirmed" style="font-size:0.75rem;">Active via SMS</span>
+                    </div>
+                </div>
+
+                <!-- Bottom Save Bar -->
+                <div style="display:flex;justify-content:flex-end;gap:12px;margin-top:28px;">
+                    <button class="btn btn-secondary" onclick="showDashToast('Changes discarded')">Reset</button>
+                    <button class="btn btn-primary" onclick="showDashToast('Settings saved successfully! 🎉')">Save Changes</button>
+                </div>
+            </div>
+
 
         </div>
     </div>

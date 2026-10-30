@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to your Barre & Sculpt account to manage bookings, view class schedules, and track your wellness progress.">
     <title>Sign In — Barre & Sculpt Fitness Studio</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,19 +12,27 @@
     <link rel="stylesheet" href="style.css">
     <script>(function(){try{if(localStorage.getItem('bs_theme')==='dark'){document.documentElement.classList.add('dark')}if(localStorage.getItem('bs_dir')==='rtl'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
 </head>
-<body>
-<div class="auth-page">
-    <!-- Utils -->
-    <div class="auth-utils">
-        <button onclick="toggleDir()" class="nav-icon-btn" title="Toggle RTL/LTR"><span class="dir-indicator" style="font-size:0.625rem;font-weight:700;">RTL</span></button>
-        <button onclick="toggleTheme()" class="nav-icon-btn" title="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
-    </div>
+<body class="auth-page">
 
+<!-- Top Bar -->
+<header class="auth-topbar">
+    <div class="auth-topbar-actions">
+        <button onclick="toggleDir()" class="auth-toggle-btn" title="Toggle RTL/LTR" aria-label="Toggle text direction">
+            <span class="dir-indicator" style="font-size:0.625rem;font-weight:700;">RTL</span>
+        </button>
+        <button onclick="toggleTheme()" class="auth-toggle-btn" title="Toggle theme" aria-label="Toggle dark mode">
+            <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        </button>
+    </div>
+</header>
+
+<!-- Main Form -->
+<main class="auth-main">
     <div class="auth-card">
         <!-- Logo -->
-        <a href="index.html" class="auth-logo">
+        <a href="index.html" class="auth-logo" aria-label="Barre & Sculpt Home">
             <div class="nav-logo-icon">
-                <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#2D2D2D"/><path d="M30 25 L30 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M70 25 L70 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M30 40 L70 40" stroke="#C4A484" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="58" r="12" stroke="#C4A484" stroke-width="3.5" fill="none"/><path d="M50 50 L50 46" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M44 64 L40 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M56 64 L60 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/></svg>
+                <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#262626"/><path d="M30 25 L30 75" stroke="#9B8EC1" stroke-width="5" stroke-linecap="round"/><path d="M70 25 L70 75" stroke="#9B8EC1" stroke-width="5" stroke-linecap="round"/><path d="M30 40 L70 40" stroke="#9B8EC1" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="58" r="12" stroke="#9B8EC1" stroke-width="3.5" fill="none"/><path d="M50 50 L50 46" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/><path d="M44 64 L40 72" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/><path d="M56 64 L60 72" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/></svg>
             </div>
             <div class="nav-logo-text">
                 <span class="brand-top">Barre & Sculpt</span>
@@ -39,15 +48,15 @@
 
         <!-- Social Login -->
         <div class="social-login-btns">
-            <button type="button" class="social-btn">
+            <button type="button" class="social-btn" aria-label="Continue with Google">
                 <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                 Continue with Google
             </button>
-            <button type="button" class="social-btn">
+            <button type="button" class="social-btn" aria-label="Continue with Apple">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
                 Continue with Apple
             </button>
-            <button type="button" class="social-btn">
+            <button type="button" class="social-btn" aria-label="Continue with Facebook">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 Continue with Facebook
             </button>
@@ -56,22 +65,22 @@
         <div class="auth-divider">or sign in with email</div>
 
         <!-- Form -->
-        <form onsubmit="event.preventDefault();window.location.href='dashboard/index.html';">
+        <form onsubmit="event.preventDefault(); window.location.href='dashboard/index.html';">
             <div class="form-group">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" placeholder="jane@example.com" required>
+                <label class="form-label" for="login-email">Email Address</label>
+                <input type="email" id="login-email" class="form-input" placeholder="jane@example.com" required>
             </div>
             <div class="form-group">
-                <label class="form-label">Password</label>
+                <label class="form-label" for="login-pwd">Password</label>
                 <div class="form-input-wrapper">
                     <input type="password" id="login-pwd" class="form-input" placeholder="Enter your password" required>
-                    <button type="button" class="pwd-toggle" onclick="togglePwd('login-pwd','login-pwd-icon')">
+                    <button type="button" class="pwd-toggle" onclick="togglePwd('login-pwd','login-pwd-icon')" aria-label="Toggle password visibility">
                         <span id="login-pwd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
                     </button>
                 </div>
             </div>
             <div class="form-row">
-                <label class="remember-me"><input type="checkbox"> Remember me</label>
+                <label class="remember-me"><input type="checkbox" id="remember-me"> Remember me</label>
                 <a href="coming-soon.html" class="forgot-link">Forgot Password?</a>
             </div>
             <button type="submit" class="btn btn-primary" style="width:100%;">Sign In</button>
@@ -79,8 +88,8 @@
 
         <p class="auth-footer-text">Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
-</div>
+</main>
+
 <script src="components.js"></script>
 </body>
 </html>
-

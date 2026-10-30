@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coming Soon — Barre & Sculpt Fitness Studio. Subscribe to receive launch notifications and exclusive founding member perks.">
     <title>Coming Soon — Barre & Sculpt Fitness Studio</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,52 +12,129 @@
     <link rel="stylesheet" href="style.css">
     <script>(function(){try{if(localStorage.getItem('bs_theme')==='dark'){document.documentElement.classList.add('dark')}if(localStorage.getItem('bs_dir')==='rtl'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
 </head>
-<body>
-<div class="cs-page">
-    <div class="auth-utils">
-        <button onclick="toggleDir()" class="nav-icon-btn" title="Toggle RTL/LTR"><span class="dir-indicator" style="font-size:0.625rem;font-weight:700;">RTL</span></button>
-        <button onclick="toggleTheme()" class="nav-icon-btn" title="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
-    </div>
-    <a href="index.html" style="display:flex;align-items:center;gap:12px;margin-bottom:40px;">
+<body class="fullscreen-page">
+
+<!-- Top Bar -->
+<header class="auth-topbar">
+    <a href="index.html" class="auth-logo" aria-label="Barre & Sculpt Home" style="margin-bottom:0;">
         <div class="nav-logo-icon">
-            <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#2D2D2D"/><path d="M30 25 L30 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M70 25 L70 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M30 40 L70 40" stroke="#C4A484" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="58" r="12" stroke="#C4A484" stroke-width="3.5" fill="none"/><path d="M50 50 L50 46" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M44 64 L40 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M56 64 L60 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/></svg>
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#262626"/><path d="M30 25 L30 75" stroke="#9B8EC1" stroke-width="5" stroke-linecap="round"/><path d="M70 25 L70 75" stroke="#9B8EC1" stroke-width="5" stroke-linecap="round"/><path d="M30 40 L70 40" stroke="#9B8EC1" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="58" r="12" stroke="#9B8EC1" stroke-width="3.5" fill="none"/><path d="M50 50 L50 46" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/><path d="M44 64 L40 72" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/><path d="M56 64 L60 72" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
-        <div class="nav-logo-text"><span class="brand-top">Barre & Sculpt</span><span class="brand-bottom">Fitness Studio</span></div>
+        <div class="nav-logo-text">
+            <span class="brand-top">Barre & Sculpt</span>
+            <span class="brand-bottom">Fitness Studio</span>
+        </div>
     </a>
-    <div style="width:72px;height:72px;border-radius:50%;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div class="auth-topbar-actions">
+        <button onclick="toggleDir()" class="auth-toggle-btn" title="Toggle RTL/LTR" aria-label="Toggle text direction">
+            <span class="dir-indicator" style="font-size:0.625rem;font-weight:700;">RTL</span>
+        </button>
+        <button onclick="toggleTheme()" class="auth-toggle-btn" title="Toggle theme" aria-label="Toggle dark mode">
+            <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        </button>
     </div>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Coming Soon</h2>
-    <p style="max-width:480px;margin:0 auto 32px;">We're working on something beautiful. Stay tuned for updates and be the first to know when we launch.</p>
-    <div class="cs-countdown" id="countdown">
-        <div class="cs-countdown-item"><div class="cs-countdown-value" id="cd-days">00</div><div class="cs-countdown-label">Days</div></div>
-        <div class="cs-countdown-item"><div class="cs-countdown-value" id="cd-hours">00</div><div class="cs-countdown-label">Hours</div></div>
-        <div class="cs-countdown-item"><div class="cs-countdown-value" id="cd-mins">00</div><div class="cs-countdown-label">Minutes</div></div>
-        <div class="cs-countdown-item"><div class="cs-countdown-value" id="cd-secs">00</div><div class="cs-countdown-label">Seconds</div></div>
+</header>
+
+<!-- Main Content -->
+<main class="fullscreen-content">
+    <div class="cs-glow"></div>
+
+    <div class="cs-content">
+        <div class="cs-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Studio Opening Soon
+        </div>
+
+        <h1 class="cs-title">Coming Soon</h1>
+        <p class="cs-desc">We're sculpting an inspiring new studio space and digital wellness experience. Be the first to know when class bookings open and gain access to founding member perks.</p>
+
+        <!-- Countdown -->
+        <div class="countdown-grid" id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="cd-days">30</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="cd-hours">14</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="cd-mins">28</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="cd-secs">45</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+
+        <!-- Subscribe Form -->
+        <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Thank you! We will notify you as soon as our studio launches.'); this.reset();">
+            <input type="email" placeholder="Enter your email address" required aria-label="Email address for notifications">
+            <button type="submit" class="btn btn-primary">Notify Me</button>
+        </form>
+
+        <!-- Social Media Links -->
+        <div class="cs-socials">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="cs-social-link" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="cs-social-link" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="cs-social-link" aria-label="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+            <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" class="cs-social-link" aria-label="Spotify">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 11.5c3-1 6-.5 8.5 1"/><path d="M7 9c4-1.2 8-.8 11.5 1.2"/><path d="M9 14.2c2.5-.7 5-.3 7 .8"/></svg>
+            </a>
+        </div>
+
+        <div>
+            <a href="index.html" class="cs-back-link">← Back to Studio Home</a>
+        </div>
     </div>
-    <form onsubmit="event.preventDefault();alert('Thank you! We\'ll notify you when we launch.');" style="display:flex;gap:12px;max-width:420px;margin:32px auto 0;width:100%;padding:0 16px;">
-        <input type="email" class="form-input" placeholder="Enter your email" required style="flex:1;">
-        <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Notify Me</button>
-    </form>
-    <a href="index.html" style="display:inline-block;margin-top:28px;font-size:0.8125rem;color:var(--primary);font-weight:600;">← Back to Home</a>
-</div>
+</main>
+
 <script src="components.js"></script>
 <script>
 (function() {
-    const target = new Date();
-    target.setDate(target.getDate() + 30);
+    // 30 days countdown from current session
+    let target = localStorage.getItem('bs_countdown_target');
+    if (!target || isNaN(new Date(target).getTime()) || new Date(target) <= new Date()) {
+        const d = new Date();
+        d.setDate(d.getDate() + 30);
+        d.setHours(d.getHours() + 14);
+        d.setMinutes(d.getMinutes() + 28);
+        target = d.toISOString();
+        localStorage.setItem('bs_countdown_target', target);
+    }
+    const targetDate = new Date(target);
+
     function update() {
         const now = new Date();
-        const diff = target - now;
-        if (diff <= 0) return;
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
-        document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
-        document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-        document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
-        document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+        const diff = targetDate - now;
+        if (diff <= 0) {
+            document.getElementById('cd-days').textContent = '00';
+            document.getElementById('cd-hours').textContent = '00';
+            document.getElementById('cd-mins').textContent = '00';
+            document.getElementById('cd-secs').textContent = '00';
+            return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const dEl = document.getElementById('cd-days');
+        const hEl = document.getElementById('cd-hours');
+        const mEl = document.getElementById('cd-mins');
+        const sEl = document.getElementById('cd-secs');
+
+        if (dEl) dEl.textContent = String(days).padStart(2, '0');
+        if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+        if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+        if (sEl) sEl.textContent = String(secs).padStart(2, '0');
     }
     update();
     setInterval(update, 1000);
@@ -64,4 +142,3 @@
 </script>
 </body>
 </html>
-

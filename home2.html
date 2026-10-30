@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#C4A484',secondary:'#2D2D2D'}}}}</script>
+    <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#9B8EC1',secondary:'#262626'}}}}</script>
 </head>
-<body class="bg-white dark:bg-[#111111] text-[#2D2D2D] dark:text-[#F0ECE7]">
+<body class="bg-white dark:bg-[#111111] text-[#262626] dark:text-[#EEEAF5]">
 <div id="main-nav"></div>
 
 <!-- ═══ HERO — SPLIT SCREEN EDITORIAL ═══ -->
@@ -98,26 +98,26 @@
             <h2 class="section-title">Three Pillars of Transformation</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="text-center stagger-item" style="padding:40px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);transition:all 0.3s;">
-                <div style="width:72px;height:72px;border-radius:50%;border:2px solid var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><path d="M12 22V8M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
+            <div class="pillar-card stagger-item">
+                <div class="pillar-icon-box">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
                 </div>
-                <h4 style="margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;">Lengthen</h4>
-                <p style="font-size:0.875rem;">Elongate muscles through controlled stretching and ballet-inspired movements that create lean, graceful lines throughout your body.</p>
+                <h4 class="pillar-title">Lengthen</h4>
+                <p class="pillar-desc">Elongate muscles through controlled stretching and ballet-inspired movements that create lean, graceful lines throughout your body.</p>
             </div>
-            <div class="text-center stagger-item" style="padding:40px 28px;border:1px solid var(--primary);border-radius:var(--radius-xl);background:var(--bg-card);box-shadow:0 8px 40px rgba(196,164,132,0.15);">
-                <div style="width:72px;height:72px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M6.5 6.5l11 11M6.5 17.5l11-11"/><circle cx="12" cy="12" r="10"/></svg>
+            <div class="pillar-card featured stagger-item">
+                <div class="pillar-icon-box">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M6.5 17.5l11-11"/><circle cx="12" cy="12" r="10"/></svg>
                 </div>
-                <h4 style="margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;">Strengthen</h4>
-                <p style="font-size:0.875rem;">Build functional strength using isometric holds, light weights, and your own body weight. Small movements, powerful results.</p>
+                <h4 class="pillar-title">Strengthen</h4>
+                <p class="pillar-desc">Build functional strength using isometric holds, light weights, and your own body weight. Small movements, powerful results.</p>
             </div>
-            <div class="text-center stagger-item" style="padding:40px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
-                <div style="width:72px;height:72px;border-radius:50%;border:2px solid var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <div class="pillar-card stagger-item">
+                <div class="pillar-icon-box">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
                 </div>
-                <h4 style="margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;">Transform</h4>
-                <p style="font-size:0.875rem;">Experience a total body and mind transformation. Improved posture, increased confidence, and a deep connection with your body.</p>
+                <h4 class="pillar-title">Transform</h4>
+                <p class="pillar-desc">Experience a total body and mind transformation. Improved posture, increased confidence, and a deep connection with your body.</p>
             </div>
         </div>
     </div>
@@ -132,36 +132,44 @@
             <p class="section-desc">Each class is thoughtfully designed to deliver a complete, balanced workout in under an hour.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="stagger-item" style="display:grid;grid-template-columns:200px 1fr;border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);transition:all 0.3s;">
-                <img src="assets/images/class-barre.jpg" alt="Barre Essentials" style="width:100%;height:100%;object-fit:cover;">
-                <div style="padding:28px;">
-                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">50 MIN · ALL LEVELS</span>
-                    <h4 style="margin:8px 0;font-family:'Cormorant Garamond',serif;font-size:1.375rem;">Barre Essentials</h4>
-                    <p style="font-size:0.8125rem;">Our signature class combining ballet fundamentals, Pilates, and strength training at the barre.</p>
+            <div class="horizontal-class-card stagger-item">
+                <div class="class-card-img-wrap">
+                    <img src="assets/images/h2-class-barre.jpg" alt="Barre Essentials">
+                </div>
+                <div class="class-card-body">
+                    <span class="class-card-tag">50 MIN · ALL LEVELS</span>
+                    <h4 class="class-card-title">Barre Essentials</h4>
+                    <p class="class-card-desc">Our signature class combining ballet fundamentals, Pilates, and strength training at the barre.</p>
                 </div>
             </div>
-            <div class="stagger-item" style="display:grid;grid-template-columns:200px 1fr;border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);transition:all 0.3s;">
-                <img src="assets/images/class-sculpt.jpg" alt="Sculpt & Tone" style="width:100%;height:100%;object-fit:cover;">
-                <div style="padding:28px;">
-                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">55 MIN · INTERMEDIATE</span>
-                    <h4 style="margin:8px 0;font-family:'Cormorant Garamond',serif;font-size:1.375rem;">Sculpt & Tone</h4>
-                    <p style="font-size:0.8125rem;">Full-body sculpting with light weights and resistance bands for lean, defined muscles.</p>
+            <div class="horizontal-class-card stagger-item">
+                <div class="class-card-img-wrap">
+                    <img src="assets/images/h2-class-sculpt.jpg" alt="Sculpt & Tone">
+                </div>
+                <div class="class-card-body">
+                    <span class="class-card-tag">55 MIN · INTERMEDIATE</span>
+                    <h4 class="class-card-title">Sculpt & Tone</h4>
+                    <p class="class-card-desc">Full-body sculpting with light weights and resistance bands for lean, defined muscles.</p>
                 </div>
             </div>
-            <div class="stagger-item" style="display:grid;grid-template-columns:200px 1fr;border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);transition:all 0.3s;">
-                <img src="assets/images/class-pilates.jpg" alt="Pilates Reformer" style="width:100%;height:100%;object-fit:cover;">
-                <div style="padding:28px;">
-                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">55 MIN · ALL LEVELS</span>
-                    <h4 style="margin:8px 0;font-family:'Cormorant Garamond',serif;font-size:1.375rem;">Pilates Reformer</h4>
-                    <p style="font-size:0.8125rem;">Core-focused reformer work improving strength, flexibility, and mind-body connection.</p>
+            <div class="horizontal-class-card stagger-item">
+                <div class="class-card-img-wrap">
+                    <img src="assets/images/h2-class-pilates.jpg" alt="Pilates Reformer">
+                </div>
+                <div class="class-card-body">
+                    <span class="class-card-tag">55 MIN · ALL LEVELS</span>
+                    <h4 class="class-card-title">Pilates Reformer</h4>
+                    <p class="class-card-desc">Core-focused reformer work improving strength, flexibility, and mind-body connection.</p>
                 </div>
             </div>
-            <div class="stagger-item" style="display:grid;grid-template-columns:200px 1fr;border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);transition:all 0.3s;">
-                <img src="assets/images/class-hiit-barre.jpg" alt="HIIT Barre" style="width:100%;height:100%;object-fit:cover;">
-                <div style="padding:28px;">
-                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">50 MIN · ADVANCED</span>
-                    <h4 style="margin:8px 0;font-family:'Cormorant Garamond',serif;font-size:1.375rem;">HIIT Barre</h4>
-                    <p style="font-size:0.8125rem;">High-intensity intervals fused with barre precision for maximum calorie burn and toning.</p>
+            <div class="horizontal-class-card stagger-item">
+                <div class="class-card-img-wrap">
+                    <img src="assets/images/h2-class-hiit.jpg" alt="HIIT Barre">
+                </div>
+                <div class="class-card-body">
+                    <span class="class-card-tag">50 MIN · ADVANCED</span>
+                    <h4 class="class-card-title">HIIT Barre</h4>
+                    <p class="class-card-desc">High-intensity intervals fused with barre precision for maximum calorie burn and toning.</p>
                 </div>
             </div>
         </div>
@@ -182,19 +190,19 @@
                     <p style="color:rgba(255,255,255,0.65);font-size:0.9375rem;line-height:1.8;margin-bottom:24px;">Step into our sun-filled studio and leave the world behind. Warm wood floors, soft natural light, and curated music create an atmosphere where you can focus entirely on your practice.</p>
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
                         <div style="display:flex;align-items:center;gap:10px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4A484" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B8EC1" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Heated Studio</span>
                         </div>
                         <div style="display:flex;align-items:center;gap:10px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4A484" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B8EC1" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Curated Playlists</span>
                         </div>
                         <div style="display:flex;align-items:center;gap:10px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4A484" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B8EC1" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Changing Rooms</span>
                         </div>
                         <div style="display:flex;align-items:center;gap:10px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4A484" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B8EC1" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Complimentary Tea</span>
                         </div>
                     </div>
@@ -253,7 +261,7 @@
         <div class="space-y-12">
             <!-- Instructor 1: Image Left -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center stagger-item">
-                <div><img src="assets/images/instructor-1.jpg" alt="Elena Vasquez" class="img-rounded" style="width:100%;height:380px;object-fit:cover;"></div>
+                <div><img src="assets/images/instructor-elena-spotlight.jpg" alt="Elena Vasquez" class="img-rounded" style="width:100%;height:380px;object-fit:cover;"></div>
                 <div>
                     <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">Lead Instructor</span>
                     <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;margin:8px 0 12px;">Elena Vasquez</h3>
@@ -296,20 +304,20 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="stagger-item" style="text-align:center;padding:36px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;">Drop-In</h4>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;"><span style="font-size:1rem;vertical-align:top;">$</span>30<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);">/class</span></div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>30<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/class</span></div>
                 <p style="font-size:0.8125rem;margin-bottom:20px;">Perfect for trying us out or occasional visits.</p>
                 <a href="pricing.html" class="btn btn-secondary btn-sm" style="width:100%;">Learn More</a>
             </div>
-            <div class="stagger-item" style="text-align:center;padding:36px 28px;border:2px solid var(--primary);border-radius:var(--radius-xl);background:var(--bg-card);box-shadow:0 8px 40px rgba(196,164,132,0.15);position:relative;">
+            <div class="stagger-item" style="text-align:center;padding:36px 28px;border:2px solid var(--primary);border-radius:var(--radius-xl);background:var(--bg-card);box-shadow:0 8px 40px rgba(155,142,193,0.15);position:relative;">
                 <span class="pricing-badge">Most Popular</span>
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;margin-top:8px;">Unlimited</h4>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;"><span style="font-size:1rem;vertical-align:top;">$</span>149<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);">/month</span></div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>149<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/month</span></div>
                 <p style="font-size:0.8125rem;margin-bottom:20px;">Unlimited access to all classes every month.</p>
                 <a href="pricing.html" class="btn btn-primary btn-sm" style="width:100%;">Get Started</a>
             </div>
             <div class="stagger-item" style="text-align:center;padding:36px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;">Class Pack</h4>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;"><span style="font-size:1rem;vertical-align:top;">$</span>199<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);">/10 classes</span></div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>199<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/10 classes</span></div>
                 <p style="font-size:0.8125rem;margin-bottom:20px;">Flexible pack valid for 3 months.</p>
                 <a href="pricing.html" class="btn btn-secondary btn-sm" style="width:100%;">Learn More</a>
             </div>
@@ -356,7 +364,7 @@
             <h2 class="section-title">Inside the Studio</h2>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
-            <div class="md:col-span-2 md:row-span-2"><img src="assets/images/studio-interior.jpg" alt="Studio interior" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:300px;"></div>
+            <div class="md:col-span-2 md:row-span-2"><img src="assets/images/gallery-studio-interior.jpg" alt="Studio interior" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:300px;"></div>
             <div><img src="assets/images/studio-equipment.jpg" alt="Equipment" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
             <div><img src="assets/images/class-stretch.jpg" alt="Stretch class" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
             <div><img src="assets/images/class-prenatal.jpg" alt="Prenatal class" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
@@ -368,8 +376,8 @@
 <!-- ═══ FINAL CTA ═══ -->
 <section class="relative" style="padding:0;">
     <div style="position:relative;min-height:380px;overflow:hidden;">
-        <img src="assets/images/cta-join.jpg" alt="Join our community" class="w-full h-full object-cover absolute inset-0" style="filter:brightness(0.25);">
-        <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(45,45,45,0.7),rgba(196,164,132,0.15));"></div>
+        <img src="assets/images/h2-cta-community.jpg" alt="Join our community" class="w-full h-full object-cover absolute inset-0" style="filter:brightness(0.25);">
+        <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(45,45,45,0.7),rgba(155,142,193,0.15));"></div>
         <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center reveal" style="padding:40px 24px;">
                 <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:600;color:#fff;margin-bottom:16px;">Your Journey Begins Here</h2>
