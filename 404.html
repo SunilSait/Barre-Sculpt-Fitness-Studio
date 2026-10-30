@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — Barre & Sculpt Fitness Studio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>(function(){try{if(localStorage.getItem('bs_theme')==='dark'){document.documentElement.classList.add('dark')}if(localStorage.getItem('bs_dir')==='rtl'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+</head>
+<body>
+<div class="error-page">
+    <div class="auth-utils">
+        <button onclick="toggleDir()" class="nav-icon-btn" title="Toggle RTL/LTR"><span class="dir-indicator" style="font-size:0.625rem;font-weight:700;">RTL</span></button>
+        <button onclick="toggleTheme()" class="nav-icon-btn" title="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+    </div>
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;margin-bottom:32px;">
+        <div class="nav-logo-icon">
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#2D2D2D"/><path d="M30 25 L30 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M70 25 L70 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M30 40 L70 40" stroke="#C4A484" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="58" r="12" stroke="#C4A484" stroke-width="3.5" fill="none"/><path d="M50 50 L50 46" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M44 64 L40 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M56 64 L60 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="nav-logo-text"><span class="brand-top">Barre & Sculpt</span><span class="brand-bottom">Fitness Studio</span></div>
+    </a>
+    <!-- Decorative barre illustration -->
+    <div style="margin-bottom:-20px;opacity:0.08;">
+        <svg width="280" height="120" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="40" x2="260" y2="40" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+            <line x1="20" y1="30" x2="20" y2="110" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+            <line x1="260" y1="30" x2="260" y2="110" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="140" cy="75" r="25" stroke="currentColor" stroke-width="4" fill="none"/>
+            <line x1="140" y1="55" x2="140" y2="45" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <line x1="125" y1="95" x2="115" y2="115" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <line x1="155" y1="95" x2="165" y2="115" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </div>
+    <div class="error-code">4<span>0</span>4</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:12px;">Page Not Found</h2>
+    <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+        <a href="contact.html" class="btn btn-secondary">Contact Support</a>
+    </div>
+</div>
+<script src="components.js"></script>
+</body>
+</html>
+

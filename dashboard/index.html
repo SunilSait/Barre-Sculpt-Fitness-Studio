@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard — Barre & Sculpt Fitness Studio</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script>(function(){try{if(localStorage.getItem('bs_theme')==='dark'){document.documentElement.classList.add('dark')}if(localStorage.getItem('bs_dir')==='rtl'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+</head>
+<body>
+<div class="dash-layout">
+    <!-- Sidebar Overlay -->
+    <div class="dash-sidebar-overlay" id="dash-overlay" onclick="closeSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+        <div class="dash-sidebar-header">
+            <a href="../index.html" class="nav-logo" aria-label="Home">
+                <div class="nav-logo-icon">
+                    <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#2D2D2D"/><path d="M30 25 L30 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M70 25 L70 75" stroke="#C4A484" stroke-width="5" stroke-linecap="round"/><path d="M30 40 L70 40" stroke="#C4A484" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="58" r="12" stroke="#C4A484" stroke-width="3.5" fill="none"/><path d="M50 50 L50 46" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M44 64 L40 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/><path d="M56 64 L60 72" stroke="#C4A484" stroke-width="3" stroke-linecap="round"/></svg>
+                </div>
+                <div class="nav-logo-text"><span class="brand-top">Barre & Sculpt</span><span class="brand-bottom">Fitness Studio</span></div>
+            </a>
+        </div>
+        <nav class="dash-sidebar-nav">
+            <div class="dash-nav-label">Main</div>
+            <button class="dash-nav-item active" data-tab="overview">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                Overview
+            </button>
+            <button class="dash-nav-item" data-tab="bookings">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Book Classes
+            </button>
+            <button class="dash-nav-item" data-tab="attendance">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Attendance
+            </button>
+            <div class="dash-nav-label">Account</div>
+            <button class="dash-nav-item" data-tab="membership">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                Membership
+            </button>
+            <button class="dash-nav-item" data-tab="payments">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Payments
+            </button>
+        </nav>
+        <div class="dash-sidebar-footer">
+            <button class="dash-nav-item dash-logout-btn" id="logoutTriggerBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="dash-main">
+        <!-- Header -->
+        <header class="dash-header">
+            <div class="dash-header-left">
+                <button class="dash-mobile-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+                <h1 class="dash-header-title" id="dashHeaderTitle"><span class="dash-title-prefix">Dashboard </span>Overview</h1>
+            </div>
+            <div class="dash-header-right">
+                <button class="nav-icon-btn" onclick="toggleDir()" title="Toggle RTL"><span class="dir-indicator">RTL</span></button>
+                <button class="nav-icon-btn" onclick="toggleTheme()" title="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+                <div style="position:relative;">
+                    <button class="dash-notif-btn" id="notifBtn" aria-label="Notifications">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <span class="dash-notif-dot"></span>
+                    </button>
+                    <div class="dash-notif-dropdown" id="notifDropdown">
+                        <div class="dash-notif-header"><h4>Notifications</h4><button style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.75rem;" onclick="document.getElementById('notifDropdown').classList.remove('open')">Clear all</button></div>
+                        <div class="dash-notif-list">
+                            <div class="dash-notif-item"><h5>Class Confirmed</h5><p>Your Barre Essentials class on Oct 30 at 7:00 AM is confirmed.</p><div class="dash-notif-time">15 minutes ago</div></div>
+                            <div class="dash-notif-item"><h5>Membership Renewal</h5><p>Your Unlimited membership renews on Nov 15, 2026.</p><div class="dash-notif-time">2 hours ago</div></div>
+                            <div class="dash-notif-item"><h5>New Class Added</h5><p>HIIT Barre Express (30 min) is now available on Saturday mornings!</p><div class="dash-notif-time">Yesterday</div></div>
+                            <div class="dash-notif-item"><h5>Achievement Unlocked</h5><p>You've completed 8 consecutive days of classes. Keep it up!</p><div class="dash-notif-time">2 days ago</div></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="dash-profile-btn" aria-label="Profile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Body -->
+        <div class="dash-body">
+
+            <!-- ══ OVERVIEW ══ -->
+            <div class="dash-tab-content active" id="tab-overview">
+                <div class="dash-welcome">
+                    <h2>Welcome back, Sarah! 👋</h2>
+                    <p>You've attended 24 classes this month. Your next class is Barre Essentials tomorrow at 7:00 AM with Elena.</p>
+                </div>
+                <div class="dash-metrics">
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                            <span class="dash-metric-change up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 19V5M5 12l7-7 7 7"/></svg> 12%</span>
+                        </div>
+                        <div class="dash-metric-value">24</div>
+                        <div class="dash-metric-label">Classes Attended</div>
+                    </div>
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                            <span class="dash-metric-change down"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12l7 7 7-7"/></svg> 4</span>
+                        </div>
+                        <div class="dash-metric-value">6</div>
+                        <div class="dash-metric-label">Classes Remaining</div>
+                    </div>
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                            <span class="dash-metric-change up"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 19V5M5 12l7-7 7 7"/></svg> 3 days</span>
+                        </div>
+                        <div class="dash-metric-value">8</div>
+                        <div class="dash-metric-label">Day Active Streak</div>
+                    </div>
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                        </div>
+                        <div class="dash-metric-value" style="font-size:1.25rem;">Tomorrow</div>
+                        <div class="dash-metric-label">Next Class: 7:00 AM</div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Classes -->
+                <div class="dash-card">
+                    <div class="dash-card-header"><h3>Upcoming Classes</h3><a href="#" onclick="document.querySelector('[data-tab=bookings]').click();return false;" style="font-size:0.75rem;color:var(--primary);font-weight:600;">View All</a></div>
+                    <div class="dash-table-wrap">
+                        <table class="dash-table">
+                            <thead><tr><th>Class</th><th>Instructor</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>Oct 30, 2026</td><td>7:00 AM</td><td><span class="dash-status confirmed">Confirmed</span></td></tr>
+                                <tr><td style="font-weight:600;color:var(--text);">Sculpt & Tone</td><td>Sofia L.</td><td>Oct 31, 2026</td><td>5:30 PM</td><td><span class="dash-status confirmed">Confirmed</span></td></tr>
+                                <tr><td style="font-weight:600;color:var(--text);">HIIT Barre</td><td>Sofia L.</td><td>Nov 1, 2026</td><td>8:00 AM</td><td><span class="dash-status pending">Pending</span></td></tr>
+                                <tr><td style="font-weight:600;color:var(--text);">Pilates Reformer</td><td>Maya C.</td><td>Nov 2, 2026</td><td>11:00 AM</td><td><span class="dash-status confirmed">Confirmed</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Progress -->
+                <div class="dash-card">
+                    <div class="dash-card-header"><h3>Class Pack Progress</h3></div>
+                    <p style="font-size:0.8125rem;margin-bottom:12px;">You've used <strong>4 of 10</strong> classes in your current pack.</p>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:40%;"></div></div>
+                    <p style="font-size:0.75rem;color:var(--text-light);margin-top:8px;">6 classes remaining · Expires Dec 15, 2026</p>
+                </div>
+            </div>
+
+            <!-- ══ BOOK CLASSES ══ -->
+            <div class="dash-tab-content" id="tab-bookings">
+                <div class="dash-card">
+                    <div class="dash-card-header"><h3>Available Classes</h3>
+                        <div style="display:flex;gap:8px;">
+                            <input type="date" class="form-input" style="padding:8px 12px;font-size:0.75rem;width:auto;">
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
+                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                                <div><div style="font-weight:600;font-size:0.9375rem;">Barre Essentials</div><div style="font-size:0.75rem;color:var(--text-muted);">Elena Vasquez</div></div>
+                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">8 spots</span>
+                            </div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Oct 31 · 7:00 AM · 50 min</div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                        </div>
+                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                                <div><div style="font-weight:600;font-size:0.9375rem;">Sculpt & Tone</div><div style="font-size:0.75rem;color:var(--text-muted);">Sofia Laurent</div></div>
+                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(234,179,8,0.1);color:#ca8a04;border-radius:var(--radius-full);">3 spots</span>
+                            </div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Oct 31 · 5:30 PM · 55 min</div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                        </div>
+                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                                <div><div style="font-weight:600;font-size:0.9375rem;">Pilates Reformer</div><div style="font-size:0.75rem;color:var(--text-muted);">Maya Chen</div></div>
+                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">6 spots</span>
+                            </div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Nov 1 · 11:00 AM · 55 min</div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                        </div>
+                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                                <div><div style="font-weight:600;font-size:0.9375rem;">Stretch & Restore</div><div style="font-size:0.75rem;color:var(--text-muted);">James Rivera</div></div>
+                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">10 spots</span>
+                            </div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Nov 1 · 12:00 PM · 45 min</div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                        </div>
+                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                                <div><div style="font-weight:600;font-size:0.9375rem;">HIIT Barre</div><div style="font-size:0.75rem;color:var(--text-muted);">Sofia Laurent</div></div>
+                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(239,68,68,0.1);color:#dc2626;border-radius:var(--radius-full);">1 spot</span>
+                            </div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Nov 2 · 8:00 AM · 50 min</div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                        </div>
+                        <div style="border:1px solid var(--border-light);border-radius:var(--radius);padding:20px;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                                <div><div style="font-weight:600;font-size:0.9375rem;">Prenatal Barre</div><div style="font-size:0.75rem;color:var(--text-muted);">Elena Vasquez</div></div>
+                                <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:rgba(34,197,94,0.1);color:#16a34a;border-radius:var(--radius-full);">7 spots</span>
+                            </div>
+                            <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:14px;">Nov 2 · 11:00 AM · 45 min</div>
+                            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="alert('Class booked!')">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ ATTENDANCE ══ -->
+            <div class="dash-tab-content" id="tab-attendance">
+                <div class="dash-card">
+                    <div class="dash-card-header"><h3>Attendance History</h3></div>
+                    <div class="dash-table-wrap">
+                        <table class="dash-table">
+                            <thead><tr><th>Date</th><th>Class</th><th>Instructor</th><th>Duration</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td>Oct 29, 2026</td><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>50 min</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 28, 2026</td><td style="font-weight:600;color:var(--text);">HIIT Barre</td><td>Sofia L.</td><td>50 min</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 27, 2026</td><td style="font-weight:600;color:var(--text);">Pilates Reformer</td><td>Maya C.</td><td>55 min</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 26, 2026</td><td style="font-weight:600;color:var(--text);">Stretch & Restore</td><td>James R.</td><td>45 min</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 25, 2026</td><td style="font-weight:600;color:var(--text);">Sculpt & Tone</td><td>Sofia L.</td><td>55 min</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 24, 2026</td><td style="font-weight:600;color:var(--text);">Barre Essentials</td><td>Elena V.</td><td>50 min</td><td><span class="dash-status completed">Completed</span></td></tr>
+                                <tr><td>Oct 23, 2026</td><td style="font-weight:600;color:var(--text);">HIIT Barre</td><td>Sofia L.</td><td>50 min</td><td><span class="dash-status cancelled">Cancelled</span></td></tr>
+                                <tr><td>Oct 22, 2026</td><td style="font-weight:600;color:var(--text);">Pilates Reformer</td><td>Maya C.</td><td>55 min</td><td><span class="dash-status completed">Completed</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ MEMBERSHIP ══ -->
+            <div class="dash-tab-content" id="tab-membership">
+                <div class="dash-card" style="border-left:4px solid var(--primary);">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+                        <div>
+                            <div style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);margin-bottom:6px;">Current Plan</div>
+                            <h3 style="font-family:var(--font-heading);font-size:1.5rem;margin-bottom:4px;">Unlimited Monthly</h3>
+                            <p style="font-size:0.875rem;">Unlimited access to all classes, priority booking, and 2 guest passes per month.</p>
+                        </div>
+                        <span class="dash-status active" style="font-size:0.75rem;">Active</span>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border-light);">
+                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Start Date</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">Oct 15, 2026</div></div>
+                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Renewal Date</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">Nov 15, 2026</div></div>
+                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Monthly Cost</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">$149.00</div></div>
+                        <div><div style="font-size:0.6875rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;">Payment Method</div><div style="font-weight:600;font-size:0.875rem;margin-top:4px;">Visa ••••4242</div></div>
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:24px;">
+                        <button class="btn btn-primary btn-sm">Upgrade Plan</button>
+                        <button class="btn btn-secondary btn-sm">Manage Plan</button>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <div class="dash-card-header"><h3>Usage This Month</h3></div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                        <div>
+                            <div style="display:flex;justify-content:space-between;font-size:0.8125rem;margin-bottom:6px;"><span>Classes Attended</span><span style="font-weight:600;">24</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%;"></div></div>
+                        </div>
+                        <div>
+                            <div style="display:flex;justify-content:space-between;font-size:0.8125rem;margin-bottom:6px;"><span>Guest Passes Used</span><span style="font-weight:600;">1 of 2</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:50%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ PAYMENTS ══ -->
+            <div class="dash-tab-content" id="tab-payments">
+                <div class="dash-card">
+                    <div class="dash-card-header"><h3>Payment History</h3></div>
+                    <div class="dash-table-wrap">
+                        <table class="dash-table">
+                            <thead><tr><th>Invoice</th><th>Date</th><th>Amount</th><th>Method</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td style="font-weight:600;color:var(--text);">#INV-2026-0024</td><td>Oct 15, 2026</td><td>$149.00</td><td>Visa ••••4242</td><td><span class="dash-status paid">Paid</span></td></tr>
+                                <tr><td style="font-weight:600;color:var(--text);">#INV-2026-0021</td><td>Sep 15, 2026</td><td>$149.00</td><td>Visa ••••4242</td><td><span class="dash-status paid">Paid</span></td></tr>
+                                <tr><td style="font-weight:600;color:var(--text);">#INV-2026-0018</td><td>Aug 15, 2026</td><td>$149.00</td><td>Visa ••••4242</td><td><span class="dash-status paid">Paid</span></td></tr>
+                                <tr><td style="font-weight:600;color:var(--text);">#INV-2026-0015</td><td>Jul 15, 2026</td><td>$199.00</td><td>Visa ••••4242</td><td><span class="dash-status paid">Paid</span></td></tr>
+                                <tr><td style="font-weight:600;color:var(--text);">#INV-2026-0012</td><td>Jun 15, 2026</td><td>$149.00</td><td>Visa ••••4242</td><td><span class="dash-status paid">Paid</span></td></tr>
+                                <tr><td style="font-weight:600;color:var(--text);">#INV-2026-0009</td><td>May 15, 2026</td><td>$149.00</td><td>Visa ••••4242</td><td><span class="dash-status paid">Paid</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <div class="dash-card-header"><h3>Payment Method</h3></div>
+                    <div style="display:flex;align-items:center;gap:16px;padding:16px;border:1px solid var(--border-light);border-radius:var(--radius);">
+                        <div style="width:48px;height:32px;background:linear-gradient(135deg,#1a1f71,#2563eb);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                            <span style="color:#fff;font-size:0.625rem;font-weight:700;letter-spacing:0.05em;">VISA</span>
+                        </div>
+                        <div>
+                            <div style="font-weight:600;font-size:0.875rem;">Visa ending in 4242</div>
+                            <div style="font-size:0.75rem;color:var(--text-muted);">Expires 12/2028</div>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" style="margin-left:auto;">Update</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Logout Modal -->
+<div class="dash-modal-overlay" id="logoutModal">
+    <div class="dash-modal">
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(220,53,69,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </div>
+        <h3>Confirm Logout</h3>
+        <p>Are you sure you want to log out of your account?</p>
+        <div class="dash-modal-actions">
+            <button class="btn btn-secondary btn-sm" id="logoutCancel">Cancel</button>
+            <button class="btn btn-primary btn-sm" id="logoutConfirm" style="background:#dc3545;border-color:#dc3545;">Logout</button>
+        </div>
+    </div>
+</div>
+
+<script src="../components.js"></script>
+</body>
+</html>
+

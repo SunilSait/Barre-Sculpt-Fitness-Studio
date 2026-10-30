@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Instructors — Barre & Sculpt Fitness Studio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#C4A484',secondary:'#2D2D2D'}}}}</script>
+</head>
+<body class="bg-white dark:bg-[#111111] text-[#2D2D2D] dark:text-[#F0ECE7]">
+<div id="main-nav"></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="relative" style="margin-top:calc(var(--nav-height)*-1);padding:0;">
+    <div style="position:relative;height:400px;overflow:hidden;">
+        <img src="assets/images/about-values.jpg" alt="Our instructors" class="w-full h-full object-cover" style="filter:brightness(0.3);">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center reveal">
+                <span class="section-eyebrow" style="justify-content:center;color:#C4A484;">Our Team</span>
+                <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:600;color:#fff;margin-bottom:12px;">Meet Your Instructors</h1>
+                <p style="color:rgba(255,255,255,0.7);font-size:1rem;max-width:540px;margin:0 auto;">Certified, passionate, and dedicated to guiding you through every pulse, plié, and push-up.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PHILOSOPHY ═══ -->
+<section style="padding:80px 0;">
+    <div class="container" style="max-width:800px;">
+        <div class="text-center reveal">
+            <span class="section-eyebrow" style="justify-content:center;">Our Standard</span>
+            <h2 class="section-title">Every Instructor, Certified & Passionate</h2>
+            <p class="section-desc" style="font-size:1rem;line-height:1.8;">We handpick instructors who bring not only technical expertise but genuine warmth and dedication. Each team member holds nationally recognized certifications and completes ongoing education to stay at the forefront of barre and fitness science.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ INSTRUCTOR GRID ═══ -->
+<section class="section-alt" style="padding:80px 0;">
+    <div class="container">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="instructor-card stagger-item">
+                <div class="instructor-img-wrap"><img src="assets/images/instructor-1.jpg" alt="Elena Vasquez" class="instructor-img"></div>
+                <div class="instructor-body">
+                    <h4 class="instructor-name">Elena Vasquez</h4>
+                    <p class="instructor-role">Lead Barre Instructor</p>
+                    <p class="instructor-bio">8 years blending classical ballet with barre fitness. Known for her grace, precision, and uplifting energy.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+                        <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Classical Barre</span>
+                        <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Prenatal</span>
+                    </div>
+                </div>
+            </div>
+            <div class="instructor-card stagger-item">
+                <div class="instructor-img-wrap"><img src="assets/images/instructor-2.jpg" alt="Maya Chen" class="instructor-img"></div>
+                <div class="instructor-body">
+                    <h4 class="instructor-name">Maya Chen</h4>
+                    <p class="instructor-role">Pilates Specialist</p>
+                    <p class="instructor-bio">PMA-certified with 6 years of experience. Maya's meticulous attention to alignment transforms every session.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+                        <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Reformer</span>
+                        <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Stretch</span>
+                    </div>
+                </div>
+            </div>
+            <div class="instructor-card stagger-item">
+                <div class="instructor-img-wrap"><img src="assets/images/instructor-3.jpg" alt="Sofia Laurent" class="instructor-img"></div>
+                <div class="instructor-body">
+                    <h4 class="instructor-name">Sofia Laurent</h4>
+                    <p class="instructor-role">Sculpt & HIIT Coach</p>
+                    <p class="instructor-bio">NASM-certified fitness coach with 5 years experience. Sofia's energy and enthusiasm light up every class.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+                        <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Sculpt</span>
+                        <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">HIIT Barre</span>
+                    </div>
+                </div>
+            </div>
+            <div class="instructor-card stagger-item">
+                <div class="instructor-img-wrap"><img src="assets/images/instructor-4.jpg" alt="James Rivera" class="instructor-img"></div>
+                <div class="instructor-body">
+                    <h4 class="instructor-name">James Rivera</h4>
+                    <p class="instructor-role">Stretch & Mobility</p>
+                    <p class="instructor-bio">Licensed yoga therapist with 7 years experience. James creates a calm, restorative space for deep recovery.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+                        <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Stretch</span>
+                        <span style="padding:4px 10px;font-size:0.625rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Mobility</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CERTIFICATIONS ═══ -->
+<section style="padding:72px 0;">
+    <div class="container">
+        <div class="text-center mb-12 reveal">
+            <span class="section-eyebrow" style="justify-content:center;">Credentials</span>
+            <h2 class="section-title">Certifications & Affiliations</h2>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-10 reveal" style="opacity:0.7;">
+            <div style="text-align:center;padding:20px 28px;border:1px solid var(--border-light);border-radius:var(--radius);min-width:140px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="margin:0 auto 8px;"><path d="M12 15l-2 5L12 19l2 1-2-5z"/><circle cx="12" cy="9" r="6"/><path d="M12 3v2M5.63 5.63l1.42 1.42M3 12h2M5.63 18.37l1.42-1.42"/></svg>
+                <div style="font-size:0.75rem;font-weight:600;color:var(--text);">ACE Certified</div>
+            </div>
+            <div style="text-align:center;padding:20px 28px;border:1px solid var(--border-light);border-radius:var(--radius);min-width:140px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="margin:0 auto 8px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <div style="font-size:0.75rem;font-weight:600;color:var(--text);">NASM</div>
+            </div>
+            <div style="text-align:center;padding:20px 28px;border:1px solid var(--border-light);border-radius:var(--radius);min-width:140px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="margin:0 auto 8px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <div style="font-size:0.75rem;font-weight:600;color:var(--text);">PMA Pilates</div>
+            </div>
+            <div style="text-align:center;padding:20px 28px;border:1px solid var(--border-light);border-radius:var(--radius);min-width:140px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="margin:0 auto 8px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <div style="font-size:0.75rem;font-weight:600;color:var(--text);">Barre3 Certified</div>
+            </div>
+            <div style="text-align:center;padding:20px 28px;border:1px solid var(--border-light);border-radius:var(--radius);min-width:140px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="margin:0 auto 8px;"><path d="M4.93 4.93l4.24 4.24"/><path d="M14.83 14.83l4.24 4.24"/><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49"/></svg>
+                <div style="font-size:0.75rem;font-weight:600;color:var(--text);">CPR/First Aid</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ WHAT MAKES US DIFFERENT ═══ -->
+<section class="section-alt" style="padding:80px 0;">
+    <div class="container">
+        <div class="text-center mb-14 reveal">
+            <span class="section-eyebrow" style="justify-content:center;">Why Us</span>
+            <h2 class="section-title">What Makes Our Team Different</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center stagger-item" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);">
+                <div style="width:56px;height:56px;border-radius:50%;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h4 style="margin-bottom:8px;">Personalized Attention</h4>
+                <p style="font-size:0.8125rem;">With a maximum of 12 students per class, our instructors know your name, your goals, and your form.</p>
+            </div>
+            <div class="text-center stagger-item" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);">
+                <div style="width:56px;height:56px;border-radius:50%;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h4 style="margin-bottom:8px;">Continuous Education</h4>
+                <p style="font-size:0.8125rem;">Our team completes 40+ hours of continuing education annually to bring you the latest in barre science.</p>
+            </div>
+            <div class="text-center stagger-item" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);">
+                <div style="width:56px;height:56px;border-radius:50%;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h4 style="margin-bottom:8px;">Warm Community</h4>
+                <p style="font-size:0.8125rem;">Our instructors create an inclusive, supportive atmosphere where every member feels welcomed and empowered.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ JOIN OUR TEAM ═══ -->
+<section style="padding:80px 0;">
+    <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal-left">
+                <img src="assets/images/about-story.jpg" alt="Join our team" class="img-rounded" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
+            </div>
+            <div class="reveal-right">
+                <span class="section-eyebrow">Careers</span>
+                <h2 class="section-title">Join Our Teaching Team</h2>
+                <p style="margin-bottom:16px;">Are you a passionate, certified fitness instructor looking to join an incredible team? We're always looking for talented individuals who share our love for barre and movement.</p>
+                <p style="margin-bottom:28px;">We offer competitive compensation, continuing education support, flexible scheduling, and a warm studio community.</p>
+                <a href="contact.html" class="btn btn-primary">Apply Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ BOOK CTA ═══ -->
+<section style="padding:0;">
+    <div style="background:var(--secondary);padding:64px 24px;text-align:center;">
+        <div class="container reveal">
+            <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,2.5rem);color:#fff;margin-bottom:12px;">Train with the Best</h2>
+            <p style="color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 28px;">Experience the difference that expert instruction makes. Book your first class today — it's on us.</p>
+            <a href="signup.html" class="btn btn-primary btn-lg">Book Your Free Class</a>
+        </div>
+    </div>
+</section>
+
+<div id="main-footer"></div>
+<button id="back-to-top" class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
+<script src="components.js"></script>
+</body>
+</html>
+

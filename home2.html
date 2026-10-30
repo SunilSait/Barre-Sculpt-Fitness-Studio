@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Barre & Sculpt Fitness Studio Premium — Experience the art of movement in our luxurious boutique fitness studio.">
+    <title>Premium Experience — Barre & Sculpt Fitness Studio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#C4A484',secondary:'#2D2D2D'}}}}</script>
+</head>
+<body class="bg-white dark:bg-[#111111] text-[#2D2D2D] dark:text-[#F0ECE7]">
+<div id="main-nav"></div>
+
+<!-- ═══ HERO — SPLIT SCREEN EDITORIAL ═══ -->
+<section class="relative min-h-screen overflow-hidden" style="margin-top:calc(var(--nav-height)*-1);">
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+        <!-- Left: Typography -->
+        <div class="flex flex-col justify-center px-8 sm:px-12 lg:px-20 py-32 lg:py-20 relative z-10 bg-[var(--bg)]">
+            <div class="max-w-lg">
+                <div class="flex items-center gap-3 mb-6 animate-fade-in-up" style="animation-delay:0.1s;">
+                    <div style="width:40px;height:1px;background:var(--primary);"></div>
+                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);">Est. 2018 · New York</span>
+                </div>
+                <h1 class="animate-fade-in-up" style="animation-delay:0.25s;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3.5rem,8vw,6rem);line-height:0.95;margin-bottom:28px;letter-spacing:-0.02em;">
+                    The Art<br>of <span style="color:var(--primary);font-style:italic;">Movement</span>
+                </h1>
+                <p class="animate-fade-in-up" style="animation-delay:0.4s;font-size:1.0625rem;line-height:1.8;color:var(--text-muted);margin-bottom:36px;max-width:420px;">
+                    Where ballet-inspired precision meets modern fitness science. Discover a movement practice that sculpts, strengthens, and transforms — body and mind.
+                </p>
+                <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay:0.55s;">
+                    <a href="signup.html" class="btn btn-primary btn-lg">Begin Your Practice</a>
+                    <a href="classes.html" class="btn btn-secondary btn-lg">Explore Classes</a>
+                </div>
+                <div class="flex items-center gap-8 mt-14 animate-fade-in-up" style="animation-delay:0.7s;">
+                    <div><span style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--text);">200+</span><span style="display:block;font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Members</span></div>
+                    <div style="width:1px;height:36px;background:var(--border);"></div>
+                    <div><span style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--text);">12</span><span style="display:block;font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Instructors</span></div>
+                    <div style="width:1px;height:36px;background:var(--border);"></div>
+                    <div><span style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--text);">6</span><span style="display:block;font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Class Styles</span></div>
+                </div>
+            </div>
+        </div>
+        <!-- Right: Image -->
+        <div class="relative hidden lg:block">
+            <img src="assets/images/hero-home2.jpg" alt="Barre fitness pose" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
+            <div class="absolute bottom-10 right-10 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20" style="max-width:220px;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1;">98%</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:2px;">Member Satisfaction</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PHILOSOPHY ═══ -->
+<section style="padding:100px 0;">
+    <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+            <div class="lg:col-span-2 reveal-left">
+                <img src="assets/images/h2-method.jpg" alt="Barre technique" class="img-rounded" style="width:100%;aspect-ratio:3/4;object-fit:cover;">
+            </div>
+            <div class="lg:col-span-3 reveal-right">
+                <span class="section-eyebrow">Our Philosophy</span>
+                <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.15;margin-bottom:24px;">
+                    "Movement is a celebration of what the body can do — not a punishment for what you ate."
+                </h2>
+                <p style="font-size:1rem;line-height:1.8;margin-bottom:20px;">At Barre & Sculpt, we believe fitness should be joyful, empowering, and sustainable. Our method draws from the grace of ballet, the precision of Pilates, and the strength of modern fitness science.</p>
+                <p style="font-size:1rem;line-height:1.8;margin-bottom:28px;">Every class is designed to challenge you while respecting your body's limits. We meet you where you are and help you grow stronger — at your own pace.</p>
+                <div style="display:flex;gap:20px;">
+                    <div style="padding:20px;border:1px solid var(--border-light);border-radius:var(--radius);flex:1;text-align:center;">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">50+</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Weekly Classes</div>
+                    </div>
+                    <div style="padding:20px;border:1px solid var(--border-light);border-radius:var(--radius);flex:1;text-align:center;">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">12</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Max per Class</div>
+                    </div>
+                    <div style="padding:20px;border:1px solid var(--border-light);border-radius:var(--radius);flex:1;text-align:center;">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">6</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Class Styles</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ THE METHOD — 3 PILLARS ═══ -->
+<section class="section-alt" style="padding:80px 0;">
+    <div class="container">
+        <div class="text-center mb-14 reveal">
+            <span class="section-eyebrow" style="justify-content:center;">The Method</span>
+            <h2 class="section-title">Three Pillars of Transformation</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="text-center stagger-item" style="padding:40px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);transition:all 0.3s;">
+                <div style="width:72px;height:72px;border-radius:50%;border:2px solid var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><path d="M12 22V8M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
+                </div>
+                <h4 style="margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;">Lengthen</h4>
+                <p style="font-size:0.875rem;">Elongate muscles through controlled stretching and ballet-inspired movements that create lean, graceful lines throughout your body.</p>
+            </div>
+            <div class="text-center stagger-item" style="padding:40px 28px;border:1px solid var(--primary);border-radius:var(--radius-xl);background:var(--bg-card);box-shadow:0 8px 40px rgba(196,164,132,0.15);">
+                <div style="width:72px;height:72px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M6.5 6.5l11 11M6.5 17.5l11-11"/><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <h4 style="margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;">Strengthen</h4>
+                <p style="font-size:0.875rem;">Build functional strength using isometric holds, light weights, and your own body weight. Small movements, powerful results.</p>
+            </div>
+            <div class="text-center stagger-item" style="padding:40px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
+                <div style="width:72px;height:72px;border-radius:50%;border:2px solid var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                </div>
+                <h4 style="margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;">Transform</h4>
+                <p style="font-size:0.875rem;">Experience a total body and mind transformation. Improved posture, increased confidence, and a deep connection with your body.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ SIGNATURE CLASSES ═══ -->
+<section style="padding:80px 0;">
+    <div class="container">
+        <div class="text-center mb-14 reveal">
+            <span class="section-eyebrow" style="justify-content:center;">Signature Classes</span>
+            <h2 class="section-title">Curated Movement Experiences</h2>
+            <p class="section-desc">Each class is thoughtfully designed to deliver a complete, balanced workout in under an hour.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="stagger-item" style="display:grid;grid-template-columns:200px 1fr;border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);transition:all 0.3s;">
+                <img src="assets/images/class-barre.jpg" alt="Barre Essentials" style="width:100%;height:100%;object-fit:cover;">
+                <div style="padding:28px;">
+                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">50 MIN · ALL LEVELS</span>
+                    <h4 style="margin:8px 0;font-family:'Cormorant Garamond',serif;font-size:1.375rem;">Barre Essentials</h4>
+                    <p style="font-size:0.8125rem;">Our signature class combining ballet fundamentals, Pilates, and strength training at the barre.</p>
+                </div>
+            </div>
+            <div class="stagger-item" style="display:grid;grid-template-columns:200px 1fr;border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);transition:all 0.3s;">
+                <img src="assets/images/class-sculpt.jpg" alt="Sculpt & Tone" style="width:100%;height:100%;object-fit:cover;">
+                <div style="padding:28px;">
+                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">55 MIN · INTERMEDIATE</span>
+                    <h4 style="margin:8px 0;font-family:'Cormorant Garamond',serif;font-size:1.375rem;">Sculpt & Tone</h4>
+                    <p style="font-size:0.8125rem;">Full-body sculpting with light weights and resistance bands for lean, defined muscles.</p>
+                </div>
+            </div>
+            <div class="stagger-item" style="display:grid;grid-template-columns:200px 1fr;border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);transition:all 0.3s;">
+                <img src="assets/images/class-pilates.jpg" alt="Pilates Reformer" style="width:100%;height:100%;object-fit:cover;">
+                <div style="padding:28px;">
+                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">55 MIN · ALL LEVELS</span>
+                    <h4 style="margin:8px 0;font-family:'Cormorant Garamond',serif;font-size:1.375rem;">Pilates Reformer</h4>
+                    <p style="font-size:0.8125rem;">Core-focused reformer work improving strength, flexibility, and mind-body connection.</p>
+                </div>
+            </div>
+            <div class="stagger-item" style="display:grid;grid-template-columns:200px 1fr;border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-card);transition:all 0.3s;">
+                <img src="assets/images/class-hiit-barre.jpg" alt="HIIT Barre" style="width:100%;height:100%;object-fit:cover;">
+                <div style="padding:28px;">
+                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">50 MIN · ADVANCED</span>
+                    <h4 style="margin:8px 0;font-family:'Cormorant Garamond',serif;font-size:1.375rem;">HIIT Barre</h4>
+                    <p style="font-size:0.8125rem;">High-intensity intervals fused with barre precision for maximum calorie burn and toning.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section class="relative" style="padding:0;">
+    <div style="position:relative;overflow:hidden;">
+        <div class="grid grid-cols-1 lg:grid-cols-2" style="min-height:500px;">
+            <div class="relative">
+                <img src="assets/images/h2-experience.jpg" alt="Studio experience" class="w-full h-full object-cover" style="min-height:400px;">
+            </div>
+            <div class="flex items-center" style="background:var(--secondary);padding:60px 48px;">
+                <div class="reveal-right">
+                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);display:block;margin-bottom:16px;">The Experience</span>
+                    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:600;color:#fff;line-height:1.2;margin-bottom:20px;">More Than a Workout.<br>A Sanctuary.</h2>
+                    <p style="color:rgba(255,255,255,0.65);font-size:0.9375rem;line-height:1.8;margin-bottom:24px;">Step into our sun-filled studio and leave the world behind. Warm wood floors, soft natural light, and curated music create an atmosphere where you can focus entirely on your practice.</p>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4A484" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Heated Studio</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4A484" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Curated Playlists</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4A484" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Changing Rooms</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4A484" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Complimentary Tea</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ TRANSFORMATION STORIES ═══ -->
+<section style="padding:80px 0;">
+    <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal-left">
+                <span class="section-eyebrow">Member Stories</span>
+                <h2 class="section-title">Real Transformations,<br>Real People</h2>
+                <div style="border-left:3px solid var(--primary);padding-left:20px;margin:24px 0;">
+                    <p style="font-style:italic;font-size:1.0625rem;line-height:1.7;margin-bottom:12px;">"After 6 months of consistent practice, I've completely transformed. I'm stronger, more flexible, and my posture has never been better. Barre & Sculpt gave me my confidence back."</p>
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <img src="assets/images/testimonial-1.jpg" alt="Rachel Kim" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--primary-20);">
+                        <div>
+                            <div style="font-weight:600;font-size:0.875rem;">Rachel Kim</div>
+                            <div style="font-size:0.75rem;color:var(--text-muted);">Unlimited Member</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-4 mt-8">
+                    <div style="text-align:center;padding:16px;background:var(--bg-alt);border-radius:var(--radius);">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">96%</div>
+                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">See Results in 30 Days</div>
+                    </div>
+                    <div style="text-align:center;padding:16px;background:var(--bg-alt);border-radius:var(--radius);">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">89%</div>
+                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Better Posture</div>
+                    </div>
+                    <div style="text-align:center;padding:16px;background:var(--bg-alt);border-radius:var(--radius);">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">94%</div>
+                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Feel Stronger</div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-right">
+                <img src="assets/images/h2-transformation.jpg" alt="Transformation journey" class="img-rounded" style="width:100%;aspect-ratio:4/5;object-fit:cover;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ MEET THE TEAM ═══ -->
+<section class="section-alt" style="padding:80px 0;">
+    <div class="container">
+        <div class="text-center mb-14 reveal">
+            <span class="section-eyebrow" style="justify-content:center;">Our Team</span>
+            <h2 class="section-title">Guided by the Best</h2>
+        </div>
+        <div class="space-y-12">
+            <!-- Instructor 1: Image Left -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center stagger-item">
+                <div><img src="assets/images/instructor-1.jpg" alt="Elena Vasquez" class="img-rounded" style="width:100%;height:380px;object-fit:cover;"></div>
+                <div>
+                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">Lead Instructor</span>
+                    <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;margin:8px 0 12px;">Elena Vasquez</h3>
+                    <p style="margin-bottom:16px;">With 8 years of experience in classical ballet and barre fitness, Elena brings unparalleled grace and expertise to every class. Her teaching style is encouraging, precise, and deeply inspiring.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                        <span style="padding:6px 14px;font-size:0.6875rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Classical Barre</span>
+                        <span style="padding:6px 14px;font-size:0.6875rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Ballet Technique</span>
+                        <span style="padding:6px 14px;font-size:0.6875rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Prenatal Barre</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Instructor 2: Image Right -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center stagger-item">
+                <div class="order-2 md:order-1">
+                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);">Pilates Specialist</span>
+                    <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;margin:8px 0 12px;">Maya Chen</h3>
+                    <p style="margin-bottom:16px;">PMA-certified Pilates instructor with 6 years of experience. Maya's classes are known for their meticulous attention to alignment, breath work, and core engagement.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                        <span style="padding:6px 14px;font-size:0.6875rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Pilates Reformer</span>
+                        <span style="padding:6px 14px;font-size:0.6875rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Core Conditioning</span>
+                        <span style="padding:6px 14px;font-size:0.6875rem;font-weight:600;background:var(--primary-10);color:var(--primary);border-radius:var(--radius-full);">Stretch & Restore</span>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2"><img src="assets/images/instructor-2.jpg" alt="Maya Chen" class="img-rounded" style="width:100%;height:380px;object-fit:cover;"></div>
+            </div>
+        </div>
+        <div class="text-center mt-12 reveal">
+            <a href="instructors.html" class="btn btn-secondary">Meet All Instructors</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ MEMBERSHIP PREVIEW ═══ -->
+<section style="padding:80px 0;">
+    <div class="container">
+        <div class="text-center mb-14 reveal">
+            <span class="section-eyebrow" style="justify-content:center;">Membership</span>
+            <h2 class="section-title">Flexible Plans for Every Journey</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="stagger-item" style="text-align:center;padding:36px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
+                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;">Drop-In</h4>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;"><span style="font-size:1rem;vertical-align:top;">$</span>30<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);">/class</span></div>
+                <p style="font-size:0.8125rem;margin-bottom:20px;">Perfect for trying us out or occasional visits.</p>
+                <a href="pricing.html" class="btn btn-secondary btn-sm" style="width:100%;">Learn More</a>
+            </div>
+            <div class="stagger-item" style="text-align:center;padding:36px 28px;border:2px solid var(--primary);border-radius:var(--radius-xl);background:var(--bg-card);box-shadow:0 8px 40px rgba(196,164,132,0.15);position:relative;">
+                <span class="pricing-badge">Most Popular</span>
+                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;margin-top:8px;">Unlimited</h4>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;"><span style="font-size:1rem;vertical-align:top;">$</span>149<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);">/month</span></div>
+                <p style="font-size:0.8125rem;margin-bottom:20px;">Unlimited access to all classes every month.</p>
+                <a href="pricing.html" class="btn btn-primary btn-sm" style="width:100%;">Get Started</a>
+            </div>
+            <div class="stagger-item" style="text-align:center;padding:36px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
+                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;">Class Pack</h4>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;"><span style="font-size:1rem;vertical-align:top;">$</span>199<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);">/10 classes</span></div>
+                <p style="font-size:0.8125rem;margin-bottom:20px;">Flexible pack valid for 3 months.</p>
+                <a href="pricing.html" class="btn btn-secondary btn-sm" style="width:100%;">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ WELLNESS LIFESTYLE ═══ -->
+<section class="section-alt" style="padding:80px 0;">
+    <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal-left order-2 lg:order-1">
+                <span class="section-eyebrow">Beyond the Barre</span>
+                <h2 class="section-title">A Holistic Approach to Wellness</h2>
+                <p style="margin-bottom:20px;">At Barre & Sculpt, fitness is just one piece of the wellness puzzle. We believe in nurturing the whole self — body, mind, and spirit.</p>
+                <p style="margin-bottom:28px;">From our post-class herbal tea bar to our curated wellness workshops, we create an environment that supports your complete well-being journey.</p>
+                <div style="display:flex;flex-direction:column;gap:14px;">
+                    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--border-light);border-radius:var(--radius);background:var(--bg-card);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        <span style="font-size:0.875rem;font-weight:500;">Monthly Wellness Workshops</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--border-light);border-radius:var(--radius);background:var(--bg-card);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                        <span style="font-size:0.875rem;font-weight:500;">Complimentary Herbal Tea Bar</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--border-light);border-radius:var(--radius);background:var(--bg-card);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span style="font-size:0.875rem;font-weight:500;">Community Social Events</span>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-right order-1 lg:order-2">
+                <img src="assets/images/lifestyle-wellness.jpg" alt="Wellness lifestyle" class="img-rounded" style="width:100%;aspect-ratio:4/5;object-fit:cover;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ STUDIO GALLERY ═══ -->
+<section style="padding:80px 0;">
+    <div class="container">
+        <div class="text-center mb-12 reveal">
+            <span class="section-eyebrow" style="justify-content:center;">Our Space</span>
+            <h2 class="section-title">Inside the Studio</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+            <div class="md:col-span-2 md:row-span-2"><img src="assets/images/studio-interior.jpg" alt="Studio interior" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:300px;"></div>
+            <div><img src="assets/images/studio-equipment.jpg" alt="Equipment" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
+            <div><img src="assets/images/class-stretch.jpg" alt="Stretch class" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
+            <div><img src="assets/images/class-prenatal.jpg" alt="Prenatal class" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
+            <div><img src="assets/images/about-story.jpg" alt="Community" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="relative" style="padding:0;">
+    <div style="position:relative;min-height:380px;overflow:hidden;">
+        <img src="assets/images/cta-join.jpg" alt="Join our community" class="w-full h-full object-cover absolute inset-0" style="filter:brightness(0.25);">
+        <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(45,45,45,0.7),rgba(196,164,132,0.15));"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center reveal" style="padding:40px 24px;">
+                <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:600;color:#fff;margin-bottom:16px;">Your Journey Begins Here</h2>
+                <p style="color:rgba(255,255,255,0.7);font-size:1rem;max-width:520px;margin:0 auto 32px;">Book your complimentary first class and discover why hundreds of women have made Barre & Sculpt their fitness home.</p>
+                <a href="signup.html" class="btn btn-primary btn-lg">Start Your Free Trial</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="main-footer"></div>
+<button id="back-to-top" class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
+<script src="components.js"></script>
+</body>
+</html>
+
