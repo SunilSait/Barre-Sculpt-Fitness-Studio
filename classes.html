@@ -150,22 +150,17 @@
 <body class="bg-white dark:bg-[#111111] text-[#262626] dark:text-[#EEEAF5]">
 <div id="main-nav"></div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 1: HERO BANNER
-     ═══════════════════════════════════════════════════════════ -->
-<section class="relative flex items-center justify-center text-center text-white" style="min-height: 420px; padding: 0;">
-    <img src="assets/images/schedule-hero.jpg" alt="Class Schedule Hero" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.65) 100%);"></div>
-    <div class="relative z-10 container" style="padding-top: 80px; padding-bottom: 80px;">
-        <p class="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.2em] mb-4" style="color: var(--primary); animation-delay: 0.1s;">
-            <a href="index.html" class="hover:text-white transition-colors">Home</a>
-            <span class="mx-2 opacity-60">/</span>
-            <span class="text-white/80">Class Schedule</span>
-        </p>
-        <h1 class="animate-fade-in-up" style="font-family: var(--font-heading); font-weight: 600; color: #fff; animation-delay: 0.25s;">Our Class Schedule</h1>
-        <p class="animate-fade-in-up max-w-xl mx-auto mt-4 text-white/70 text-base" style="animation-delay: 0.4s;">
-            Find your perfect class. From high-energy barre to restorative stretch sessions, we have something for every body.
-        </p>
+<!-- ═══ HERO ═══ -->
+<section class="relative" style="margin-top:calc(var(--nav-height)*-1);padding:0;">
+    <div style="position:relative;height:400px;overflow:hidden;">
+        <img src="assets/images/schedule-hero.jpg" alt="Class schedule" class="w-full h-full object-cover" style="filter:brightness(0.3);">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center reveal">
+                <span class="section-eyebrow" style="justify-content:center;color:#9B8EC1;">Class Schedule</span>
+                <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:600;color:#fff;margin-bottom:12px;">Our Class Schedule</h1>
+                <p style="color:rgba(255,255,255,0.7);font-size:1rem;max-width:540px;margin:0 auto;">Find your rhythm. Explore our full weekly schedule of barre, sculpt, and Pilates classes across all levels.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -236,14 +231,14 @@
                 </div>
             </div>
 
-            <!-- Prenatal Barre -->
+            <!-- Barre Core & Align -->
             <div class="class-cat-card stagger-item">
                 <div class="overflow-hidden">
-                    <img src="assets/images/class-prenatal-card.jpg" alt="Prenatal Barre" class="class-cat-img">
+                    <img src="assets/images/class-align-card.jpg" alt="Barre Core & Align" class="class-cat-img">
                 </div>
                 <div class="class-cat-body">
-                    <h4 class="class-cat-name">Prenatal Barre</h4>
-                    <p class="class-cat-desc">Safe, modified barre exercises designed to support expecting mothers through every trimester of pregnancy.</p>
+                    <h4 class="class-cat-name">Barre Core &amp; Align</h4>
+                    <p class="class-cat-desc">Deep core stabilization and postural alignment sequences to sculpt lean muscle, enhance posture, and build foundational strength.</p>
                 </div>
             </div>
         </div>
@@ -385,7 +380,7 @@
                         </td>
                         <td>
                             <div class="schedule-class">
-                                <div class="schedule-class-name">Prenatal Barre</div>
+                                <div class="schedule-class-name">Barre Core &amp; Align</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
@@ -397,7 +392,7 @@
                         </td>
                         <td>
                             <div class="schedule-class">
-                                <div class="schedule-class-name">Prenatal Barre</div>
+                                <div class="schedule-class-name">Barre Core &amp; Align</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
@@ -409,7 +404,7 @@
                         </td>
                         <td>
                             <div class="schedule-class">
-                                <div class="schedule-class-name">Prenatal Barre</div>
+                                <div class="schedule-class-name">Barre Core &amp; Align</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
@@ -723,16 +718,16 @@
                 </div>
             </div>
 
-            <!-- Prenatal Barre -->
+            <!-- Barre Core & Align -->
             <div class="accordion-item reveal" style="margin-bottom: 16px; border-radius: var(--radius-lg); overflow: hidden;">
                 <button class="accordion-btn" onclick="toggleAccordion(this)" style="padding: 0;">
                     <div class="class-detail-grid" style="width: 100%;">
-                        <img src="assets/images/class-prenatal-detail.jpg" alt="Prenatal Barre" class="class-detail-img">
+                        <img src="assets/images/class-align-detail.jpg" alt="Barre Core & Align" class="class-detail-img">
                         <div class="class-detail-body" style="display: flex; align-items: center; gap: 16px; justify-content: space-between;">
                             <div>
-                                <span class="card-tag">Prenatal</span>
-                                <h4 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600;">Prenatal Barre</h4>
-                                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 4px;">50 min · Low Intensity</p>
+                                <span class="card-tag">Core &amp; Align</span>
+                                <h4 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600;">Barre Core &amp; Align</h4>
+                                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 4px;">50 min · All Levels</p>
                             </div>
                             <svg data-acc-icon xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                         </div>
@@ -740,7 +735,7 @@
                 </button>
                 <div class="accordion-content">
                     <div class="accordion-content-inner" style="padding: 20px 28px 24px;">
-                        <p style="margin-bottom: 14px;">A nurturing class designed for expecting mothers at any stage. Modified barre exercises focus on maintaining strength, improving balance, and easing common pregnancy discomforts — all in a supportive community setting.</p>
+                        <p style="margin-bottom: 14px;">A targeted alignment class designed to lengthen muscle fibers, build deep core stability, and refine graceful posture. Combines isometric holds with mindful breathwork for a balanced, empowering full-body practice.</p>
                         <div class="class-detail-meta">
                             <div class="class-detail-meta-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -748,15 +743,15 @@
                             </div>
                             <div class="class-detail-meta-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                                Low
+                                Moderate
                             </div>
                             <div class="class-detail-meta-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                                Prenatal Only
+                                All Levels
                             </div>
                             <div class="class-detail-meta-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                Doctor's clearance
+                                Grip socks required
                             </div>
                         </div>
                     </div>

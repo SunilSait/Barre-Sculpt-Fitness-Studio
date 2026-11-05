@@ -12,61 +12,358 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#9B8EC1',secondary:'#262626'}}}}</script>
+    <style>
+        .hero-slide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.75s;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .hero-slide .hero-slide-content {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+        }
+        .hero-slide.active .hero-slide-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-dot .dot-bar {
+            width: 1.75rem;
+            transition: width 0.35s ease;
+        }
+        .hero-dot.active .dot-bar {
+            width: 3rem;
+        }
+        .hero-dot .dot-progress {
+            width: 0%;
+        }
+    </style>
 </head>
 <body class="bg-white dark:bg-[#111111] text-[#262626] dark:text-[#EEEAF5]">
 
 <div id="main-nav"></div>
 
-<!-- ═══ HERO ═══ -->
-<section class="hero-section relative min-h-screen flex items-center overflow-hidden" style="margin-top:calc(var(--nav-height)*-1);overflow:hidden;width:100%;max-width:100vw;position:relative;">
-    <div class="absolute inset-0" style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;overflow:hidden;">
-        <img src="assets/images/hero-home1.jpg" alt="Barre class in action" class="w-full h-full object-cover" style="width:100%;height:100%;max-width:100%;object-fit:cover;display:block;">
-        <div class="absolute inset-0" style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(26,26,26,0.82) 0%,rgba(26,26,26,0.5) 50%,rgba(26,26,26,0.3) 100%);"></div>
-    </div>
-    <div class="absolute inset-0 pointer-events-none">
-        <div style="position:absolute;top:-100px;left:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(155,142,193,0.15) 0%,transparent 70%);animation:pulse 7s ease-in-out infinite;"></div>
-        <div style="position:absolute;bottom:-80px;right:5%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(155,142,193,0.08) 0%,transparent 70%);animation:pulse 9s ease-in-out infinite 2s;"></div>
-    </div>
-    <div class="relative z-10 w-full max-w-[1280px] mx-auto px-6 pt-[88px] pb-16 lg:pt-[96px] lg:pb-20">
-        <div class="max-w-2xl">
-            <div class="flex items-center gap-3 mb-8 animate-fade-in-up" style="animation-delay:0.1s;">
-                <div style="width:32px;height:2px;background:#9B8EC1;"></div>
-                <span style="color:#9B8EC1;font-size:0.6875rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;">Boutique Barre Studio · Est. 2018</span>
+<!-- ═══ HERO — 3-SLIDE DUAL-IMAGE SHOWCASE CAROUSEL ═══ -->
+<section id="hero-slider" class="hero-section relative overflow-hidden py-10 sm:py-14 lg:py-18" style="background:var(--bg);" aria-label="Hero Highlights">
+    <!-- Ambient Luxury Background Lighting -->
+    <div class="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[var(--primary)]/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-[var(--primary)]/5 blur-2xl pointer-events-none"></div>
+
+    <div class="container relative z-10">
+        <!-- 3-Slide Track Stacking in Single Grid Area -->
+        <div class="hero-slider-track grid grid-cols-1 grid-rows-1">
+            <!-- ─── SLIDE 1: SIGNATURE SCULPT & PRECISION ─── -->
+            <div class="hero-slide active col-start-1 row-start-1 w-full" data-slide="0">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                    <!-- Left: Typography & CTAs -->
+                    <div class="lg:col-span-6 flex flex-col justify-center hero-slide-content">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-[var(--primary)] text-xs font-semibold mb-6 w-fit">
+                            <span class="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse"></span>
+                            <span class="tracking-widest uppercase text-[11px]">Boutique Barre Studio · Est. 2018 · New York</span>
+                        </div>
+                        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.85rem,5vw,4.5rem);line-height:1.02;letter-spacing:-0.02em;margin-bottom:20px;color:var(--text);">
+                            Sculpt Your<br>
+                            <span style="color:var(--primary);font-style:italic;">Strongest</span> Self
+                        </h1>
+                        <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);max-width:500px;margin-bottom:28px;">
+                            Where ballet-inspired precision meets modern fitness science. Discover low-impact, high-intensity sequences engineered to define long, lean muscles while cultivating deep core stability and mindful body awareness.
+                        </p>
+                        <div class="flex items-center flex-wrap gap-4">
+                            <a href="signup.html" class="btn btn-primary btn-lg" style="box-shadow:0 10px 25px rgba(155,142,193,0.3);">
+                                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                Start Your Journey
+                            </a>
+                            <a href="classes.html" class="btn btn-secondary btn-lg">
+                                View Class Schedule
+                            </a>
+                        </div>
+                        <div class="flex items-center flex-wrap gap-x-5 gap-y-2 text-xs text-[var(--text-muted)] mt-6">
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Complimentary First Class
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                No Long-Term Commitment
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Grip Socks Provided
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Dual-Image Split Showcase -->
+                    <div class="lg:col-span-6 relative">
+                        <div class="absolute -top-4 -right-4 w-36 h-36 border-2 border-[var(--primary)]/30 rounded-3xl -z-10 hidden sm:block"></div>
+                        <div class="absolute -bottom-4 -left-4 w-36 h-36 border-2 border-[var(--primary)]/20 rounded-3xl -z-10 hidden sm:block"></div>
+                        <div class="grid grid-cols-2 gap-3.5 sm:gap-4 items-center">
+                            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--bg-card)] group transform lg:-translate-y-3 transition-transform duration-500 hover:-translate-y-4">
+                                <img src="assets/images/hero-home1.jpg" alt="Barre studio group class session" class="w-full h-full object-cover aspect-[3/4] block transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+                                <div class="absolute top-3 left-3 right-3 bg-black/65 dark:bg-[#111111]/85 backdrop-blur-md rounded-xl p-2.5 border border-white/20 text-white shadow-lg">
+                                    <div class="flex items-center justify-between gap-1 mb-0.5">
+                                        <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                            LIVE NOW
+                                        </span>
+                                        <span class="text-[9px] text-white/70">Tribeca</span>
+                                    </div>
+                                    <div class="font-serif text-xs sm:text-sm font-semibold leading-tight text-white">Barre Sculpt</div>
+                                    <div class="text-[10px] text-white/70 mt-0.5 flex items-center justify-between">
+                                        <span>45 min</span>
+                                        <span class="text-[var(--primary)] font-semibold">3 Spots</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--bg-card)] group transform lg:translate-y-3 transition-transform duration-500 hover:translate-y-2">
+                                <img src="assets/images/hero-home1-split2.jpg" alt="Barre sculpt posture and athletic grace" class="w-full h-full object-cover aspect-[3/4] block transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+                                <div class="absolute bottom-3 left-3 right-3 bg-black/65 dark:bg-[#111111]/85 backdrop-blur-md rounded-xl p-2.5 border border-white/20 text-white shadow-lg flex items-center gap-2.5">
+                                    <div class="w-7 h-7 rounded-full bg-[var(--primary)]/25 border border-[var(--primary)]/40 flex items-center justify-center text-[var(--primary)] flex-shrink-0">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-0.5 text-amber-300 text-[11px] font-bold">
+                                            ★★★★★ <span class="text-white ml-0.5">4.9</span>
+                                        </div>
+                                        <div class="text-[9px] text-white/70 leading-tight">2,000+ Reviews</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1 class="animate-fade-in-up" style="animation-delay:0.2s;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3rem,7vw,5.5rem);line-height:1;color:#fff;margin-bottom:24px;">
-                Sculpt Your<br><span style="color:#9B8EC1;">Strongest</span> Self
-            </h1>
-            <p class="animate-fade-in-up" style="animation-delay:0.35s;color:rgba(255,255,255,0.7);font-size:1.125rem;line-height:1.7;max-width:520px;margin-bottom:40px;">
-                Low-impact, high-intensity barre and sculpt classes that lengthen, tone, and transform your body in our intimate boutique studio.
-            </p>
-            <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay:0.5s;">
-                <a href="signup.html" class="btn btn-primary btn-lg">
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    Start Your Journey
-                </a>
-                <a href="classes.html" class="btn btn-outline-light btn-lg">View Schedule</a>
+
+            <!-- ─── SLIDE 2: ATHLETIC TONE & INTENSITY ─── -->
+            <div class="hero-slide col-start-1 row-start-1 w-full" data-slide="1">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                    <!-- Left: Typography & CTAs -->
+                    <div class="lg:col-span-6 flex flex-col justify-center hero-slide-content">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-[var(--primary)] text-xs font-semibold mb-6 w-fit">
+                            <span class="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse"></span>
+                            <span class="tracking-widest uppercase text-[11px]">High Intensity · Low Impact · Signature Method</span>
+                        </div>
+                        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.85rem,5vw,4.5rem);line-height:1.02;letter-spacing:-0.02em;margin-bottom:20px;color:var(--text);">
+                            Tone with<br>
+                            <span style="color:var(--primary);font-style:italic;">Grace & Power</span>
+                        </h1>
+                        <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);max-width:500px;margin-bottom:28px;">
+                            Dynamic isometric holds and targeted resistance sequences designed to activate every muscle fiber. Elevate your heart rate, lengthen your silhouette, and feel empowered from within.
+                        </p>
+                        <div class="flex items-center flex-wrap gap-4">
+                            <a href="classes.html" class="btn btn-primary btn-lg" style="box-shadow:0 10px 25px rgba(155,142,193,0.3);">
+                                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                Explore Class Schedule
+                            </a>
+                            <a href="instructors.html" class="btn btn-secondary btn-lg">
+                                Meet Our Instructors
+                            </a>
+                        </div>
+                        <div class="flex items-center flex-wrap gap-x-5 gap-y-2 text-xs text-[var(--text-muted)] mt-6">
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                50-Minute Signature Workouts
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                All Fitness Levels Welcome
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Small Group Guidance
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Dual-Image Split Showcase -->
+                    <div class="lg:col-span-6 relative">
+                        <div class="absolute -top-4 -right-4 w-36 h-36 border-2 border-[var(--primary)]/30 rounded-3xl -z-10 hidden sm:block"></div>
+                        <div class="absolute -bottom-4 -left-4 w-36 h-36 border-2 border-[var(--primary)]/20 rounded-3xl -z-10 hidden sm:block"></div>
+                        <div class="grid grid-cols-2 gap-3.5 sm:gap-4 items-center">
+                            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--bg-card)] group transform lg:-translate-y-3 transition-transform duration-500 hover:-translate-y-4">
+                                <img src="assets/images/hero-home1-slide2-img1.jpg" alt="Athletic barre sculpt workout with resistance" class="w-full h-full object-cover aspect-[3/4] block transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+                                <div class="absolute top-3 left-3 right-3 bg-black/65 dark:bg-[#111111]/85 backdrop-blur-md rounded-xl p-2.5 border border-white/20 text-white shadow-lg">
+                                    <div class="flex items-center justify-between gap-1 mb-0.5">
+                                        <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-semibold bg-[var(--primary)]/25 text-[var(--primary-light)] border border-[var(--primary)]/30">
+                                            SIGNATURE
+                                        </span>
+                                        <span class="text-[9px] text-white/70">Sculpt & Tone</span>
+                                    </div>
+                                    <div class="font-serif text-xs sm:text-sm font-semibold leading-tight text-white">Core & Isometric Hold</div>
+                                    <div class="text-[10px] text-white/70 mt-0.5 flex items-center justify-between">
+                                        <span>45 min</span>
+                                        <span class="text-amber-300 font-semibold">High Burn</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--bg-card)] group transform lg:translate-y-3 transition-transform duration-500 hover:translate-y-2">
+                                <img src="assets/images/hero-home1-slide2-img2.jpg" alt="Barre instructor hands-on alignment guidance" class="w-full h-full object-cover aspect-[3/4] block transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+                                <div class="absolute bottom-3 left-3 right-3 bg-black/65 dark:bg-[#111111]/85 backdrop-blur-md rounded-xl p-2.5 border border-white/20 text-white shadow-lg flex items-center gap-2.5">
+                                    <div class="w-7 h-7 rounded-full bg-[var(--primary)]/25 border border-[var(--primary)]/40 flex items-center justify-center text-[var(--primary)] flex-shrink-0">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-white text-[11px] font-bold">12 Max Per Class</div>
+                                        <div class="text-[9px] text-white/70 leading-tight">Personalized Form Feedback</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── SLIDE 3: RESTORE & MINDFUL BALANCE ─── -->
+            <div class="hero-slide col-start-1 row-start-1 w-full" data-slide="2">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                    <!-- Left: Typography & CTAs -->
+                    <div class="lg:col-span-6 flex flex-col justify-center hero-slide-content">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-[var(--primary)] text-xs font-semibold mb-6 w-fit">
+                            <span class="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse"></span>
+                            <span class="tracking-widest uppercase text-[11px]">Sanctuary of Wellness · Tribeca & SoHo</span>
+                        </div>
+                        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.85rem,5vw,4.5rem);line-height:1.02;letter-spacing:-0.02em;margin-bottom:20px;color:var(--text);">
+                            Restore Your<br>
+                            <span style="color:var(--primary);font-style:italic;">Natural Balance</span>
+                        </h1>
+                        <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);max-width:500px;margin-bottom:28px;">
+                            An intimate boutique sanctuary crafted to elevate your daily routine. Connect breath with movement, decompress your spine, and leave each session feeling lengthened, centered, and renewed.
+                        </p>
+                        <div class="flex items-center flex-wrap gap-4">
+                            <a href="signup.html" class="btn btn-primary btn-lg" style="box-shadow:0 10px 25px rgba(155,142,193,0.3);">
+                                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                Book Complimentary Class
+                            </a>
+                            <a href="pricing.html" class="btn btn-secondary btn-lg">
+                                Explore Memberships
+                            </a>
+                        </div>
+                        <div class="flex items-center flex-wrap gap-x-5 gap-y-2 text-xs text-[var(--text-muted)] mt-6">
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Infrared Heated Studio Option
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Luxury Locker Rooms
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[var(--primary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Herbal Tea Lounge
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Dual-Image Split Showcase -->
+                    <div class="lg:col-span-6 relative">
+                        <div class="absolute -top-4 -right-4 w-36 h-36 border-2 border-[var(--primary)]/30 rounded-3xl -z-10 hidden sm:block"></div>
+                        <div class="absolute -bottom-4 -left-4 w-36 h-36 border-2 border-[var(--primary)]/20 rounded-3xl -z-10 hidden sm:block"></div>
+                        <div class="grid grid-cols-2 gap-3.5 sm:gap-4 items-center">
+                            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--bg-card)] group transform lg:-translate-y-3 transition-transform duration-500 hover:-translate-y-4">
+                                <img src="assets/images/hero-home1-slide3-img1.jpg" alt="Restorative barre stretch and spine lengthening" class="w-full h-full object-cover aspect-[3/4] block transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+                                <div class="absolute top-3 left-3 right-3 bg-black/65 dark:bg-[#111111]/85 backdrop-blur-md rounded-xl p-2.5 border border-white/20 text-white shadow-lg">
+                                    <div class="flex items-center justify-between gap-1 mb-0.5">
+                                        <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-semibold bg-[var(--primary)]/25 text-[var(--primary-light)] border border-[var(--primary)]/30">
+                                            RESTORE
+                                        </span>
+                                        <span class="text-[9px] text-white/70">Stretch & Flow</span>
+                                    </div>
+                                    <div class="font-serif text-xs sm:text-sm font-semibold leading-tight text-white">Mindful Lengthening</div>
+                                    <div class="text-[10px] text-white/70 mt-0.5 flex items-center justify-between">
+                                        <span>50 min</span>
+                                        <span class="text-emerald-400 font-semibold">Gentle</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] bg-[var(--bg-card)] group transform lg:translate-y-3 transition-transform duration-500 hover:translate-y-2">
+                                <img src="assets/images/hero-home1-slide3-img2.jpg" alt="Sun-drenched luxury boutique barre studio interior" class="w-full h-full object-cover aspect-[3/4] block transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+                                <div class="absolute bottom-3 left-3 right-3 bg-black/65 dark:bg-[#111111]/85 backdrop-blur-md rounded-xl p-2.5 border border-white/20 text-white shadow-lg flex items-center gap-2.5">
+                                    <div class="w-7 h-7 rounded-full bg-[var(--primary)]/25 border border-[var(--primary)]/40 flex items-center justify-center text-[var(--primary)] flex-shrink-0">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-white text-[11px] font-bold">Boutique Sanctuary</div>
+                                        <div class="text-[9px] text-white/70 leading-tight">Heated & Non-Heated Studios</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 animate-fade-in-up" style="animation-delay:0.65s;">
-            <div class="text-center">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:#9B8EC1;line-height:1;" data-count="5000" data-suffix="+">0</div>
-                <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Classes Taught</div>
-            </div>
-            <div class="text-center">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:#9B8EC1;line-height:1;" data-count="200" data-suffix="+">0</div>
-                <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Active Members</div>
-            </div>
-            <div class="text-center">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:#9B8EC1;line-height:1;" data-count="12">0</div>
-                <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Expert Instructors</div>
-            </div>
-            <div class="text-center">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:#9B8EC1;line-height:1;" data-count="98" data-suffix="%">0</div>
-                <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Satisfaction Rate</div>
+
+        <!-- ─── PERSISTENT FOOTER: 4-STAT STRIP & SLIDER CONTROLS ─── -->
+        <div class="mt-8 pt-6 border-t border-[var(--border)]">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <!-- 4 Animated Stats -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 flex-1">
+                    <div>
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--primary);line-height:1;" data-count="5000" data-suffix="+">0</div>
+                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Classes Taught</div>
+                    </div>
+                    <div>
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--primary);line-height:1;" data-count="200" data-suffix="+">0</div>
+                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Active Members</div>
+                    </div>
+                    <div>
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--primary);line-height:1;" data-count="12">0</div>
+                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Expert Coaches</div>
+                    </div>
+                    <div>
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--primary);line-height:1;" data-count="98" data-suffix="%">0</div>
+                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Satisfaction Rate</div>
+                    </div>
+                </div>
+
+                <!-- Slider Pagination Indicators & Controls -->
+                <div class="flex items-center justify-between sm:justify-end gap-3 lg:border-l lg:border-[var(--border)] lg:pl-8">
+                    <!-- Progress Indicators -->
+                    <div class="flex items-center gap-2" role="tablist" aria-label="Hero slider pagination">
+                        <button onclick="goToHeroSlide(0)" class="hero-dot active group flex items-center py-1 cursor-pointer focus:outline-none" aria-label="Slide 1">
+                            <span class="dot-bar block h-[3px] rounded-full bg-black/20 dark:bg-white/30 group-hover:bg-white/60 transition-all duration-300 relative overflow-hidden">
+                                <span class="dot-progress absolute inset-0 bg-[var(--primary)] rounded-full"></span>
+                            </span>
+                        </button>
+                        <button onclick="goToHeroSlide(1)" class="hero-dot group flex items-center py-1 cursor-pointer focus:outline-none" aria-label="Slide 2">
+                            <span class="dot-bar block h-[3px] rounded-full bg-black/20 dark:bg-white/30 group-hover:bg-white/60 transition-all duration-300 relative overflow-hidden">
+                                <span class="dot-progress absolute inset-0 bg-[var(--primary)] rounded-full"></span>
+                            </span>
+                        </button>
+                        <button onclick="goToHeroSlide(2)" class="hero-dot group flex items-center py-1 cursor-pointer focus:outline-none" aria-label="Slide 3">
+                            <span class="dot-bar block h-[3px] rounded-full bg-black/20 dark:bg-white/30 group-hover:bg-white/60 transition-all duration-300 relative overflow-hidden">
+                                <span class="dot-progress absolute inset-0 bg-[var(--primary)] rounded-full"></span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <span id="hero-slide-num" class="font-mono font-medium tracking-widest text-[var(--text-muted)] text-[11px] ml-1">01 / 03</span>
+
+                    <!-- Arrows -->
+                    <div class="flex items-center gap-1 ml-1">
+                        <button onclick="prevHeroSlide()" class="w-7 h-7 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text)] hover:bg-[var(--primary)] hover:text-white hover:border-transparent transition-all duration-200 cursor-pointer" aria-label="Previous Slide">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button onclick="nextHeroSlide()" class="w-7 h-7 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text)] hover:bg-[var(--primary)] hover:text-white hover:border-transparent transition-all duration-200 cursor-pointer" aria-label="Next Slide">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-24" style="background:linear-gradient(to top,var(--bg),transparent);"></div>
 </section>
 
 <!-- ═══ CLASS STYLES ═══ -->
@@ -119,11 +416,11 @@
                 </div>
             </div>
             <div class="card stagger-item">
-                <img src="assets/images/class-prenatal.jpg" alt="Prenatal Barre" class="card-img">
+                <img src="assets/images/class-align.jpg" alt="Barre Core & Align" class="card-img">
                 <div class="card-body">
-                    <span class="card-tag">45 min</span>
-                    <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;margin-bottom:10px;">Prenatal Barre</h4>
-                    <p style="font-size:0.95rem;line-height:1.65;">Safe, gentle barre modified for expecting mothers. Strengthen pelvic floor, maintain fitness, and connect with your body.</p>
+                    <span class="card-tag">50 min</span>
+                    <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;margin-bottom:10px;">Barre Core &amp; Align</h4>
+                    <p style="font-size:0.95rem;line-height:1.65;">Deep core stabilization and postural alignment sequences to sculpt lean muscle, enhance posture, and build foundational strength.</p>
                 </div>
             </div>
         </div>
@@ -354,9 +651,9 @@
                         <span class="testimonial-rating-stars">★★★★★</span>
                         <span>5.0</span>
                     </span>
-                    <span class="testimonial-member-tag">✦ Prenatal Barre</span>
+                    <span class="testimonial-member-tag">✦ Barre Core &amp; Align</span>
                 </div>
-                <p class="testimonial-text">"The prenatal classes were a true lifesaver during my pregnancy. The instructors are deeply knowledgeable and made me feel safe, energized, and deeply supported every week."</p>
+                <p class="testimonial-text">"The Core &amp; Align classes completely transformed my posture and daily energy. The instructors' attention to form made every movement feel purposeful, graceful, and deeply empowering."</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar-wrap">
                         <img src="assets/images/testimonial-2.jpg" alt="Priya Sharma" class="testimonial-avatar">
@@ -454,11 +751,11 @@
             </div>
             <div class="accordion-item">
                 <button class="accordion-btn" onclick="toggleAccordion(this)">
-                    Is barre safe during pregnancy?
+                    What should I expect in a Barre Core &amp; Align class?
                     <svg data-acc-icon width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition:transform 0.3s;"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="accordion-content-inner">We offer dedicated Prenatal Barre classes specifically designed for expecting mothers. These classes are modified for safety and comfort, focusing on pelvic floor strength and gentle movement. Always consult your healthcare provider before starting any exercise program during pregnancy.</div>
+                    <div class="accordion-content-inner">Barre Core &amp; Align focuses on deep core engagement, spine lengthening, and postural correction using low-impact isometric holds. It is designed for all fitness levels, offering gentle progressions to tone your core while cultivating effortless posture and body awareness.</div>
                 </div>
             </div>
         </div>
@@ -570,6 +867,113 @@
 </button>
 
 <script src="components.js"></script>
+<script>
+/* ─── HERO DUAL-IMAGE 3-SLIDE 5-SECOND CAROUSEL ─── */
+(function() {
+    let currentHeroSlide = 0;
+    const heroSlides = document.querySelectorAll('#hero-slider .hero-slide');
+    const heroDots = document.querySelectorAll('#hero-slider .hero-dot');
+    const heroCounter = document.getElementById('hero-slide-num');
+    const totalHeroSlides = heroSlides.length;
+    const SLIDE_DURATION = 5000; // 5 seconds
+    let heroTimer = null;
+
+    if (!totalHeroSlides) return;
+
+    function renderSlide(index) {
+        currentHeroSlide = (index + totalHeroSlides) % totalHeroSlides;
+
+        heroSlides.forEach((slide, i) => {
+            if (i === currentHeroSlide) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+
+        heroDots.forEach((dot, i) => {
+            const prog = dot.querySelector('.dot-progress');
+            if (prog) {
+                prog.style.transition = 'none';
+                prog.style.width = '0%';
+            }
+            if (i === currentHeroSlide) {
+                dot.classList.add('active');
+                dot.setAttribute('aria-current', 'true');
+                if (prog) {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            prog.style.transition = 'width 5s linear';
+                            prog.style.width = '100%';
+                        });
+                    });
+                }
+            } else {
+                dot.classList.remove('active');
+                dot.removeAttribute('aria-current');
+            }
+        });
+
+        if (heroCounter) {
+            heroCounter.textContent = '0' + (currentHeroSlide + 1) + ' / 0' + totalHeroSlides;
+        }
+    }
+
+    function startAutoCycle() {
+        stopAutoCycle();
+        heroTimer = setInterval(() => {
+            renderSlide(currentHeroSlide + 1);
+        }, SLIDE_DURATION);
+    }
+
+    function stopAutoCycle() {
+        if (heroTimer) {
+            clearInterval(heroTimer);
+            heroTimer = null;
+        }
+    }
+
+    window.goToHeroSlide = function(index) {
+        renderSlide(index);
+        startAutoCycle();
+    };
+
+    window.nextHeroSlide = function() {
+        renderSlide(currentHeroSlide + 1);
+        startAutoCycle();
+    };
+
+    window.prevHeroSlide = function() {
+        renderSlide(currentHeroSlide - 1);
+        startAutoCycle();
+    };
+
+    const sliderRoot = document.getElementById('hero-slider');
+    if (sliderRoot) {
+        sliderRoot.addEventListener('mouseenter', () => {
+            stopAutoCycle();
+            const activeProg = document.querySelector('#hero-slider .hero-dot.active .dot-progress');
+            if (activeProg) {
+                const w = window.getComputedStyle(activeProg).width;
+                activeProg.style.transition = 'none';
+                activeProg.style.width = w;
+            }
+        });
+        sliderRoot.addEventListener('mouseleave', () => {
+            startAutoCycle();
+            const activeProg = document.querySelector('#hero-slider .hero-dot.active .dot-progress');
+            if (activeProg) {
+                activeProg.style.transition = 'width 5s linear';
+                activeProg.style.width = '100%';
+            }
+        });
+    }
+
+    // Initialize first slide and 5s timer
+    renderSlide(0);
+    startAutoCycle();
+})();
+</script>
 </body>
 </html>
 
