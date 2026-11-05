@@ -12,46 +12,186 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#9B8EC1',secondary:'#262626'}}}}</script>
+    <style>
+        .hero-slide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+            z-index: 1;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            z-index: 10;
+        }
+        .hero-slide .hero-slide-content {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+        }
+        .hero-slide.active .hero-slide-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-dot .dot-bar {
+            width: 2rem;
+            transition: width 0.35s ease;
+        }
+        .hero-dot.active .dot-bar {
+            width: 3.25rem;
+        }
+        .hero-dot .dot-progress {
+            width: 0%;
+        }
+        @media (max-height: 680px) {
+            #hero-slider {
+                min-height: 620px !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-white dark:bg-[#111111] text-[#262626] dark:text-[#EEEAF5]">
 <div id="main-nav"></div>
 
-<!-- ═══ HERO — SPLIT SCREEN EDITORIAL ═══ -->
-<section class="relative min-h-screen overflow-hidden" style="margin-top:calc(var(--nav-height)*-1);">
-    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-        <!-- Left: Typography -->
-        <div class="flex flex-col justify-center px-8 sm:px-12 lg:px-20 py-32 lg:py-20 relative z-10 bg-[var(--bg)]">
-            <div class="max-w-lg">
-                <div class="flex items-center gap-3 mb-6 animate-fade-in-up" style="animation-delay:0.1s;">
-                    <div style="width:40px;height:1px;background:var(--primary);"></div>
-                    <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);">Est. 2018 · New York</span>
+<!-- ═══ HERO — SPLIT SCREEN EDITORIAL SLIDER ═══ -->
+<section id="hero-slider" class="relative overflow-hidden" style="margin-top:calc(var(--nav-height)*-1);height:100vh;min-height:600px;" aria-label="Hero Highlights">
+    <!-- Slide 1 -->
+    <div class="hero-slide active absolute inset-0 w-full h-full" data-slide="0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full">
+            <!-- Left: Typography -->
+            <div class="flex flex-col justify-center px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+1.75rem)] pb-24 h-full relative z-10 bg-[var(--bg)]">
+                <div class="max-w-lg hero-slide-content my-auto">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div style="width:40px;height:1px;background:var(--primary);"></div>
+                        <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);">Est. 2018 · New York</span>
+                    </div>
+                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3.25rem,6.5vw,5.25rem);line-height:0.95;margin-bottom:20px;letter-spacing:-0.02em;">
+                        The Art<br>of <span style="color:var(--primary);font-style:italic;">Movement</span>
+                    </h1>
+                    <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);margin-bottom:28px;max-width:440px;">
+                        Where ballet-inspired precision meets modern fitness science. Discover a movement practice that sculpts, strengthens, and transforms — body and mind.
+                    </p>
+                    <div class="flex items-center flex-wrap gap-3 sm:gap-4">
+                        <a href="signup.html" class="btn btn-primary" style="padding:14px 28px;font-size:0.875rem;">Begin Your Practice</a>
+                        <a href="classes.html" class="btn btn-secondary" style="padding:14px 26px;font-size:0.875rem;">Explore Classes</a>
+                    </div>
                 </div>
-                <h1 class="animate-fade-in-up" style="animation-delay:0.25s;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3.5rem,8vw,6rem);line-height:0.95;margin-bottom:28px;letter-spacing:-0.02em;">
-                    The Art<br>of <span style="color:var(--primary);font-style:italic;">Movement</span>
-                </h1>
-                <p class="animate-fade-in-up" style="animation-delay:0.4s;font-size:1.0625rem;line-height:1.8;color:var(--text-muted);margin-bottom:36px;max-width:420px;">
-                    Where ballet-inspired precision meets modern fitness science. Discover a movement practice that sculpts, strengthens, and transforms — body and mind.
-                </p>
-                <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay:0.55s;">
-                    <a href="signup.html" class="btn btn-primary btn-lg">Begin Your Practice</a>
-                    <a href="classes.html" class="btn btn-secondary btn-lg">Explore Classes</a>
-                </div>
-                <div class="flex items-center gap-8 mt-14 animate-fade-in-up" style="animation-delay:0.7s;">
-                    <div><span style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--text);">200+</span><span style="display:block;font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Members</span></div>
-                    <div style="width:1px;height:36px;background:var(--border);"></div>
-                    <div><span style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--text);">12</span><span style="display:block;font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Instructors</span></div>
-                    <div style="width:1px;height:36px;background:var(--border);"></div>
-                    <div><span style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--text);">6</span><span style="display:block;font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Class Styles</span></div>
+            </div>
+            <!-- Right: Image -->
+            <div class="relative hidden lg:block overflow-hidden h-full" style="margin-right: 50px;">
+                <img src="assets/images/hero-home2.jpg" alt="Barre fitness pose" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
+                <div class="absolute bottom-12 right-12 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20" style="max-width:220px;">
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1;">98%</div>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:2px;">Member Satisfaction</div>
                 </div>
             </div>
         </div>
-        <!-- Right: Image -->
-        <div class="relative hidden lg:block">
-            <img src="assets/images/hero-home2.jpg" alt="Barre fitness pose" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
-            <div class="absolute bottom-10 right-10 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20" style="max-width:220px;">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1;">98%</div>
-                <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:2px;">Member Satisfaction</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide absolute inset-0 w-full h-full" data-slide="1">
+        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full">
+            <!-- Left: Typography -->
+            <div class="flex flex-col justify-center px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+1.75rem)] pb-24 h-full relative z-10 bg-[var(--bg)]">
+                <div class="max-w-lg hero-slide-content my-auto">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div style="width:40px;height:1px;background:var(--primary);"></div>
+                        <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);">Signature Method · Sculpt & Tone</span>
+                    </div>
+                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3.25rem,6.5vw,5.25rem);line-height:0.95;margin-bottom:20px;letter-spacing:-0.02em;">
+                        Sculpt with<br><span style="color:var(--primary);font-style:italic;">Intention</span>
+                    </h1>
+                    <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);margin-bottom:28px;max-width:440px;">
+                        Low-impact, high-intensity sequences engineered to define long, lean muscles while cultivating deep core stability and mindful body awareness.
+                    </p>
+                    <div class="flex items-center flex-wrap gap-3 sm:gap-4">
+                        <a href="classes.html" class="btn btn-primary" style="padding:14px 28px;font-size:0.875rem;">View Class Schedule</a>
+                        <a href="instructors.html" class="btn btn-secondary" style="padding:14px 26px;font-size:0.875rem;">Meet Instructors</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Right: Image -->
+            <div class="relative hidden lg:block overflow-hidden h-full" style="margin-right: 50px;">
+                <img src="assets/images/hero-home2-slide2.jpg" alt="Barre sculpt core workout" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
+                <div class="absolute bottom-12 right-12 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20" style="max-width:220px;">
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1;">50+</div>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:2px;">Weekly Sessions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide absolute inset-0 w-full h-full" data-slide="2">
+        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full">
+            <!-- Left: Typography -->
+            <div class="flex flex-col justify-center px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+1.75rem)] pb-24 h-full relative z-10 bg-[var(--bg)]">
+                <div class="max-w-lg hero-slide-content my-auto">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div style="width:40px;height:1px;background:var(--primary);"></div>
+                        <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);">Mindful Wellness · Restore & Lengthen</span>
+                    </div>
+                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3.25rem,6.5vw,5.25rem);line-height:0.95;margin-bottom:20px;letter-spacing:-0.02em;">
+                        Grace in<br><span style="color:var(--primary);font-style:italic;">Every Breath</span>
+                    </h1>
+                    <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);margin-bottom:28px;max-width:440px;">
+                        An intimate boutique sanctuary designed to elevate your routine. Reconnect with your breath, lengthen your posture, and leave feeling empowered and centered.
+                    </p>
+                    <div class="flex items-center flex-wrap gap-3 sm:gap-4">
+                        <a href="signup.html" class="btn btn-primary" style="padding:14px 28px;font-size:0.875rem;">Start Free Trial</a>
+                        <a href="pricing.html" class="btn btn-secondary" style="padding:14px 26px;font-size:0.875rem;">Explore Membership</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Right: Image -->
+            <div class="relative hidden lg:block overflow-hidden h-full" style="margin-right: 50px;">
+                <img src="assets/images/hero-home2-slide3.jpg" alt="Gentle barre stretch and lengthening" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
+                <div class="absolute bottom-12 right-12 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20" style="max-width:220px;">
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1;">Free</div>
+                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:2px;">First Class Trial</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls & Progress Dots Dock -->
+    <div class="absolute bottom-6 sm:bottom-8 left-6 sm:left-10 lg:left-14 xl:left-18 z-20 flex items-center gap-4 bg-[var(--bg)]/90 backdrop-blur-md px-4 py-2 rounded-full border border-[var(--border)] shadow-md">
+        <!-- Progress Indicators -->
+        <div class="flex items-center gap-2" role="tablist" aria-label="Slider Pagination">
+            <button onclick="goToHeroSlide(0)" class="hero-dot active group flex items-center py-1 cursor-pointer focus:outline-none" aria-label="Slide 1">
+                <span class="dot-bar block h-[3px] rounded-full bg-black/20 dark:bg-white/30 group-hover:bg-white/60 transition-all duration-300 relative overflow-hidden">
+                    <span class="dot-progress absolute inset-0 bg-[var(--primary)] rounded-full"></span>
+                </span>
+            </button>
+            <button onclick="goToHeroSlide(1)" class="hero-dot group flex items-center py-1 cursor-pointer focus:outline-none" aria-label="Slide 2">
+                <span class="dot-bar block h-[3px] rounded-full bg-black/20 dark:bg-white/30 group-hover:bg-white/60 transition-all duration-300 relative overflow-hidden">
+                    <span class="dot-progress absolute inset-0 bg-[var(--primary)] rounded-full"></span>
+                </span>
+            </button>
+            <button onclick="goToHeroSlide(2)" class="hero-dot group flex items-center py-1 cursor-pointer focus:outline-none" aria-label="Slide 3">
+                <span class="dot-bar block h-[3px] rounded-full bg-black/20 dark:bg-white/30 group-hover:bg-white/60 transition-all duration-300 relative overflow-hidden">
+                    <span class="dot-progress absolute inset-0 bg-[var(--primary)] rounded-full"></span>
+                </span>
+            </button>
+        </div>
+
+        <div class="w-px h-3.5 bg-[var(--border)]"></div>
+
+        <!-- Slide Counter & Next/Prev Arrows -->
+        <div class="flex items-center gap-2 text-xs text-[var(--text-muted)]">
+            <span id="hero-slide-num" class="font-mono font-medium tracking-widest text-[var(--text)] text-[11px]">01 / 03</span>
+            <div class="flex items-center gap-1 ml-1">
+                <button onclick="prevHeroSlide()" class="w-7 h-7 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text)] hover:bg-[var(--primary)] hover:text-white hover:border-transparent transition-all duration-200 cursor-pointer" aria-label="Previous Slide">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button onclick="nextHeroSlide()" class="w-7 h-7 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text)] hover:bg-[var(--primary)] hover:text-white hover:border-transparent transition-all duration-200 cursor-pointer" aria-label="Next Slide">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+                </button>
             </div>
         </div>
     </div>
@@ -399,6 +539,111 @@
 <div id="main-footer"></div>
 <button id="back-to-top" class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
 <script src="components.js"></script>
+<script>
+/* ─── HERO SPLIT-SCREEN 5-SECOND SLIDER ─── */
+(function() {
+    let currentHeroSlide = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-dot');
+    const heroCounter = document.getElementById('hero-slide-num');
+    const totalHeroSlides = heroSlides.length;
+    const SLIDE_DURATION = 5000; // 5 seconds
+    let heroTimer = null;
+
+    function renderSlide(index) {
+        currentHeroSlide = (index + totalHeroSlides) % totalHeroSlides;
+
+        heroSlides.forEach((slide, i) => {
+            if (i === currentHeroSlide) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+
+        heroDots.forEach((dot, i) => {
+            const prog = dot.querySelector('.dot-progress');
+            if (prog) {
+                prog.style.transition = 'none';
+                prog.style.width = '0%';
+            }
+            if (i === currentHeroSlide) {
+                dot.classList.add('active');
+                dot.setAttribute('aria-current', 'true');
+                if (prog) {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            prog.style.transition = 'width 5s linear';
+                            prog.style.width = '100%';
+                        });
+                    });
+                }
+            } else {
+                dot.classList.remove('active');
+                dot.removeAttribute('aria-current');
+            }
+        });
+
+        if (heroCounter) {
+            heroCounter.textContent = '0' + (currentHeroSlide + 1) + ' / 0' + totalHeroSlides;
+        }
+    }
+
+    function startAutoCycle() {
+        stopAutoCycle();
+        heroTimer = setInterval(() => {
+            renderSlide(currentHeroSlide + 1);
+        }, SLIDE_DURATION);
+    }
+
+    function stopAutoCycle() {
+        if (heroTimer) {
+            clearInterval(heroTimer);
+            heroTimer = null;
+        }
+    }
+
+    window.goToHeroSlide = function(index) {
+        renderSlide(index);
+        startAutoCycle();
+    };
+
+    window.nextHeroSlide = function() {
+        renderSlide(currentHeroSlide + 1);
+        startAutoCycle();
+    };
+
+    window.prevHeroSlide = function() {
+        renderSlide(currentHeroSlide - 1);
+        startAutoCycle();
+    };
+
+    const sliderRoot = document.getElementById('hero-slider');
+    if (sliderRoot) {
+        sliderRoot.addEventListener('mouseenter', () => {
+            stopAutoCycle();
+            const activeProg = document.querySelector('.hero-dot.active .dot-progress');
+            if (activeProg) {
+                const w = window.getComputedStyle(activeProg).width;
+                activeProg.style.transition = 'none';
+                activeProg.style.width = w;
+            }
+        });
+        sliderRoot.addEventListener('mouseleave', () => {
+            startAutoCycle();
+            const activeProg = document.querySelector('.hero-dot.active .dot-progress');
+            if (activeProg) {
+                activeProg.style.transition = 'width 5s linear';
+                activeProg.style.width = '100%';
+            }
+        });
+    }
+
+    // Initialize first slide and 5s timer
+    renderSlide(0);
+    startAutoCycle();
+})();
+</script>
 </body>
 </html>
 
