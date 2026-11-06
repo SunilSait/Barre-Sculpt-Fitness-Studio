@@ -50,9 +50,14 @@
         }
         .class-cat-img {
             width: 100%;
-            height: 220px;
+            height: 250px;
             object-fit: cover;
             transition: transform 0.6s ease;
+        }
+        @media (max-width: 1024px) {
+            .class-cat-img {
+                height: 285px;
+            }
         }
         .class-cat-card:hover .class-cat-img {
             transform: scale(1.05);
@@ -71,6 +76,7 @@
             font-size: 0.8125rem;
             color: var(--text-muted);
             line-height: 1.6;
+            min-height: calc(0.8125rem * 1.6 * 3);
         }
 
         /* ─── WHAT TO EXPECT ICON BOXES ─── */
@@ -101,6 +107,122 @@
         }
         .expect-card:hover {
             box-shadow: 0 12px 40px var(--shadow-md);
+        }
+        .expect-card p {
+            min-height: calc(0.8125rem * 1.6 * 3);
+        }
+
+        /* ─── SCHEDULE TABLE RESPONSIVE LAYOUT & SIDESCROLL REMOVAL ─── */
+        @media (min-width: 640px) and (max-width: 1024px) {
+            .schedule-table-container {
+                overflow-x: hidden;
+            }
+            .schedule-table {
+                min-width: 0 !important;
+                width: 100% !important;
+                table-layout: fixed !important;
+            }
+            .schedule-table th {
+                padding: 10px 2px !important;
+                font-size: 0.6875rem !important;
+                letter-spacing: 0.02em !important;
+            }
+            .schedule-table th.time-col {
+                width: 76px !important;
+                padding-left: 6px !important;
+                text-align: left !important;
+            }
+            .schedule-table td {
+                padding: 6px 2px !important;
+                vertical-align: middle !important;
+            }
+            .schedule-table td.time-col {
+                width: 76px !important;
+                padding-left: 6px !important;
+                text-align: left !important;
+                white-space: normal !important;
+            }
+            .schedule-class {
+                padding: 5px 3px !important;
+                margin-bottom: 2px !important;
+                border-left-width: 2px !important;
+                border-radius: 4px !important;
+            }
+            .schedule-class-name {
+                font-size: 0.6875rem !important;
+                line-height: 1.18 !important;
+                word-break: break-word;
+            }
+            .schedule-class-time {
+                font-size: 0.5625rem !important;
+                margin-top: 1px !important;
+                opacity: 0.85;
+            }
+        }
+
+        /* Mobile Day Selector (< 640px) */
+        .schedule-day-pill {
+            padding: 7px 14px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .schedule-day-pill.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(155, 142, 193, 0.3);
+        }
+        @media (max-width: 639px) {
+            .schedule-table-container {
+                overflow-x: hidden;
+            }
+            .schedule-table {
+                min-width: 0 !important;
+                width: 100% !important;
+                table-layout: fixed !important;
+            }
+            .schedule-table th.time-col,
+            .schedule-table td.time-col {
+                width: 34% !important;
+                padding: 10px 8px !important;
+                text-align: left !important;
+                white-space: normal !important;
+            }
+            .schedule-table th.day-col,
+            .schedule-table td.day-col {
+                width: 66% !important;
+                padding: 10px 8px !important;
+            }
+            .schedule-table-container.day-mon th.day-col:not(.col-mon),
+            .schedule-table-container.day-mon td.day-col:not(.col-mon) { display: none; }
+            .schedule-table-container.day-tue th.day-col:not(.col-tue),
+            .schedule-table-container.day-tue td.day-col:not(.col-tue) { display: none; }
+            .schedule-table-container.day-wed th.day-col:not(.col-wed),
+            .schedule-table-container.day-wed td.day-col:not(.col-wed) { display: none; }
+            .schedule-table-container.day-thu th.day-col:not(.col-thu),
+            .schedule-table-container.day-thu td.day-col:not(.col-thu) { display: none; }
+            .schedule-table-container.day-fri th.day-col:not(.col-fri),
+            .schedule-table-container.day-fri td.day-col:not(.col-fri) { display: none; }
+            .schedule-table-container.day-sat th.day-col:not(.col-sat),
+            .schedule-table-container.day-sat td.day-col:not(.col-sat) { display: none; }
+            .schedule-table-container.day-sun th.day-col:not(.col-sun),
+            .schedule-table-container.day-sun td.day-col:not(.col-sun) { display: none; }
+            .schedule-class {
+                padding: 10px 12px !important;
+                margin-bottom: 6px !important;
+            }
+            .schedule-class-name {
+                font-size: 0.875rem !important;
+            }
+            .schedule-class-time {
+                font-size: 0.75rem !important;
+            }
         }
 
         /* ─── CLASS DETAIL ACCORDION ─── */
@@ -142,7 +264,7 @@
                 grid-template-columns: 1fr;
             }
             .class-detail-img {
-                height: 200px;
+                height: 280px;
             }
         }
     </style>
@@ -183,7 +305,7 @@
                 </div>
                 <div class="class-cat-body">
                     <h4 class="class-cat-name">Barre Essentials</h4>
-                    <p class="class-cat-desc">Our signature class combining ballet-inspired movements with isometric holds to sculpt long, lean muscles.</p>
+                    <p class="class-cat-desc">Our signature class combining ballet-inspired movements with isometric holds and targeted pulses to sculpt long, lean muscles.</p>
                 </div>
             </div>
 
@@ -194,7 +316,7 @@
                 </div>
                 <div class="class-cat-body">
                     <h4 class="class-cat-name">Sculpt &amp; Tone</h4>
-                    <p class="class-cat-desc">A full-body strengthening class using light weights, resistance bands, and bodyweight exercises for total toning.</p>
+                    <p class="class-cat-desc">A full-body strengthening class using light weights, resistance bands, and bodyweight exercises for total-body muscle definition.</p>
                 </div>
             </div>
 
@@ -205,7 +327,7 @@
                 </div>
                 <div class="class-cat-body">
                     <h4 class="class-cat-name">Pilates Reformer</h4>
-                    <p class="class-cat-desc">Reformer-based Pilates focusing on core strength, flexibility, and alignment with spring-loaded resistance.</p>
+                    <p class="class-cat-desc">Dynamic reformer sessions focusing on core strength, postural flexibility, and spinal alignment with spring-loaded resistance control.</p>
                 </div>
             </div>
 
@@ -216,7 +338,7 @@
                 </div>
                 <div class="class-cat-body">
                     <h4 class="class-cat-name">Stretch &amp; Restore</h4>
-                    <p class="class-cat-desc">A gentle, restorative class combining deep stretching with breathwork to improve mobility and reduce stress.</p>
+                    <p class="class-cat-desc">A gentle, restorative class combining deep stretching, fascial release, and breathwork to improve mobility and reduce daily stress.</p>
                 </div>
             </div>
 
@@ -227,7 +349,7 @@
                 </div>
                 <div class="class-cat-body">
                     <h4 class="class-cat-name">HIIT Barre</h4>
-                    <p class="class-cat-desc">High-intensity intervals combined with barre fundamentals for maximum calorie burn and cardio conditioning.</p>
+                    <p class="class-cat-desc">High-intensity intervals combined with barre fundamentals for maximum calorie burn, stamina, and full-body cardio conditioning.</p>
                 </div>
             </div>
 
@@ -256,109 +378,120 @@
             <p class="section-desc">Plan your week with our comprehensive timetable. All classes are 50–60 minutes unless noted otherwise.</p>
         </div>
 
-        <div class="schedule-table-container mt-12 reveal">
+                <!-- Mobile Day Selector (< 640px) -->
+        <div class="sm:hidden flex items-center justify-center gap-1.5 mt-8 mb-4 overflow-x-auto py-1 px-1" role="tablist" aria-label="Select Day">
+            <button type="button" onclick="selectScheduleDay('mon')" class="schedule-day-pill active" data-day="mon">Mon</button>
+            <button type="button" onclick="selectScheduleDay('tue')" class="schedule-day-pill" data-day="tue">Tue</button>
+            <button type="button" onclick="selectScheduleDay('wed')" class="schedule-day-pill" data-day="wed">Wed</button>
+            <button type="button" onclick="selectScheduleDay('thu')" class="schedule-day-pill" data-day="thu">Thu</button>
+            <button type="button" onclick="selectScheduleDay('fri')" class="schedule-day-pill" data-day="fri">Fri</button>
+            <button type="button" onclick="selectScheduleDay('sat')" class="schedule-day-pill" data-day="sat">Sat</button>
+            <button type="button" onclick="selectScheduleDay('sun')" class="schedule-day-pill" data-day="sun">Sun</button>
+        </div>
+
+        <div id="schedule-table-wrap" class="schedule-table-container day-mon mt-4 sm:mt-12 reveal">
             <table class="schedule-table">
                 <thead>
                     <tr>
-                        <th style="text-align: left; min-width: 120px;">Time</th>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
-                        <th>Sun</th>
+                        <th class="time-col">Time</th>
+                        <th class="day-col col-mon">Mon</th>
+                        <th class="day-col col-tue">Tue</th>
+                        <th class="day-col col-wed">Wed</th>
+                        <th class="day-col col-thu">Thu</th>
+                        <th class="day-col col-fri">Fri</th>
+                        <th class="day-col col-sat">Sat</th>
+                        <th class="day-col col-sun">Sun</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Early Morning -->
                     <tr>
-                        <td style="text-align: left; font-weight: 600; color: var(--text); white-space: nowrap;">
+                        <td class="time-col" style="text-align: left; font-weight: 600; color: var(--text);">
                             <div style="font-size: 0.8125rem;">6:00 – 7:00</div>
                             <div style="font-size: 0.6875rem; color: var(--text-muted); font-weight: 400;">Early Morning</div>
                         </td>
-                        <td>
+                        <td class="day-col col-mon">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Essentials</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-tue">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Sculpt &amp; Tone</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-wed">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Essentials</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-thu">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Sculpt &amp; Tone</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-fri">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Essentials</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-sat">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Sculpt &amp; Tone</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td style="color: var(--text-light); font-size: 0.75rem;">—</td>
+                        <td class="day-col col-sun" style="color: var(--text-light); font-size: 0.75rem;">—</td>
                     </tr>
 
                     <!-- Morning -->
                     <tr>
-                        <td style="text-align: left; font-weight: 600; color: var(--text); white-space: nowrap;">
+                        <td class="time-col" style="text-align: left; font-weight: 600; color: var(--text);">
                             <div style="font-size: 0.8125rem;">8:00 – 9:00</div>
                             <div style="font-size: 0.6875rem; color: var(--text-muted); font-weight: 400;">Morning</div>
                         </td>
-                        <td>
+                        <td class="day-col col-mon">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Pilates Reformer</div>
                                 <div class="schedule-class-time">Studio C</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-tue">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">HIIT Barre</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-wed">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Pilates Reformer</div>
                                 <div class="schedule-class-time">Studio C</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-thu">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">HIIT Barre</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-fri">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Pilates Reformer</div>
                                 <div class="schedule-class-time">Studio C</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-sat">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">HIIT Barre</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-sun">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Essentials</div>
                                 <div class="schedule-class-time">Studio A</div>
@@ -368,47 +501,47 @@
 
                     <!-- Midday -->
                     <tr>
-                        <td style="text-align: left; font-weight: 600; color: var(--text); white-space: nowrap;">
+                        <td class="time-col" style="text-align: left; font-weight: 600; color: var(--text);">
                             <div style="font-size: 0.8125rem;">11:00 – 12:00</div>
                             <div style="font-size: 0.6875rem; color: var(--text-muted); font-weight: 400;">Midday</div>
                         </td>
-                        <td>
+                        <td class="day-col col-mon">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Stretch &amp; Restore</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-tue">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Core &amp; Align</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-wed">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Stretch &amp; Restore</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-thu">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Core &amp; Align</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-fri">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Stretch &amp; Restore</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-sat">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Core &amp; Align</div>
                                 <div class="schedule-class-time">Studio B</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-sun">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Stretch &amp; Restore</div>
                                 <div class="schedule-class-time">Studio A</div>
@@ -418,82 +551,82 @@
 
                     <!-- Evening -->
                     <tr>
-                        <td style="text-align: left; font-weight: 600; color: var(--text); white-space: nowrap;">
+                        <td class="time-col" style="text-align: left; font-weight: 600; color: var(--text);">
                             <div style="font-size: 0.8125rem;">5:30 – 6:30</div>
                             <div style="font-size: 0.6875rem; color: var(--text-muted); font-weight: 400;">Evening</div>
                         </td>
-                        <td>
+                        <td class="day-col col-mon">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Sculpt &amp; Tone</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-tue">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Essentials</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-wed">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Sculpt &amp; Tone</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-thu">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Barre Essentials</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-fri">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Sculpt &amp; Tone</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td style="color: var(--text-light); font-size: 0.75rem;">—</td>
-                        <td style="color: var(--text-light); font-size: 0.75rem;">—</td>
+                        <td class="day-col col-sat" style="color: var(--text-light); font-size: 0.75rem;">—</td>
+                        <td class="day-col col-sun" style="color: var(--text-light); font-size: 0.75rem;">—</td>
                     </tr>
 
                     <!-- Late Evening -->
                     <tr>
-                        <td style="text-align: left; font-weight: 600; color: var(--text); white-space: nowrap;">
+                        <td class="time-col" style="text-align: left; font-weight: 600; color: var(--text);">
                             <div style="font-size: 0.8125rem;">7:00 – 8:00</div>
                             <div style="font-size: 0.6875rem; color: var(--text-muted); font-weight: 400;">Late Evening</div>
                         </td>
-                        <td>
+                        <td class="day-col col-mon">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">HIIT Barre</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-tue">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Pilates Reformer</div>
                                 <div class="schedule-class-time">Studio C</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-wed">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">HIIT Barre</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-thu">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">Pilates Reformer</div>
                                 <div class="schedule-class-time">Studio C</div>
                             </div>
                         </td>
-                        <td>
+                        <td class="day-col col-fri">
                             <div class="schedule-class">
                                 <div class="schedule-class-name">HIIT Barre</div>
                                 <div class="schedule-class-time">Studio A</div>
                             </div>
                         </td>
-                        <td style="color: var(--text-light); font-size: 0.75rem;">—</td>
-                        <td style="color: var(--text-light); font-size: 0.75rem;">—</td>
+                        <td class="day-col col-sat" style="color: var(--text-light); font-size: 0.75rem;">—</td>
+                        <td class="day-col col-sun" style="color: var(--text-light); font-size: 0.75rem;">—</td>
                     </tr>
                 </tbody>
             </table>
@@ -782,7 +915,7 @@
                     </svg>
                 </div>
                 <h4 style="font-family: var(--font-heading); font-size: 1.125rem; font-weight: 600; margin-bottom: 8px;">Arrive 10 Min Early</h4>
-                <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;">Check in at the front desk, set up your space, and settle in before class begins.</p>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;">Check in at the front desk, set up your space, meet your instructor, and settle in before class begins.</p>
             </div>
 
             <!-- Grip Socks -->
@@ -796,7 +929,7 @@
                     </svg>
                 </div>
                 <h4 style="font-family: var(--font-heading); font-size: 1.125rem; font-weight: 600; margin-bottom: 8px;">Wear Grip Socks</h4>
-                <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;">Required for all classes. Available for purchase at the studio if you forget yours.</p>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;">Grip socks are required for all classes. Studio pairs are available for purchase if you forget yours.</p>
             </div>
 
             <!-- Bring Water -->
@@ -807,7 +940,7 @@
                     </svg>
                 </div>
                 <h4 style="font-family: var(--font-heading); font-size: 1.125rem; font-weight: 600; margin-bottom: 8px;">Bring Water</h4>
-                <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;">Stay hydrated! Bring a refillable bottle — we have filtered water stations throughout.</p>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;">Stay hydrated throughout class. Bring your refillable bottle — filtered water stations are available.</p>
             </div>
 
             <!-- All Levels -->
@@ -818,7 +951,7 @@
                     </svg>
                 </div>
                 <h4 style="font-family: var(--font-heading); font-size: 1.125rem; font-weight: 600; margin-bottom: 8px;">All Levels Welcome</h4>
-                <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;">Modifications offered for every exercise. Our instructors meet you exactly where you are.</p>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;">Modifications and variations are offered for every exercise. Our instructors meet you right where you are.</p>
             </div>
         </div>
     </div>
@@ -892,5 +1025,15 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 <script src="components.js"></script>
+<script>
+function selectScheduleDay(day) {
+    var wrap = document.getElementById('schedule-table-wrap');
+    if (!wrap) return;
+    wrap.className = wrap.className.replace(/\bday-\w+/g, '').trim() + ' day-' + day;
+    document.querySelectorAll('.schedule-day-pill').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-day') === day);
+    });
+}
+</script>
 </body>
 </html>

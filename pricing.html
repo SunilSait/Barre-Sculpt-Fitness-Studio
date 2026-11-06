@@ -11,6 +11,83 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#9B8EC1',secondary:'#262626'}}}}</script>
+    <style>
+        .pricing-plan-pill {
+            padding: 8px 14px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+        .pricing-plan-pill:hover {
+            border-color: var(--primary);
+            color: var(--text);
+        }
+        .pricing-plan-pill.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(155, 142, 193, 0.35);
+        }
+        .mobile-feature-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 13px 16px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.875rem;
+            gap: 12px;
+        }
+        .mobile-feature-row:last-child {
+            border-bottom: none;
+        }
+        .mobile-feature-label {
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.84rem;
+            flex: 1;
+            line-height: 1.4;
+        }
+        .mobile-feature-val {
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-align: right;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        .mobile-feature-val.highlight {
+            color: var(--primary);
+            background: var(--primary-10);
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+        @media (max-width: 768px) {
+            .desktop-comparison-table-wrap {
+                display: none !important;
+            }
+            .mobile-comparison-card-wrap {
+                display: block !important;
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-comparison-card-wrap {
+                display: none !important;
+            }
+            .desktop-comparison-table-wrap {
+                display: block !important;
+            }
+            .desktop-comparison-table {
+                width: 100% !important;
+                table-layout: fixed !important;
+                min-width: 0 !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-white dark:bg-[#111111] text-[#262626] dark:text-[#EEEAF5]">
 <div id="main-nav"></div>
@@ -90,28 +167,28 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </div>
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;margin-bottom:8px;">Flexible Scheduling</h4>
-                <p style="font-size:0.95rem;line-height:1.6;max-width:240px;margin:0 auto;">50+ weekly classes scheduled from early morning to evening.</p>
+                <p style="font-size:0.95rem;line-height:1.6;max-width:240px;margin:0 auto;">50+ weekly classes scheduled from early morning.</p>
             </div>
             <div class="text-center stagger-item">
                 <div style="width:56px;height:56px;border-radius:50%;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 15l-2 5L12 19l2 1-2-5z"/><circle cx="12" cy="9" r="6"/></svg>
                 </div>
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;margin-bottom:8px;">Expert Instructors</h4>
-                <p style="font-size:0.95rem;line-height:1.6;max-width:240px;margin:0 auto;">Nationally certified coaches with continuous master training.</p>
+                <p style="font-size:0.95rem;line-height:1.6;max-width:240px;margin:0 auto;">Nationally certified coaches with continuous expert.</p>
             </div>
             <div class="text-center stagger-item">
                 <div style="width:56px;height:56px;border-radius:50%;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                 </div>
-                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;margin-bottom:8px;">Boutique Studio</h4>
-                <p style="font-size:0.95rem;line-height:1.6;max-width:240px;margin:0 auto;">Intimate, light-filled spaces capped at 12 members per class.</p>
+                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;margin-bottom:8px;">Boutique Studio Class</h4>
+                <p style="font-size:0.95rem;line-height:1.6;max-width:240px;margin:0 auto;">Intimate, light-filled spaces capped at 12 members.</p>
             </div>
             <div class="text-center stagger-item">
                 <div style="width:56px;height:56px;border-radius:50%;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;margin-bottom:8px;">Supportive Community</h4>
-                <p style="font-size:0.95rem;line-height:1.6;max-width:240px;margin:0 auto;">An inclusive, uplifting space welcoming every fitness level.</p>
+                <p style="font-size:0.95rem;line-height:1.6;max-width:240px;margin:0 auto;">An inclusive, uplifting space welcoming fitness in level.</p>
             </div>
         </div>
     </div>
@@ -155,8 +232,44 @@
             <p class="section-desc" style="max-width:620px;margin:0 auto;">Choose the pace that matches your routine with clear, honest pricing and zero hidden registration fees.</p>
         </div>
         <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);">
-            <div style="overflow-x:auto;">
-                <table style="width:100%;min-width:640px;border-collapse:collapse;text-align:left;font-size:0.9375rem;">
+            
+            <!-- Mobile Comparison Layout (< 769px, Zero Sidescroll) -->
+            <div class="mobile-comparison-card-wrap">
+                <!-- Mobile Plan Selector Pills -->
+                <div class="flex items-center justify-center gap-1.5 p-2.5 bg-[var(--bg)] border-b border-[var(--border-light)] overflow-x-auto" style="scrollbar-width:none;" role="tablist" aria-label="Select Plan to Compare">
+                    <button type="button" onclick="selectPricingPlan('dropin')" class="pricing-plan-pill" data-plan="dropin">Drop-In</button>
+                    <button type="button" onclick="selectPricingPlan('pack')" class="pricing-plan-pill" data-plan="pack">10-Class Pack</button>
+                    <button type="button" onclick="selectPricingPlan('unlimited')" class="pricing-plan-pill active" data-plan="unlimited">Unlimited ★</button>
+                </div>
+
+                <!-- Dynamic Mobile Plan Content -->
+                <div id="mobile-plan-card">
+                    <!-- Plan Header -->
+                    <div id="mobile-plan-header" style="padding:22px 18px;text-align:center;border-bottom:1px solid var(--border-light);background:linear-gradient(180deg, rgba(155,142,193,0.08) 0%, transparent 100%);">
+                        <div id="mobile-plan-badge" style="display:inline-block;padding:3px 10px;background:var(--primary);color:#fff;border-radius:999px;font-size:0.6875rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Best Value · Most Popular</div>
+                        <h3 id="mobile-plan-name" style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--text);margin-bottom:2px;">Unlimited Monthly</h3>
+                        <div style="display:flex;align-items:baseline;justify-content:center;gap:4px;margin-bottom:6px;">
+                            <span id="mobile-plan-price" style="font-size:2rem;font-weight:700;color:var(--primary);font-family:'Cormorant Garamond',serif;">$149</span>
+                            <span id="mobile-plan-period" style="font-size:0.875rem;color:var(--text-muted);">/month</span>
+                        </div>
+                        <p id="mobile-plan-desc" style="font-size:0.8125rem;color:var(--text-muted);max-width:280px;margin:0 auto;line-height:1.5;">Our complete luxury boutique fitness membership with unlimited classes.</p>
+                    </div>
+
+                    <!-- Feature Rows List -->
+                    <div id="mobile-plan-features-list">
+                        <!-- Populated dynamically / initialized by JS -->
+                    </div>
+
+                    <!-- Footer CTA -->
+                    <div style="padding:16px 18px 20px;border-top:1px solid var(--border-light);background:var(--bg-card);text-align:center;">
+                        <a href="signup.html" id="mobile-plan-cta" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px 20px;font-size:0.875rem;">Get Started with Unlimited</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop & Tablet Comparison Table (>= 769px, Zero Sidescroll) -->
+            <div class="desktop-comparison-table-wrap" style="overflow-x:auto;">
+                <table class="desktop-comparison-table" style="width:100%;border-collapse:collapse;text-align:left;font-size:0.9375rem;table-layout:fixed;">
                     <thead>
                         <tr style="border-bottom:1px solid var(--border-light);background:rgba(155,142,193,0.04);">
                             <th style="padding:24px 20px;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--text);width:34%;">Plan Features</th>
@@ -245,28 +358,28 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
                 </div>
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:600;margin-bottom:10px;">Eucalyptus Infusion</h4>
-                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;flex:1;">Cold-rolled eucalyptus towels await you at the end of every intense session, complemented by fresh citrus-infused hydration on tap.</p>
+                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;flex:1;">Cold-rolled eucalyptus towels await you after every intense class, paired with fresh citrus hydration on tap.</p>
             </div>
             <div class="stagger-item" style="padding:32px 24px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;">
                 <div style="width:48px;height:48px;border-radius:12px;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--primary);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                 </div>
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:600;margin-bottom:10px;">Malin+Goetz Vanities</h4>
-                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;flex:1;">Full vanity suites with rainfall showers, Dyson Supersonic hair bars, and botanical face and body products to freshen up on the go.</p>
+                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;flex:1;">Full vanity suites with rainfall showers, Dyson Supersonic hair styling, and botanical body wash to refresh on the go.</p>
             </div>
             <div class="stagger-item" style="padding:32px 24px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;">
                 <div style="width:48px;height:48px;border-radius:12px;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--primary);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                 </div>
                 <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:600;margin-bottom:10px;">App &amp; Waitlist Sync</h4>
-                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;flex:1;">Reserve spot favorites in seconds, track personal milestones, share guest invitations, and receive instant SMS notifications when waitlists open.</p>
+                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;flex:1;">Reserve class spots in seconds, track milestones, and receive instant SMS alerts when waitlists open.</p>
             </div>
             <div class="stagger-item" style="padding:32px 24px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;">
                 <div style="width:48px;height:48px;border-radius:12px;background:var(--primary-10);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--primary);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:600;margin-bottom:10px;">14-Day Guarantee</h4>
-                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;flex:1;">We stand by our method with complete pride. If you are not thoroughly energized by our community in your first two weeks, we offer a 100% refund.</p>
+                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:600;margin-bottom:10px;">14-Day Guarantee Effect</h4>
+                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;flex:1;">We stand behind our method with pride. If you are not fully energized in your first two weeks, enjoy a full refund.</p>
             </div>
         </div>
     </div>
@@ -317,13 +430,101 @@
     </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
-<section style="padding:0;">
-    <div style="background:linear-gradient(135deg,var(--secondary),#1a1a1a);padding:64px 24px;text-align:center;">
-        <div class="container reveal">
-            <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,2.5rem);color:#fff;margin-bottom:12px;">Start Your Free Trial Today</h2>
-            <p style="color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 28px;">No commitment required. Your first class is always free.</p>
-            <a href="signup.html" class="btn btn-primary btn-lg">Claim Your Free Class</a>
+<!-- ═══ DIGITAL STUDIO PASS VOUCHER CTA ═══ -->
+<section style="padding:80px 0;">
+    <div class="container">
+        <div class="reveal" style="max-width:920px;margin:0 auto;position:relative;">
+            <!-- Outer Glow -->
+            <div style="position:absolute;inset:-1px;background:linear-gradient(135deg,rgba(155,142,193,0.35),transparent 50%,rgba(155,142,193,0.2));border-radius:24px;filter:blur(8px);opacity:0.6;pointer-events:none;"></div>
+            
+            <!-- Ticket Container -->
+            <div style="position:relative;background:var(--bg-card);border:1px solid rgba(155,142,193,0.3);border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.12);" class="grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Ticket Main Body (8 cols) -->
+                <div class="lg:col-span-8" style="padding:44px 40px;display:flex;flex-direction:column;justify-content:space-between;">
+                    <div>
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;background:var(--primary-10);color:var(--primary);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">
+                                Studio Invitation Pass
+                            </span>
+                            <span style="font-size:0.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;">
+                                <span style="width:6px;height:6px;border-radius:50%;background:#10b981;"></span>
+                                Available for New Clients
+                            </span>
+                        </div>
+                        
+                        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,3.5vw,2.4rem);font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.2;">
+                            Begin Your Movement Practice with Barre &amp; Sculpt
+                        </h2>
+                        
+                        <p style="font-size:0.9375rem;line-height:1.7;color:var(--text-muted);margin-bottom:28px;">
+                            Claim your complimentary introductory studio pass. Valid for any signature barre, reformer pilates, or cardio sculpt class on our schedule. Zero commitment, no registration fees.
+                        </p>
+                    </div>
+                    
+                    <!-- 3 Perks Row -->
+                    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border-light);font-size:0.8125rem;color:var(--text);">
+                        <span style="display:inline-flex;align-items:center;gap:6px;font-weight:500;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            14-Day 100% money back
+                        </span>
+                        <span style="display:inline-flex;align-items:center;gap:6px;font-weight:500;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Full mat &amp; towel service
+                        </span>
+                        <span style="display:inline-flex;align-items:center;gap:6px;font-weight:500;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Cancel or freeze anytime
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Ticket Stub (4 cols) with perforated border -->
+                <div class="lg:col-span-4 ticket-stub" style="background:rgba(155,142,193,0.04);padding:44px 32px;display:flex;flex-direction:column;justify-content:center;text-align:center;">
+                    
+                    <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">
+                        Complimentary Pass
+                    </div>
+                    
+                    <div style="display:flex;align-items:baseline;justify-content:center;gap:8px;margin-bottom:6px;">
+                        <span style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--primary);line-height:1;">$0.00</span>
+                        <span style="font-size:0.9375rem;color:var(--text-muted);text-decoration:line-through;">$30 value</span>
+                    </div>
+                    
+                    <div style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:24px;">
+                        Valid for 30 days after signup
+                    </div>
+                    
+                    <a href="signup.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;display:flex;padding:14px;margin-bottom:18px;">
+                        <span>Claim Your Pass</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    
+                    <!-- Stylized Barcode Graphic -->
+                    <div style="display:flex;align-items:center;justify-content:center;gap:3px;opacity:0.35;margin-bottom:6px;">
+                        <span style="width:2px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:1px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:3px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:1px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:2px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:4px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:1px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:3px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:2px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:1px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:3px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:2px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:4px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:1px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:2px;height:24px;background:var(--text);display:inline-block;"></span>
+                        <span style="width:3px;height:24px;background:var(--text);display:inline-block;"></span>
+                    </div>
+                    <div style="font-size:0.6875rem;letter-spacing:0.18em;color:var(--text-muted);text-transform:uppercase;">
+                        BS-PASS-2026
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 </section>
@@ -331,6 +532,117 @@
 <div id="main-footer"></div>
 <button id="back-to-top" class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
 <script src="components.js"></script>
+<script>
+var pricingPlans = {
+    dropin: {
+        name: "Drop-In Pass",
+        badge: "Single Session",
+        badgeColor: "rgba(255,255,255,0.12)",
+        badgeTextColor: "var(--text-muted)",
+        price: "$30",
+        period: "/class",
+        desc: "Ideal for visitors, travelers, and spontaneous studio workouts.",
+        btnText: "Book Drop-In ($30)",
+        features: [
+            { label: "Signature Barre, Sculpt & Stretch", val: "1 Credit", highlight: false },
+            { label: "Pilates Reformer Access", val: "+$15 / session", highlight: false },
+            { label: "Priority Booking Window", val: "24 Hours Ahead", highlight: false },
+            { label: "Complimentary Mat & Towel Setup", val: "$4 Rental", highlight: false },
+            { label: "Monthly Guest Passes", val: "—", highlight: false },
+            { label: "Boutique & Workshop Discount", val: "—", highlight: false },
+            { label: "Annual Membership Freeze", val: "—", highlight: false },
+            { label: "Spa Showers & Malin+Goetz Vanity", val: "Full Access", highlight: true }
+        ]
+    },
+    pack: {
+        name: "10-Class Pack",
+        badge: "Save $101",
+        badgeColor: "rgba(155,142,193,0.2)",
+        badgeTextColor: "var(--primary)",
+        price: "$199",
+        period: "($19.90 / class)",
+        desc: "Valid for 3 months with flexible class booking.",
+        btnText: "Buy 10-Class Pack ($199)",
+        features: [
+            { label: "Signature Barre, Sculpt & Stretch", val: "10 Credits", highlight: false },
+            { label: "Pilates Reformer Access", val: "+$12 / session", highlight: false },
+            { label: "Priority Booking Window", val: "3 Days Ahead", highlight: false },
+            { label: "Complimentary Mat & Towel Setup", val: "Complimentary", highlight: true },
+            { label: "Monthly Guest Passes", val: "—", highlight: false },
+            { label: "Boutique & Workshop Discount", val: "5% Off", highlight: false },
+            { label: "Annual Membership Freeze", val: "—", highlight: false },
+            { label: "Spa Showers & Malin+Goetz Vanity", val: "Full Access", highlight: true }
+        ]
+    },
+    unlimited: {
+        name: "Unlimited Monthly",
+        badge: "Best Value · Most Popular",
+        badgeColor: "var(--primary)",
+        badgeTextColor: "#fff",
+        price: "$149",
+        period: "/month",
+        desc: "Our complete luxury boutique fitness membership with unlimited classes.",
+        btnText: "Get Started with Unlimited",
+        features: [
+            { label: "Signature Barre, Sculpt & Stretch", val: "Unlimited Access", highlight: true },
+            { label: "Pilates Reformer Access", val: "2 Included / Month", highlight: true },
+            { label: "Priority Booking Window", val: "7 Days Ahead (VIP)", highlight: true },
+            { label: "Complimentary Mat & Towel Setup", val: "Complimentary", highlight: true },
+            { label: "Monthly Guest Passes", val: "2 Free Passes / Mo", highlight: true },
+            { label: "Boutique & Workshop Discount", val: "15% Off All Retail", highlight: true },
+            { label: "Annual Membership Freeze", val: "Up to 60 Days Free", highlight: true },
+            { label: "Spa Showers & Malin+Goetz Vanity", val: "VIP Locker Access", highlight: true }
+        ]
+    }
+};
+
+function selectPricingPlan(planKey) {
+    var plan = pricingPlans[planKey];
+    if (!plan) return;
+    
+    document.querySelectorAll('.pricing-plan-pill').forEach(function(pill) {
+        if (pill.getAttribute('data-plan') === planKey) {
+            pill.classList.add('active');
+        } else {
+            pill.classList.remove('active');
+        }
+    });
+
+    var badge = document.getElementById('mobile-plan-badge');
+    if (badge) {
+        badge.textContent = plan.badge;
+        badge.style.background = plan.badgeColor;
+        badge.style.color = plan.badgeTextColor;
+    }
+    var nameEl = document.getElementById('mobile-plan-name');
+    if (nameEl) nameEl.textContent = plan.name;
+    var priceEl = document.getElementById('mobile-plan-price');
+    if (priceEl) priceEl.textContent = plan.price;
+    var periodEl = document.getElementById('mobile-plan-period');
+    if (periodEl) periodEl.textContent = plan.period;
+    var descEl = document.getElementById('mobile-plan-desc');
+    if (descEl) descEl.textContent = plan.desc;
+    var ctaEl = document.getElementById('mobile-plan-cta');
+    if (ctaEl) ctaEl.textContent = plan.btnText;
+
+    var listEl = document.getElementById('mobile-plan-features-list');
+    if (listEl) {
+        var html = '';
+        plan.features.forEach(function(f) {
+            var valClass = f.highlight ? 'mobile-feature-val highlight' : 'mobile-feature-val';
+            html += '<div class="mobile-feature-row">' +
+                    '<span class="mobile-feature-label">' + f.label + '</span>' +
+                    '<span class="' + valClass + '">' + f.val + '</span>' +
+                    '</div>';
+        });
+        listEl.innerHTML = html;
+    }
+}
+
+if (document.getElementById('mobile-plan-features-list')) {
+    selectPricingPlan('unlimited');
+}
+</script>
 </body>
 </html>
 

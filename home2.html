@@ -13,12 +13,37 @@
     <link rel="stylesheet" href="style.css">
     <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#9B8EC1',secondary:'#262626'}}}}</script>
     <style>
+        #hero-slider {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            position: relative;
+            background: var(--bg);
+        }
+        @media (min-width: 1024px) {
+            #hero-slider {
+                display: block;
+                height: 100vh;
+                min-height: 600px;
+            }
+        }
         .hero-slide {
+            grid-column: 1;
+            grid-row: 1;
+            width: 100%;
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
             transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
             z-index: 1;
+        }
+        @media (min-width: 1024px) {
+            .hero-slide {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+            }
         }
         .hero-slide.active {
             opacity: 1;
@@ -45,122 +70,126 @@
         .hero-dot .dot-progress {
             width: 0%;
         }
-        @media (max-height: 680px) {
-            #hero-slider {
-                min-height: 620px !important;
-            }
-        }
     </style>
 </head>
 <body class="bg-white dark:bg-[#111111] text-[#262626] dark:text-[#EEEAF5]">
 <div id="main-nav"></div>
 
 <!-- ═══ HERO — SPLIT SCREEN EDITORIAL SLIDER ═══ -->
-<section id="hero-slider" class="relative overflow-hidden" style="margin-top:calc(var(--nav-height)*-1);height:100vh;min-height:600px;" aria-label="Hero Highlights">
+<section id="hero-slider" class="relative overflow-hidden" style="margin-top:calc(var(--nav-height)*-1);" aria-label="Hero Highlights">
     <!-- Slide 1 -->
-    <div class="hero-slide active absolute inset-0 w-full h-full" data-slide="0">
-        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full">
-            <!-- Left: Typography -->
-            <div class="flex flex-col justify-center px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+1.75rem)] pb-24 h-full relative z-10 bg-[var(--bg)]">
-                <div class="max-w-lg hero-slide-content my-auto">
-                    <div class="flex items-center gap-3 mb-5">
+    <div class="hero-slide active w-full h-full" data-slide="0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full relative z-10">
+            <!-- Left: Typography (Centered on mobile/tablet, left-aligned on desktop) -->
+            <div class="flex flex-col justify-center items-center text-center lg:items-start lg:text-left px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+2rem)] lg:pt-[calc(var(--nav-height)+1.75rem)] pb-4 lg:pb-24 h-full relative z-10 bg-[var(--bg)]">
+                <div class="max-w-lg hero-slide-content my-auto flex flex-col items-center lg:items-start mx-auto lg:mx-0">
+                    <div class="flex items-center justify-center lg:justify-start gap-3 mb-5 mx-auto lg:mx-0">
                         <div style="width:40px;height:1px;background:var(--primary);"></div>
                         <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);">Est. 2018 · New York</span>
+                        <div class="lg:hidden" style="width:40px;height:1px;background:var(--primary);"></div>
                     </div>
-                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3.25rem,6.5vw,5.25rem);line-height:0.95;margin-bottom:20px;letter-spacing:-0.02em;">
+                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.75rem,5.5vw,5rem);line-height:0.98;margin-bottom:20px;letter-spacing:-0.02em;color:var(--text);">
                         The Art<br>of <span style="color:var(--primary);font-style:italic;">Movement</span>
                     </h1>
-                    <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);margin-bottom:28px;max-width:440px;">
+                    <p style="font-size:1.0625rem;line-height:1.75;margin-bottom:28px;max-width:440px;color:var(--text-muted);" class="mx-auto lg:mx-0">
                         Where ballet-inspired precision meets modern fitness science. Discover a movement practice that sculpts, strengthens, and transforms — body and mind.
                     </p>
-                    <div class="flex items-center flex-wrap gap-3 sm:gap-4">
+                    <div class="flex items-center justify-center lg:justify-start flex-wrap gap-3 sm:gap-4 mx-auto lg:mx-0">
                         <a href="signup.html" class="btn btn-primary" style="padding:14px 28px;font-size:0.875rem;">Begin Your Practice</a>
                         <a href="classes.html" class="btn btn-secondary" style="padding:14px 26px;font-size:0.875rem;">Explore Classes</a>
                     </div>
                 </div>
             </div>
-            <!-- Right: Image -->
-            <div class="relative hidden lg:block overflow-hidden h-full" style="margin-right: 50px;">
-                <img src="assets/images/hero-home2.jpg" alt="Barre fitness pose" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
-                <div class="absolute bottom-12 right-12 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20" style="max-width:220px;">
-                    <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1;">98%</div>
-                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:2px;">Member Satisfaction</div>
+            <!-- Right / Down: Image (Shown below text on mobile/tablet, right split on desktop) -->
+            <div class="relative w-full max-w-lg lg:max-w-none mx-auto lg:mx-0 px-4 sm:px-6 lg:px-0 lg:mr-12 pt-4 pb-24 lg:pt-0 lg:pb-0 lg:h-full flex items-center justify-center">
+                <div class="relative w-full h-full overflow-hidden rounded-2xl sm:rounded-3xl lg:rounded-none shadow-2xl lg:shadow-none aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto">
+                    <img src="assets/images/hero-home2.jpg" alt="Barre fitness pose" class="w-full h-full object-cover lg:absolute lg:inset-0">
+                    <div class="absolute inset-0 hidden lg:block" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
+                    <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 lg:bottom-12 lg:right-12 bg-black/40 dark:bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 text-white" style="max-width:200px;">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:600;color:#fff;line-height:1;">98%</div>
+                        <div style="font-size:0.75rem;color:rgba(255,255,255,0.85);margin-top:2px;">Member Satisfaction</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Slide 2 -->
-    <div class="hero-slide absolute inset-0 w-full h-full" data-slide="1">
-        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full">
-            <!-- Left: Typography -->
-            <div class="flex flex-col justify-center px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+1.75rem)] pb-24 h-full relative z-10 bg-[var(--bg)]">
-                <div class="max-w-lg hero-slide-content my-auto">
-                    <div class="flex items-center gap-3 mb-5">
+    <div class="hero-slide w-full h-full" data-slide="1">
+        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full relative z-10">
+            <!-- Left: Typography (Centered on mobile/tablet, left-aligned on desktop) -->
+            <div class="flex flex-col justify-center items-center text-center lg:items-start lg:text-left px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+2rem)] lg:pt-[calc(var(--nav-height)+1.75rem)] pb-4 lg:pb-24 h-full relative z-10 bg-[var(--bg)]">
+                <div class="max-w-lg hero-slide-content my-auto flex flex-col items-center lg:items-start mx-auto lg:mx-0">
+                    <div class="flex items-center justify-center lg:justify-start gap-3 mb-5 mx-auto lg:mx-0">
                         <div style="width:40px;height:1px;background:var(--primary);"></div>
                         <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);">Signature Method · Sculpt & Tone</span>
+                        <div class="lg:hidden" style="width:40px;height:1px;background:var(--primary);"></div>
                     </div>
-                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3.25rem,6.5vw,5.25rem);line-height:0.95;margin-bottom:20px;letter-spacing:-0.02em;">
+                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.75rem,5.5vw,5rem);line-height:0.98;margin-bottom:20px;letter-spacing:-0.02em;color:var(--text);">
                         Sculpt with<br><span style="color:var(--primary);font-style:italic;">Intention</span>
                     </h1>
-                    <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);margin-bottom:28px;max-width:440px;">
+                    <p style="font-size:1.0625rem;line-height:1.75;margin-bottom:28px;max-width:440px;color:var(--text-muted);" class="mx-auto lg:mx-0">
                         Low-impact, high-intensity sequences engineered to define long, lean muscles while cultivating deep core stability and mindful body awareness.
                     </p>
-                    <div class="flex items-center flex-wrap gap-3 sm:gap-4">
+                    <div class="flex items-center justify-center lg:justify-start flex-wrap gap-3 sm:gap-4 mx-auto lg:mx-0">
                         <a href="classes.html" class="btn btn-primary" style="padding:14px 28px;font-size:0.875rem;">View Class Schedule</a>
                         <a href="instructors.html" class="btn btn-secondary" style="padding:14px 26px;font-size:0.875rem;">Meet Instructors</a>
                     </div>
                 </div>
             </div>
-            <!-- Right: Image -->
-            <div class="relative hidden lg:block overflow-hidden h-full" style="margin-right: 50px;">
-                <img src="assets/images/hero-home2-slide2.jpg" alt="Barre sculpt core workout" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
-                <div class="absolute bottom-12 right-12 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20" style="max-width:220px;">
-                    <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1;">50+</div>
-                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:2px;">Weekly Sessions</div>
+            <!-- Right / Down: Image (Shown below text on mobile/tablet, right split on desktop) -->
+            <div class="relative w-full max-w-lg lg:max-w-none mx-auto lg:mx-0 px-4 sm:px-6 lg:px-0 lg:mr-12 pt-4 pb-24 lg:pt-0 lg:pb-0 lg:h-full flex items-center justify-center">
+                <div class="relative w-full h-full overflow-hidden rounded-2xl sm:rounded-3xl lg:rounded-none shadow-2xl lg:shadow-none aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto">
+                    <img src="assets/images/hero-home2-slide2.jpg" alt="Barre sculpt core workout" class="w-full h-full object-cover lg:absolute lg:inset-0">
+                    <div class="absolute inset-0 hidden lg:block" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
+                    <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 lg:bottom-12 lg:right-12 bg-black/40 dark:bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 text-white" style="max-width:200px;">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:600;color:#fff;line-height:1;">50+</div>
+                        <div style="font-size:0.75rem;color:rgba(255,255,255,0.85);margin-top:2px;">Weekly Sessions</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Slide 3 -->
-    <div class="hero-slide absolute inset-0 w-full h-full" data-slide="2">
-        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full">
-            <!-- Left: Typography -->
-            <div class="flex flex-col justify-center px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+1.75rem)] pb-24 h-full relative z-10 bg-[var(--bg)]">
-                <div class="max-w-lg hero-slide-content my-auto">
-                    <div class="flex items-center gap-3 mb-5">
+    <div class="hero-slide w-full h-full" data-slide="2">
+        <div class="grid grid-cols-1 lg:grid-cols-2 h-full w-full relative z-10">
+            <!-- Left: Typography (Centered on mobile/tablet, left-aligned on desktop) -->
+            <div class="flex flex-col justify-center items-center text-center lg:items-start lg:text-left px-6 sm:px-10 lg:px-14 xl:px-18 pt-[calc(var(--nav-height)+2rem)] lg:pt-[calc(var(--nav-height)+1.75rem)] pb-4 lg:pb-24 h-full relative z-10 bg-[var(--bg)]">
+                <div class="max-w-lg hero-slide-content my-auto flex flex-col items-center lg:items-start mx-auto lg:mx-0">
+                    <div class="flex items-center justify-center lg:justify-start gap-3 mb-5 mx-auto lg:mx-0">
                         <div style="width:40px;height:1px;background:var(--primary);"></div>
                         <span style="font-size:0.625rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);">Mindful Wellness · Restore & Lengthen</span>
+                        <div class="lg:hidden" style="width:40px;height:1px;background:var(--primary);"></div>
                     </div>
-                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3.25rem,6.5vw,5.25rem);line-height:0.95;margin-bottom:20px;letter-spacing:-0.02em;">
+                    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.75rem,5.5vw,5rem);line-height:0.98;margin-bottom:20px;letter-spacing:-0.02em;color:var(--text);">
                         Grace in<br><span style="color:var(--primary);font-style:italic;">Every Breath</span>
                     </h1>
-                    <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-muted);margin-bottom:28px;max-width:440px;">
+                    <p style="font-size:1.0625rem;line-height:1.75;margin-bottom:28px;max-width:440px;color:var(--text-muted);" class="mx-auto lg:mx-0">
                         An intimate boutique sanctuary designed to elevate your routine. Reconnect with your breath, lengthen your posture, and leave feeling empowered and centered.
                     </p>
-                    <div class="flex items-center flex-wrap gap-3 sm:gap-4">
+                    <div class="flex items-center justify-center lg:justify-start flex-wrap gap-3 sm:gap-4 mx-auto lg:mx-0">
                         <a href="signup.html" class="btn btn-primary" style="padding:14px 28px;font-size:0.875rem;">Start Free Trial</a>
                         <a href="pricing.html" class="btn btn-secondary" style="padding:14px 26px;font-size:0.875rem;">Explore Membership</a>
                     </div>
                 </div>
             </div>
-            <!-- Right: Image -->
-            <div class="relative hidden lg:block overflow-hidden h-full" style="margin-right: 50px;">
-                <img src="assets/images/hero-home2-slide3.jpg" alt="Gentle barre stretch and lengthening" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
-                <div class="absolute bottom-12 right-12 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20" style="max-width:220px;">
-                    <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1;">Free</div>
-                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:2px;">First Class Trial</div>
+            <!-- Right / Down: Image (Shown below text on mobile/tablet, right split on desktop) -->
+            <div class="relative w-full max-w-lg lg:max-w-none mx-auto lg:mx-0 px-4 sm:px-6 lg:px-0 lg:mr-12 pt-4 pb-24 lg:pt-0 lg:pb-0 lg:h-full flex items-center justify-center">
+                <div class="relative w-full h-full overflow-hidden rounded-2xl sm:rounded-3xl lg:rounded-none shadow-2xl lg:shadow-none aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto">
+                    <img src="assets/images/hero-home2-slide3.jpg" alt="Gentle barre stretch and lengthening" class="w-full h-full object-cover lg:absolute lg:inset-0">
+                    <div class="absolute inset-0 hidden lg:block" style="background:linear-gradient(to right,var(--bg) 0%,transparent 8%);"></div>
+                    <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 lg:bottom-12 lg:right-12 bg-black/40 dark:bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 text-white" style="max-width:200px;">
+                        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:600;color:#fff;line-height:1;">Free</div>
+                        <div style="font-size:0.75rem;color:rgba(255,255,255,0.85);margin-top:2px;">First Class Trial</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Navigation Controls & Progress Dots Dock -->
-    <div class="absolute bottom-6 sm:bottom-8 left-6 sm:left-10 lg:left-14 xl:left-18 z-20 flex items-center gap-4 bg-[var(--bg)]/90 backdrop-blur-md px-4 py-2 rounded-full border border-[var(--border)] shadow-md">
+    <div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 lg:left-14 lg:translate-x-0 xl:left-18 z-20 flex items-center gap-4 bg-[var(--bg)]/90 backdrop-blur-md px-4 py-2 rounded-full border border-[var(--border)] shadow-md">
         <!-- Progress Indicators -->
         <div class="flex items-center gap-2" role="tablist" aria-label="Slider Pagination">
             <button onclick="goToHeroSlide(0)" class="hero-dot active group flex items-center py-1 cursor-pointer focus:outline-none" aria-label="Slide 1">
@@ -198,13 +227,13 @@
 </section>
 
 <!-- ═══ PHILOSOPHY ═══ -->
-<section style="padding:100px 0;">
+<section class="py-16 lg:py-24" style="padding:clamp(60px, 8vw, 100px) 0;">
     <div class="container">
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
-            <div class="lg:col-span-2 reveal-left">
-                <img src="assets/images/h2-method.jpg" alt="Barre technique" class="img-rounded" style="width:100%;aspect-ratio:3/4;object-fit:cover;">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+            <div class="lg:col-span-2 reveal-left max-w-sm sm:max-w-md lg:max-w-none mx-auto w-full">
+                <img src="assets/images/h2-method.jpg" alt="Barre technique" class="img-rounded shadow-xl w-full object-cover aspect-[4/3] sm:aspect-[16/10] lg:aspect-[3/4]">
             </div>
-            <div class="lg:col-span-3 reveal-right">
+            <div class="lg:col-span-3 reveal-right max-w-xl mx-auto lg:mx-0">
                 <span class="section-eyebrow">Our Philosophy</span>
                 <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.15;margin-bottom:24px;">
                     "Movement is a celebration of what the body can do — not a punishment for what you ate."
@@ -218,7 +247,7 @@
                     </div>
                     <div style="padding:20px;border:1px solid var(--border-light);border-radius:var(--radius);flex:1;text-align:center;">
                         <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">12</div>
-                        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Max per Class</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">per Class</div>
                     </div>
                     <div style="padding:20px;border:1px solid var(--border-light);border-radius:var(--radius);flex:1;text-align:center;">
                         <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">6</div>
@@ -237,7 +266,7 @@
             <span class="section-eyebrow" style="justify-content:center;">The Method</span>
             <h2 class="section-title">Three Pillars of Transformation</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             <!-- Pillar 1: Lengthen -->
             <div class="pillar-card stagger-item">
                 <div class="pillar-img-wrap">
@@ -245,7 +274,7 @@
                     <span class="pillar-num">01 · Lengthen</span>
                 </div>
                 <h4 class="pillar-title">Lengthen</h4>
-                <p class="pillar-desc">Elongate muscles through controlled stretching and ballet-inspired movements that create lean, graceful lines throughout your body.</p>
+                <p class="pillar-desc">Elongate muscles through controlled stretching and ballet-inspired movements that create lean, graceful lines.</p>
             </div>
 
             <!-- Pillar 2: Strengthen -->
@@ -259,13 +288,13 @@
             </div>
 
             <!-- Pillar 3: Transform -->
-            <div class="pillar-card stagger-item">
+            <div class="pillar-card stagger-item sm:col-span-2 lg:col-span-1 sm:w-[calc(50%-16px)] md:w-[calc(50%-20px)] sm:mx-auto lg:w-full lg:mx-0">
                 <div class="pillar-img-wrap">
                     <img src="assets/images/pillar-transform.jpg" alt="Transform — Mind and Body" class="pillar-img">
                     <span class="pillar-num">03 · Transform</span>
                 </div>
                 <h4 class="pillar-title">Transform</h4>
-                <p class="pillar-desc">Experience a total body and mind transformation. Improved posture, increased confidence, and a deep connection with your body.</p>
+                <p class="pillar-desc">Experience a total body and mind transformation. Improved posture, increased confidence, and a deep connection.</p>
             </div>
         </div>
     </div>
@@ -279,7 +308,7 @@
             <h2 class="section-title">Curated Movement Experiences</h2>
             <p class="section-desc">Each class is thoughtfully designed to deliver a complete, balanced workout in under an hour.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-3xl lg:max-w-none mx-auto">
             <div class="horizontal-class-card stagger-item">
                 <div class="class-card-img-wrap">
                     <img src="assets/images/h2-class-barre.jpg" alt="Barre Essentials">
@@ -287,7 +316,7 @@
                 <div class="class-card-body">
                     <span class="class-card-tag">50 MIN · ALL LEVELS</span>
                     <h4 class="class-card-title">Barre Essentials</h4>
-                    <p class="class-card-desc">Our signature class combining ballet fundamentals, Pilates, and strength training at the barre.</p>
+                    <p class="class-card-desc">Our signature class combining ballet fundamentals, Pilates, and strength training.</p>
                 </div>
             </div>
             <div class="horizontal-class-card stagger-item">
@@ -295,7 +324,7 @@
                     <img src="assets/images/h2-class-sculpt.jpg" alt="Sculpt & Tone">
                 </div>
                 <div class="class-card-body">
-                    <span class="class-card-tag">55 MIN · INTERMEDIATE</span>
+                    <span class="class-card-tag">55 MIN · HARD</span>
                     <h4 class="class-card-title">Sculpt & Tone</h4>
                     <p class="class-card-desc">Full-body sculpting with light weights and resistance bands for lean, defined muscles.</p>
                 </div>
@@ -328,8 +357,8 @@
 <section class="relative" style="padding:0;">
     <div style="position:relative;overflow:hidden;">
         <div class="grid grid-cols-1 lg:grid-cols-2" style="min-height:500px;">
-            <div class="relative">
-                <img src="assets/images/h2-experience.jpg" alt="Studio experience" class="w-full h-full object-cover" style="min-height:400px;">
+            <div class="relative overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto">
+                <img src="assets/images/h2-experience.jpg" alt="Studio sanctuary experience with barre and natural sunlight" class="w-full h-full object-cover block lg:min-h-[500px]">
             </div>
             <div class="flex items-center" style="background:var(--secondary);padding:60px 48px;">
                 <div class="reveal-right">
@@ -343,7 +372,7 @@
                         </div>
                         <div style="display:flex;align-items:center;gap:10px;">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B8EC1" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);">Curated Playlists</span>
+                            <span style="font-size:0.8125rem;color:rgba(255,255,255,0.8);"> Playlists</span>
                         </div>
                         <div style="display:flex;align-items:center;gap:10px;">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B8EC1" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -364,7 +393,7 @@
 <section style="padding:80px 0;">
     <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="reveal-left">
+            <div class="reveal-left max-w-xl mx-auto lg:mx-0">
                 <span class="section-eyebrow">Member Stories</span>
                 <h2 class="section-title">Real Transformations,<br>Real People</h2>
                 <div style="border-left:3px solid var(--primary);padding-left:20px;margin:24px 0;">
@@ -380,7 +409,7 @@
                 <div class="grid grid-cols-3 gap-4 mt-8">
                     <div style="text-align:center;padding:16px;background:var(--bg-alt);border-radius:var(--radius);">
                         <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">96%</div>
-                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">See Results in 30 Days</div>
+                        <div style="font-size:0.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">See Results</div>
                     </div>
                     <div style="text-align:center;padding:16px;background:var(--bg-alt);border-radius:var(--radius);">
                         <div style="font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--primary);">89%</div>
@@ -392,8 +421,8 @@
                     </div>
                 </div>
             </div>
-            <div class="reveal-right">
-                <img src="assets/images/h2-transformation.jpg" alt="Transformation journey" class="img-rounded" style="width:100%;aspect-ratio:4/5;object-fit:cover;">
+            <div class="reveal-right" style="max-width:480px;margin:0 auto;width:100%;">
+                <img src="assets/images/h2-transformation.jpg" alt="Emma Davis barre transformation journey" class="img-rounded" style="width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 12px 32px rgba(0,0,0,0.15);">
             </div>
         </div>
     </div>
@@ -449,25 +478,85 @@
             <span class="section-eyebrow" style="justify-content:center;">Membership</span>
             <h2 class="section-title">Flexible Plans for Every Journey</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="stagger-item" style="text-align:center;padding:36px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
-                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;">Drop-In</h4>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>30<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/class</span></div>
-                <p style="font-size:0.8125rem;margin-bottom:20px;">Perfect for trying us out or occasional visits.</p>
-                <a href="pricing.html" class="btn btn-secondary btn-sm" style="width:100%;">Learn More</a>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div class="stagger-item flex flex-col justify-between" style="text-align:center;padding:36px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
+                <div>
+                    <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;">Drop-In</h4>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>30<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/class</span></div>
+                    <p style="font-size:0.8125rem;margin-bottom:16px;color:var(--text-muted);">Perfect for trying us out or occasional visits.</p>
+                    <ul class="pricing-features" style="margin:16px 0 24px;text-align:left;">
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Single class access</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Any signature studio format</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Complimentary mat &amp; towel</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Locker room &amp; shower access</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="pricing.html" class="btn btn-secondary btn-sm" style="width:100%;margin-top:auto;">Learn More</a>
             </div>
-            <div class="stagger-item" style="text-align:center;padding:36px 28px;border:2px solid var(--primary);border-radius:var(--radius-xl);background:var(--bg-card);box-shadow:0 8px 40px rgba(155,142,193,0.15);position:relative;">
+            <div class="stagger-item flex flex-col justify-between" style="text-align:center;padding:36px 28px;border:2px solid var(--primary);border-radius:var(--radius-xl);background:var(--bg-card);box-shadow:0 8px 40px rgba(155,142,193,0.15);position:relative;">
                 <span class="pricing-badge">Most Popular</span>
-                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;margin-top:8px;">Unlimited</h4>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>149<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/month</span></div>
-                <p style="font-size:0.8125rem;margin-bottom:20px;">Unlimited access to all classes every month.</p>
-                <a href="pricing.html" class="btn btn-primary btn-sm" style="width:100%;">Get Started</a>
+                <div>
+                    <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;margin-top:8px;">Unlimited</h4>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>149<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/month</span></div>
+                    <p style="font-size:0.8125rem;margin-bottom:16px;color:var(--text-muted);">Unlimited access to all classes every month.</p>
+                    <ul class="pricing-features" style="margin:16px 0 24px;text-align:left;">
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Unlimited monthly barre &amp; sculpt</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Priority 7-day advance booking</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>2 guest passes each month</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Full locker, towel &amp; tea bar</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="pricing.html" class="btn btn-primary btn-sm" style="width:100%;margin-top:auto;">Get Started</a>
             </div>
-            <div class="stagger-item" style="text-align:center;padding:36px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
-                <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;">Class Pack</h4>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>199<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/10 classes</span></div>
-                <p style="font-size:0.8125rem;margin-bottom:20px;">Flexible pack valid for 3 months.</p>
-                <a href="pricing.html" class="btn btn-secondary btn-sm" style="width:100%;">Learn More</a>
+            <div class="stagger-item flex flex-col justify-between" style="text-align:center;padding:36px 28px;border:1px solid var(--border-light);border-radius:var(--radius-xl);background:var(--bg-card);">
+                <div>
+                    <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.375rem;margin-bottom:6px;">Class Pack</h4>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin:12px 0 4px;display:flex;align-items:baseline;justify-content:center;"><span style="font-size:1.35rem;font-weight:500;margin-right:2px;">$</span>199<span style="font-size:0.875rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);margin-left:3px;">/10 classes</span></div>
+                    <p style="font-size:0.8125rem;margin-bottom:16px;color:var(--text-muted);">Flexible pack valid for 3 months.</p>
+                    <ul class="pricing-features" style="margin:16px 0 24px;text-align:left;">
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>10 class credits ($19.90 / class)</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Valid for 3 full months</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);border-bottom:1px solid var(--border-light);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Flexible booking across formats</span>
+                        </li>
+                        <li style="padding:8px 0;display:flex;align-items:center;gap:10px;font-size:0.8125rem;color:var(--text-muted);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Mat, prop &amp; towel service included</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="pricing.html" class="btn btn-secondary btn-sm" style="width:100%;margin-top:auto;">Learn More</a>
             </div>
         </div>
     </div>
@@ -477,12 +566,12 @@
 <section class="section-alt" style="padding:80px 0;">
     <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="reveal-left order-2 lg:order-1">
-                <span class="section-eyebrow">Beyond the Barre</span>
-                <h2 class="section-title">A Holistic Approach to Wellness</h2>
-                <p style="margin-bottom:20px;">At Barre & Sculpt, fitness is just one piece of the wellness puzzle. We believe in nurturing the whole self — body, mind, and spirit.</p>
-                <p style="margin-bottom:28px;">From our post-class herbal tea bar to our curated wellness workshops, we create an environment that supports your complete well-being journey.</p>
-                <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="reveal-left order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <span class="section-eyebrow justify-center lg:justify-start mx-auto lg:mx-0">Beyond the Barre</span>
+                <h2 class="section-title text-center lg:text-left">A Holistic Approach to Wellness</h2>
+                <p class="text-center lg:text-left max-w-xl mx-auto lg:mx-0" style="margin-bottom:20px;">At Barre & Sculpt, fitness is just one piece of the wellness puzzle. We believe in nurturing the whole self — body, mind, and spirit.</p>
+                <p class="text-center lg:text-left max-w-xl mx-auto lg:mx-0" style="margin-bottom:28px;">From our post-class herbal tea bar to our curated wellness workshops, we create an environment that supports your complete well-being journey.</p>
+                <div class="flex flex-col gap-3.5 w-fit max-w-full mx-auto lg:mx-0 text-left">
                     <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--border-light);border-radius:var(--radius);background:var(--bg-card);">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                         <span style="font-size:0.875rem;font-weight:500;">Monthly Wellness Workshops</span>
@@ -497,8 +586,8 @@
                     </div>
                 </div>
             </div>
-            <div class="reveal-right order-1 lg:order-2">
-                <img src="assets/images/lifestyle-wellness.jpg" alt="Wellness lifestyle" class="img-rounded" style="width:100%;aspect-ratio:4/5;object-fit:cover;">
+            <div class="reveal-right order-1 lg:order-2" style="max-width:480px;margin:0 auto;width:100%;">
+                <img src="assets/images/lifestyle-wellness.jpg" alt="Holistic wellness lifestyle lounge with herbal tea" class="img-rounded" style="width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 12px 32px rgba(0,0,0,0.15);">
             </div>
         </div>
     </div>
@@ -516,21 +605,56 @@
             <div><img src="assets/images/lifestyle-equipment.jpg" alt="Equipment" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
             <div><img src="assets/images/lifestyle-stretch.jpg" alt="Stretch class" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
             <div><img src="assets/images/lifestyle-align.jpg" alt="Barre Core & Align" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
-            <div><img src="assets/images/lifestyle-community.jpg" alt="Community" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
+            <div class="col-span-2 md:col-span-1 w-[calc(50%-8px)] mx-auto md:w-full md:mx-0"><img src="assets/images/lifestyle-community.jpg" alt="Community" class="img-rounded" style="width:100%;height:100%;object-fit:cover;min-height:140px;"></div>
         </div>
     </div>
 </section>
 
 <!-- ═══ FINAL CTA ═══ -->
-<section class="relative" style="padding:0;">
-    <div style="position:relative;min-height:380px;overflow:hidden;">
-        <img src="assets/images/h2-cta-community.jpg" alt="Join our community" class="w-full h-full object-cover absolute inset-0" style="filter:brightness(0.25);">
-        <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(45,45,45,0.7),rgba(155,142,193,0.15));"></div>
-        <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center reveal" style="padding:40px 24px;">
-                <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:600;color:#fff;margin-bottom:16px;">Your Journey Begins Here</h2>
-                <p style="color:rgba(255,255,255,0.7);font-size:1rem;max-width:520px;margin:0 auto 32px;">Book your complimentary first class and discover why hundreds of women have made Barre & Sculpt their fitness home.</p>
-                <a href="signup.html" class="btn btn-primary btn-lg">Start Your Free Trial</a>
+<section style="padding:80px 0;">
+    <div class="container">
+        <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,0.06);">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+                <div class="lg:col-span-5 relative" style="height:100%;min-height:360px;">
+                    <img src="assets/images/h2-cta-community.jpg" alt="Barre Community" class="w-full h-full object-cover absolute inset-0" style="filter:brightness(0.85);">
+                    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%);"></div>
+                    <div style="position:absolute;bottom:24px;left:24px;background:rgba(20,20,20,0.85);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);padding:8px 16px;border-radius:999px;color:#fff;font-size:0.8125rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;">
+                        <span style="color:#f59e0b;">★★★★★</span>
+                        <span>4.9 Studio Rating · 1,200+ Members</span>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left" style="padding:48px 40px;">
+                    <span class="section-eyebrow justify-center lg:justify-start mx-auto lg:mx-0" style="margin-bottom:12px;">
+                        The Transformation Method
+                    </span>
+                    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,3.5vw,2.5rem);font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.2;" class="text-center lg:text-left">Sculpt Strength. Find Balance. Begin Today.</h2>
+                    <p style="font-size:0.9375rem;line-height:1.7;color:var(--text-muted);margin-bottom:24px;max-width:520px;" class="text-center lg:text-left mx-auto lg:mx-0">Join an inspiring community dedicated to mindful conditioning, balletic precision, and sustainable physical vitality. Step into our space and feel the difference on day one.</p>
+                    <div class="flex items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-7 flex-wrap border-y border-[var(--border-light)] py-4 w-full max-w-lg mx-auto lg:mx-0 text-center">
+                        <div>
+                            <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--primary);line-height:1;">12 Max</div>
+                            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">Students Per Class</div>
+                        </div>
+                        <div style="width:1px;height:32px;background:var(--border-light);" class="hidden sm:block"></div>
+                        <div>
+                            <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--primary);line-height:1;">45+</div>
+                            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">Weekly Sessions</div>
+                        </div>
+                        <div style="width:1px;height:32px;background:var(--border-light);" class="hidden sm:block"></div>
+                        <div>
+                            <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--primary);line-height:1;">100%</div>
+                            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">Hands-On Guidance</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center lg:justify-start gap-3.5 flex-wrap mx-auto lg:mx-0">
+                        <a href="signup.html" class="btn btn-primary btn-lg" style="display:inline-flex;align-items:center;gap:8px;">
+                            <span>Start With Free Class</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="classes.html" class="btn btn-outline btn-lg" style="display:inline-flex;align-items:center;gap:8px;">
+                            <span>Explore Schedule</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
