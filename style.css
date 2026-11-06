@@ -45,6 +45,7 @@
 
 /* ─── DARK MODE ─────────────────────────────────────────────── */
 .dark {
+    color-scheme: dark;
     --bg: #111111;
     --bg-alt: #1A1A1A;
     --bg-card: #1E1E1E;
@@ -316,17 +317,18 @@ section.section-alt {
     flex-shrink: 0;
 }
 .nav-logo-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--secondary);
+    width: 38px;
+    height: 38px;
     border-radius: var(--radius);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(45,45,45,0.2);
+    background: transparent;
+    box-shadow: none;
+    flex-shrink: 0;
 }
 .dark .nav-logo-icon {
-    background: var(--primary);
+    background: transparent;
 }
 .nav-logo-text {
     display: flex;
@@ -1592,6 +1594,25 @@ body.menu-locked {
     box-shadow: 0 0 0 3px rgba(155, 142, 193, 0.2);
 }
 
+/* Date & Time Picker Indicators */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+.dark input[type="date"],
+.dark input[type="date"].form-input,
+.dark .form-input[type="date"] {
+    color-scheme: dark;
+}
+.dark input[type="date"]::-webkit-calendar-picker-indicator,
+.dark input[type="date"].form-input::-webkit-calendar-picker-indicator {
+    opacity: 1;
+}
+
 select.form-input {
     appearance: none;
     -webkit-appearance: none;
@@ -2089,6 +2110,8 @@ select.form-input option {
 .dash-layout {
     display: flex;
     min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 .dash-sidebar {
@@ -2188,11 +2211,14 @@ select.form-input option {
 
 .dash-main {
     flex: 1;
+    min-width: 0;
+    max-width: 100%;
     margin-left: var(--sidebar-width);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     padding-top: 64px;
+    overflow-x: hidden;
 }
 [dir="rtl"] .dash-main {
     margin-left: 0;
@@ -2244,8 +2270,7 @@ select.form-input option {
     color: var(--text);
 }
 .dash-title-prefix {
-    color: var(--text-muted);
-    font-weight: 400;
+    display: none;
 }
 .dash-header-right {
     display: flex;
@@ -2331,12 +2356,20 @@ select.form-input option {
 
 .dash-body {
     flex: 1;
+    min-width: 0;
+    max-width: 100%;
     padding: 28px;
     background: var(--bg-alt);
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .dash-tab-content {
     display: none;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 .dash-tab-content.active {
     display: block;
@@ -2417,6 +2450,9 @@ select.form-input option {
     border-radius: var(--radius);
     padding: 24px;
     margin-bottom: 24px;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .dash-card-header {
     display: flex;
@@ -2430,8 +2466,83 @@ select.form-input option {
     font-weight: 600;
 }
 
+/* Weekly Movement Goal Tracker */
+.dash-weekly-goal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.dash-goal-day {
+    padding: 10px 4px;
+    border-radius: var(--radius-sm);
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+}
+.dash-goal-day.active {
+    background: var(--primary-10);
+    border: 1px solid var(--primary);
+}
+.dash-goal-day.active .dash-goal-day-name,
+.dash-goal-day.active .dash-goal-day-icon {
+    color: var(--primary);
+}
+.dash-goal-day.rest {
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+}
+.dash-goal-day.rest .dash-goal-day-name,
+.dash-goal-day.rest .dash-goal-day-label {
+    color: var(--text-light);
+}
+.dash-goal-day.rest .dash-goal-day-icon {
+    color: var(--text-muted);
+}
+.dash-goal-day.upcoming {
+    background: rgba(155, 142, 193, 0.08);
+    border: 1px dashed var(--primary);
+}
+.dash-goal-day.upcoming .dash-goal-day-name,
+.dash-goal-day.upcoming .dash-goal-day-icon {
+    color: var(--primary);
+}
+.dash-goal-day-name {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+.dash-goal-day-icon {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    margin: 3px 0;
+    line-height: 1;
+}
+.dash-goal-day-label {
+    font-size: 0.625rem;
+    color: var(--text-muted);
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
 /* Dash table */
-.dash-table-wrap { overflow-x: auto; }
+.dash-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+}
 .dash-table {
     width: 100%;
     border-collapse: collapse;
@@ -2476,6 +2587,209 @@ select.form-input option {
 .dash-status.expired { background: rgba(239,68,68,0.1); color: #dc2626; }
 .dash-status.paid { background: rgba(34,197,94,0.1); color: #16a34a; }
 .dash-status.overdue { background: rgba(239,68,68,0.1); color: #dc2626; }
+
+/* Dashboard Mobile Class & History Card Lists */
+.dash-mobile-classes-list,
+.dash-mobile-attendance-list,
+.dash-mobile-payments-list {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+.dash-mobile-upcoming-card,
+.dash-mobile-attendance-card,
+.dash-mobile-payment-card {
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.dash-mobile-upcoming-top,
+.dash-mobile-attendance-top,
+.dash-mobile-payment-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+.dash-mobile-upcoming-title,
+.dash-mobile-attendance-title,
+.dash-mobile-payment-title {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--text);
+    line-height: 1.25;
+}
+.dash-mobile-upcoming-sub,
+.dash-mobile-attendance-sub,
+.dash-mobile-payment-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.3;
+}
+.dash-mobile-upcoming-bottom,
+.dash-mobile-attendance-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-light);
+}
+.dash-mobile-upcoming-time,
+.dash-mobile-attendance-time {
+    font-size: 0.8125rem;
+    color: var(--text);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.dash-mobile-upcoming-time i,
+.dash-mobile-attendance-time i {
+    color: var(--primary);
+    font-size: 0.8125rem;
+}
+.dash-mobile-upcoming-bottom .btn {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+}
+
+/* Classes Grid & Lone Card Centering */
+.dash-classes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+.dash-classes-grid .dash-class-card {
+    flex: 0 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    width: calc(50% - 10px);
+    box-sizing: border-box;
+}
+@media (min-width: 1025px) {
+    .dash-classes-grid .dash-class-card {
+        flex: 0 1 calc(33.333% - 14px);
+        max-width: calc(33.333% - 14px);
+        width: calc(33.333% - 14px);
+    }
+}
+@media (max-width: 649px) {
+    .dash-classes-grid .dash-class-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Attendance KPI Grid */
+.attendance-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+@media (min-width: 1025px) {
+    .attendance-kpi-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 576px) {
+    .attendance-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .attendance-kpi-grid .dash-card {
+        padding: 14px 10px !important;
+    }
+    .attendance-kpi-grid .dash-kpi-val {
+        font-size: 1.35rem !important;
+    }
+}
+
+/* Settings Avatar Row */
+.dash-avatar-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+    width: 100%;
+}
+.dash-avatar-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.dash-avatar-info {
+    flex: 1;
+    min-width: 0;
+}
+.dash-avatar-sub {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin: 3px 0 10px;
+    line-height: 1.35;
+}
+.dash-avatar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.dash-avatar-actions .btn {
+    padding: 7px 16px !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.04em;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.dash-avatar-remove {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 6px 8px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+    transition: color var(--transition);
+}
+.dash-avatar-remove:hover {
+    color: var(--text);
+}
+@media (max-width: 576px) {
+    .dash-avatar-row {
+        gap: 14px;
+    }
+    .dash-avatar-circle {
+        width: 54px;
+        height: 54px;
+        font-size: 1.25rem !important;
+        margin-top: 2px;
+    }
+    .dash-avatar-sub {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
 
 /* Progress bar */
 .progress-bar-bg {
@@ -2826,6 +3140,59 @@ select.form-input option {
 }
 
 /* ─── SCHEDULE TABLE ────────────────────────────────────────── */
+.schedule-day-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px 0;
+    margin-top: 1.75rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+@media (min-width: 640px) {
+    .schedule-day-selector {
+        display: none !important;
+    }
+}
+.schedule-day-pill {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 7px 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    transition: all var(--transition);
+    box-sizing: border-box;
+    outline: none;
+}
+.schedule-day-pill:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.schedule-day-pill.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(155, 142, 193, 0.3);
+}
+@media (max-width: 359px) {
+    .schedule-day-selector {
+        gap: 3px;
+    }
+    .schedule-day-pill {
+        padding: 6px 0;
+        font-size: 0.6875rem;
+    }
+}
 .schedule-table-container {
     overflow-x: auto;
     border-radius: var(--radius);
@@ -3215,8 +3582,19 @@ textarea.form-input {
     .auth-topbar { padding: 1rem 1.25rem; }
 
     .dash-metrics { grid-template-columns: 1fr; }
-    .dash-body { padding: 20px 16px; }
+    .dash-body { padding: 16px 12px; }
     .dash-header { padding: 0 16px; }
+    .dash-card { padding: 16px 12px; }
+    .dash-card-header { flex-wrap: wrap; gap: 8px; }
+    .dash-weekly-goal-grid { gap: 4px; }
+    .dash-goal-day { padding: 8px 2px; }
+    .dash-goal-day-name { font-size: 0.5625rem; }
+    .dash-goal-day-icon { font-size: 0.6875rem; margin: 2px 0; }
+    .dash-goal-day-label { font-size: 0.5rem; }
+    .dash-desktop-table { display: none !important; }
+    .dash-mobile-classes-list,
+    .dash-mobile-attendance-list,
+    .dash-mobile-payments-list { display: flex !important; }
 }
 
 /* Mobile view (< 576px) */
@@ -3290,6 +3668,7 @@ textarea.form-input {
     h2 { font-size: 1.625rem; }
 
     .btn { padding: 12px 24px; font-size: 0.75rem; }
+    .btn-sm { padding: 6px 14px; font-size: 0.75rem; }
     .btn-lg { padding: 14px 28px; }
 
     .error-graphic {

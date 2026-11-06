@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#9B8EC1',secondary:'#262626'}}}}</script>
@@ -23,6 +24,46 @@
         }
         .dark .cta-action-row .btn-secondary {
             border-color: rgba(255, 255, 255, 0.25);
+        }
+        /* Reviews Grid Responsive 2 1 Centered */
+        .instructor-reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        @media (max-width: 992px) {
+            .instructor-reviews-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 24px !important;
+            }
+            .instructor-reviews-grid > .stagger-item:nth-child(3) {
+                grid-column: 1 / -1 !important;
+                max-width: 460px !important;
+                width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
+        @media (max-width: 640px) {
+            .instructor-reviews-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .instructor-reviews-grid > .stagger-item:nth-child(3) {
+                grid-column: auto !important;
+                max-width: 100% !important;
+            }
+        }
+        /* Join Team Section Responsive Alignment */
+        @media (max-width: 1023px) {
+            .join-team-content {
+                text-align: center !important;
+                align-items: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            .join-team-content .section-eyebrow {
+                justify-content: center !important;
+            }
         }
         @media (max-width: 640px) {
             .cta-action-row {
@@ -217,11 +258,11 @@
             <h2 class="section-title">Words on Our Teaching Team</h2>
             <p class="section-desc">Discover how our dedicated instructor cadre transforms daily movement, posture, and wellness for our community.</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="stagger-item" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:space-between;">
+        <div class="instructor-reviews-grid">
+            <div class="stagger-item" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:space-between;height:100%;box-sizing:border-box;">
                 <div>
                     <div style="display:flex;align-items:center;gap:4px;color:#f59e0b;font-size:0.875rem;margin-bottom:16px;">
-                        <span>★★★★★</span>
+                        <span style="display:inline-flex;gap:3px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
                         <span style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-left:4px;">5.0 Review</span>
                     </div>
                     <p style="font-size:0.9375rem;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:24px;">"Elena’s cues are nothing short of transformative. She noticed a subtle hip misalignment I had struggled with for years, and within four weeks of her classes, my lower back pain completely disappeared."</p>
@@ -234,10 +275,10 @@
                     </div>
                 </div>
             </div>
-            <div class="stagger-item" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:space-between;">
+            <div class="stagger-item" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:space-between;height:100%;box-sizing:border-box;">
                 <div>
                     <div style="display:flex;align-items:center;gap:4px;color:#f59e0b;font-size:0.875rem;margin-bottom:16px;">
-                        <span>★★★★★</span>
+                        <span style="display:inline-flex;gap:3px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
                         <span style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-left:4px;">5.0 Review</span>
                     </div>
                     <p style="font-size:0.9375rem;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:24px;">"Maya brings unmatched anatomical precision to every Pilates session. Her tone is calm, encouraging, and razor-sharp. You leave class feeling lengthened, centered, and physically empowered."</p>
@@ -250,10 +291,10 @@
                     </div>
                 </div>
             </div>
-            <div class="stagger-item sm:col-span-2 lg:col-span-1 sm:w-[calc(50%-16px)] sm:mx-auto lg:w-full lg:mx-0" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:space-between;">
+            <div class="stagger-item" style="padding:32px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);display:flex;flex-direction:column;justify-content:space-between;height:100%;box-sizing:border-box;">
                 <div>
                     <div style="display:flex;align-items:center;gap:4px;color:#f59e0b;font-size:0.875rem;margin-bottom:16px;">
-                        <span>★★★★★</span>
+                        <span style="display:inline-flex;gap:3px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
                         <span style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-left:4px;">5.0 Review</span>
                     </div>
                     <p style="font-size:0.9375rem;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:24px;">"Sofia's energy is infectious and motivating without ever being intimidating. She always offers smart modifications while challenging you to find your true strength. Best coaching in New York."</p>
@@ -277,8 +318,8 @@
             <div class="reveal-left max-w-xl mx-auto lg:max-w-none w-full">
                 <img src="assets/images/about-story.jpg" alt="Join our team" class="img-rounded" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
             </div>
-            <div class="reveal-right text-center flex flex-col items-center justify-center max-w-xl mx-auto lg:max-w-none">
-                <span class="section-eyebrow" style="justify-content:center;">Careers</span>
+            <div class="reveal-right join-team-content max-w-xl mx-auto lg:max-w-none">
+                <span class="section-eyebrow">Careers</span>
                 <h2 class="section-title">Join Our Teaching Team</h2>
                 <p style="font-size:1.05rem;line-height:1.7;margin-bottom:16px;">Are you a passionate, certified fitness instructor looking to join an incredible team? We're always looking for talented individuals who share our love for barre and movement.</p>
                 <p style="font-size:1.05rem;line-height:1.7;margin-bottom:28px;">We offer competitive compensation, continuing education support, flexible scheduling, and a warm studio community.</p>

@@ -59,25 +59,27 @@ function togglePwd(inputId, iconId) {
 
 /* ─── LOGO SVG ─────────────────────────────────────────── */
 const LOGO_SVG = `<svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100" height="100" rx="18" fill="#262626"/>
-    <path d="M30 25 L30 75" stroke="#9B8EC1" stroke-width="5" stroke-linecap="round"/>
-    <path d="M70 25 L70 75" stroke="#9B8EC1" stroke-width="5" stroke-linecap="round"/>
-    <path d="M30 40 L70 40" stroke="#9B8EC1" stroke-width="4" stroke-linecap="round"/>
-    <circle cx="50" cy="58" r="12" stroke="#9B8EC1" stroke-width="3.5" fill="none"/>
-    <path d="M50 50 L50 46" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/>
-    <path d="M44 64 L40 72" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/>
-    <path d="M56 64 L60 72" stroke="#9B8EC1" stroke-width="3" stroke-linecap="round"/>
+    <rect width="100" height="100" rx="22" fill="#1C1A22"/>
+    <rect x="1.5" y="1.5" width="97" height="97" rx="20.5" stroke="#9B8EC1" stroke-opacity="0.35" stroke-width="2"/>
+    <line x1="22" y1="26" x2="78" y2="26" stroke="#9B8EC1" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="28" cy="26" r="2.2" fill="#9B8EC1"/>
+    <circle cx="72" cy="26" r="2.2" fill="#9B8EC1"/>
+    <path d="M34 26 V74" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M34 32 C58 32 66 42 52 52" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M52 52 C70 60 64 74 42 74" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="67" cy="38" r="4" fill="#9B8EC1"/>
 </svg>`;
 
 const LOGO_SVG_DARK = `<svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100" height="100" rx="18" fill="#9B8EC1"/>
-    <path d="M30 25 L30 75" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-    <path d="M70 25 L70 75" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-    <path d="M30 40 L70 40" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-    <circle cx="50" cy="58" r="12" stroke="#fff" stroke-width="3.5" fill="none"/>
-    <path d="M50 50 L50 46" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-    <path d="M44 64 L40 72" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-    <path d="M56 64 L60 72" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+    <rect width="100" height="100" rx="22" fill="#9B8EC1"/>
+    <rect x="1.5" y="1.5" width="97" height="97" rx="20.5" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="2"/>
+    <line x1="22" y1="26" x2="78" y2="26" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="28" cy="26" r="2.2" fill="#FFFFFF"/>
+    <circle cx="72" cy="26" r="2.2" fill="#FFFFFF"/>
+    <path d="M34 26 V74" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M34 32 C58 32 66 42 52 52" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M52 52 C70 60 64 74 42 74" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="67" cy="38" r="4" fill="#FFFFFF"/>
 </svg>`;
 
 /* ─── NAV LINKS ────────────────────────────────────────── */
@@ -473,7 +475,7 @@ function initDashTabs() {
                     payments: 'Payments',
                     settings: 'Account Settings'
                 };
-                title.innerHTML = `<span class="dash-title-prefix">Dashboard </span>${labels[tabId] || tabId}`;
+                title.innerHTML = `<span class="dash-title-prefix" style="display:none;">Dashboard </span>${labels[tabId] || tabId}`;
             }
             if (window.innerWidth < 1024) closeSidebar();
         });
@@ -505,7 +507,7 @@ function filterDashClasses(category, el) {
     const cards = document.querySelectorAll('.dash-class-card');
     cards.forEach(card => {
         if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'block';
+            card.style.display = 'flex';
         } else {
             card.style.display = 'none';
         }
