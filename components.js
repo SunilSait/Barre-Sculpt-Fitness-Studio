@@ -477,7 +477,12 @@ function initDashTabs() {
                 };
                 title.innerHTML = `<span class="dash-title-prefix" style="display:none;">Dashboard </span>${labels[tabId] || tabId}`;
             }
-            if (window.innerWidth < 1024) closeSidebar();
+            closeSidebar();
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            const main = document.querySelector('.dash-main');
+            if (main) main.scrollTop = 0;
         });
     });
 }
@@ -537,7 +542,10 @@ function initLogout() {
     const cancel = document.getElementById('logoutCancel');
     const confirm = document.getElementById('logoutConfirm');
     if (!btn || !modal) return;
-    btn.addEventListener('click', () => modal.classList.add('open'));
+    btn.addEventListener('click', () => {
+        closeSidebar();
+        modal.classList.add('open');
+    });
     if (cancel) cancel.addEventListener('click', () => modal.classList.remove('open'));
     if (confirm) confirm.addEventListener('click', () => { window.location.href = '../login.html'; });
     modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
@@ -568,6 +576,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (localStorage.getItem('bs_dir') === 'rtl') {
         document.querySelectorAll('.dir-indicator').forEach(el => el.textContent = 'LTR');
+    }
+
+    // Ensure new page visits start at the top
+    if (!window.location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+});
+
+/* ─── SCROLL RESTORATION ───────────────────────────────── */
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('pageshow', function () {
+    if (!window.location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
     }
 });
 

@@ -278,6 +278,22 @@
         .class-detail-body {
             padding: 24px 28px;
         }
+        .class-detail-body > div:first-child {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+        [dir="rtl"] .accordion-btn,
+        [dir="rtl"] .class-detail-body {
+            text-align: right !important;
+        }
+        [dir="rtl"] .class-detail-body p {
+            direction: ltr;
+            display: inline-block;
+            unicode-bidi: isolate;
+        }
+        [dir="rtl"] .accordion-content-inner {
+            text-align: right;
+        }
         .class-detail-meta {
             display: flex;
             gap: 24px;
@@ -313,11 +329,11 @@
 <section class="relative" style="margin-top:calc(var(--nav-height)*-1);padding:0;">
     <div style="position:relative;height:400px;overflow:hidden;">
         <img src="assets/images/schedule-hero.jpg" alt="Class schedule" class="w-full h-full object-cover" style="filter:brightness(0.3);">
-        <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center reveal">
+        <div class="absolute inset-0 flex items-center justify-center" style="padding:0 24px;">
+            <div class="text-center reveal" style="max-width:560px;width:100%;">
                 <span class="section-eyebrow" style="justify-content:center;color:#9B8EC1;">Class Schedule</span>
-                <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:600;color:#fff;margin-bottom:12px;">Our Class Schedule</h1>
-                <p style="color:rgba(255,255,255,0.7);font-size:1rem;max-width:540px;margin:0 auto;">Find your rhythm. Explore our full weekly schedule of barre, sculpt, and Pilates classes across all levels.</p>
+                <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.25rem,5vw,4rem);font-weight:600;color:#fff;margin-bottom:12px;line-height:1.15;">Our Class Schedule</h1>
+                <p style="color:rgba(255,255,255,0.7);font-size:1rem;max-width:540px;margin:0 auto;line-height:1.6;">Find your rhythm. Explore our full weekly schedule of barre, sculpt, and Pilates classes across all levels.</p>
             </div>
         </div>
     </div>
@@ -1013,7 +1029,7 @@
                 <h2 class="section-title">Meet Maya Chen</h2>
                 <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary);">Lead Barre Instructor · 8 Years Experience</p>
 
-                <div style="margin: 28px 0; padding: 28px; border-left: 3px solid var(--primary); background: var(--primary-10); border-radius: 0 var(--radius) var(--radius) 0;">
+                <div class="instructor-spotlight-quote" style="margin: 28px 0; padding: 28px; border-left: 3px solid var(--primary); background: var(--primary-10); border-radius: 0 var(--radius) var(--radius) 0;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="1.5" style="margin-bottom: 12px; opacity: 0.6;">
                         <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/>
                         <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>

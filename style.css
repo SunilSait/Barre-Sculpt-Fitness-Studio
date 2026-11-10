@@ -409,6 +409,28 @@ section.section-alt {
     background: var(--primary-20);
 }
 
+.theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
+}
+.theme-icon svg,
+.nav-icon-btn svg {
+    display: block;
+    margin: auto;
+}
+.dir-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
 /* ─── MOBILE NAV & HAMBURGER ─────────────────────────────── */
 .mobile-menu-btn {
     display: none;
@@ -1650,6 +1672,24 @@ select.form-input option {
     background-position: left 18px center;
     padding-right: 16px;
     padding-left: 48px;
+}
+
+select.form-input.form-select-sm {
+    padding: 7px 42px 7px 16px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    width: auto;
+    background-position: right 14px center;
+    background-size: 14px 14px;
+    height: 34px;
+    line-height: 1.2;
+}
+
+[dir="rtl"] select.form-input.form-select-sm,
+.dark [dir="rtl"] select.form-input.form-select-sm,
+[dir="rtl"] .dark select.form-input.form-select-sm {
+    padding: 7px 16px 7px 42px;
+    background-position: left 14px center;
 }
 
 .form-input-wrapper {
@@ -3682,13 +3722,42 @@ textarea.form-input {
 }
 
 /* ─── RTL ADJUSTMENTS ───────────────────────────────────────── */
-[dir="rtl"] .section-eyebrow::before { display: none; }
+[dir="rtl"] .section-eyebrow::before {
+    display: block;
+}
 [dir="rtl"] .section-eyebrow::after {
-    content: '';
-    width: 28px;
-    height: 2px;
-    background: var(--primary);
-    flex-shrink: 0;
+    display: none;
+}
+[dir="rtl"] .text-left,
+[dir="rtl"] [class*="lg:text-left"],
+[dir="rtl"] .lg\:text-left {
+    text-align: right !important;
+}
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] p,
+[dir="rtl"] .section-title,
+[dir="rtl"] .section-desc,
+[dir="rtl"] .join-team-content {
+    unicode-bidi: plaintext;
+    text-align: right;
+}
+[dir="rtl"] .text-center,
+[dir="rtl"] .text-center h1,
+[dir="rtl"] .text-center h2,
+[dir="rtl"] .text-center h3,
+[dir="rtl"] .text-center h4,
+[dir="rtl"] .text-center h5,
+[dir="rtl"] .text-center h6,
+[dir="rtl"] .text-center p,
+[dir="rtl"] .text-center .section-title,
+[dir="rtl"] .text-center .section-desc,
+[dir="rtl"] [class*="text-center"] {
+    text-align: center !important;
 }
 [dir="rtl"] .nav-link.active::after {
     left: 50%;
@@ -3696,6 +3765,12 @@ textarea.form-input {
 }
 [dir="rtl"] .back-to-top { right: auto; left: 24px; }
 [dir="rtl"] .schedule-class { border-left: none; border-right: 3px solid var(--primary); text-align: right; }
+[dir="rtl"] .instructor-spotlight-quote {
+    border-left: none !important;
+    border-right: 3px solid var(--primary) !important;
+    border-radius: var(--radius) 0 0 var(--radius) !important;
+    text-align: right;
+}
 [dir="rtl"] .form-label {
     text-align: right;
 }
@@ -3707,6 +3782,37 @@ textarea.form-input {
     direction: ltr;
     text-align: right;
     unicode-bidi: isolate;
+}
+[dir="rtl"] input[type="date"] {
+    direction: ltr;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+[dir="rtl"] input[type="date"]::-webkit-datetime-edit {
+    order: 2;
+}
+[dir="rtl"] input[type="date"]::-webkit-calendar-picker-indicator {
+    order: 1;
+    margin-left: 0;
+    margin-right: 8px;
+    cursor: pointer;
+}
+[dir="rtl"] .accordion-btn,
+[dir="rtl"] .class-detail-body {
+    text-align: right !important;
+}
+[dir="rtl"] .class-detail-body p {
+    direction: ltr;
+    display: inline-block;
+    unicode-bidi: isolate;
+}
+[dir="rtl"] .accordion-content-inner {
+    text-align: right;
+}
+.class-detail-body > div:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 [dir="rtl"] input[type="tel"]::placeholder {
     text-align: right;

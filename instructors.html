@@ -55,8 +55,15 @@
         }
         /* Join Team Section Responsive Alignment */
         @media (max-width: 1023px) {
-            .join-team-content {
+            .join-team-content,
+            .join-team-content h2,
+            .join-team-content p,
+            [dir="rtl"] .join-team-content,
+            [dir="rtl"] .join-team-content h2,
+            [dir="rtl"] .join-team-content p {
                 text-align: center !important;
+            }
+            .join-team-content {
                 align-items: center !important;
                 display: flex !important;
                 flex-direction: column !important;
@@ -95,11 +102,11 @@
 <section class="relative" style="margin-top:calc(var(--nav-height)*-1);padding:0;">
     <div style="position:relative;height:400px;overflow:hidden;">
         <img src="assets/images/about-values.jpg" alt="Our instructors" class="w-full h-full object-cover" style="filter:brightness(0.3);">
-        <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center reveal">
+        <div class="absolute inset-0 flex items-center justify-center" style="padding:0 24px;">
+            <div class="text-center reveal" style="max-width:560px;width:100%;">
                 <span class="section-eyebrow" style="justify-content:center;color:#9B8EC1;">Our Team</span>
-                <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:600;color:#fff;margin-bottom:12px;">Meet Your Instructors</h1>
-                <p style="color:rgba(255,255,255,0.7);font-size:1rem;max-width:540px;margin:0 auto;">Certified, passionate, and dedicated to guiding you through every pulse, plié, and push-up.</p>
+                <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.25rem,5vw,4rem);font-weight:600;color:#fff;margin-bottom:12px;line-height:1.15;">Meet Your Instructors</h1>
+                <p style="color:rgba(255,255,255,0.7);font-size:1rem;max-width:540px;margin:0 auto;line-height:1.6;">Certified, passionate, and dedicated to guiding you through every pulse, plié, and push-up.</p>
             </div>
         </div>
     </div>
